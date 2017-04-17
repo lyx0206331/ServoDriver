@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_activity_main">FTDI J2xx Demo - FT4222</string>
+    <string name="clockPhase">Polarity/Phase</string>
+    <string name="clockFreq">Frequency</string>
+    <string name="sysClock">System Clock</string>
+    <string name="clockDivider">Divider</string>
+
+    <string-array name="clock_phase">
+        <item>CPOL=0, CPHA=0</item>
+        <item>CPOL=0, CPHA=1</item>
+        <item>CPOL=1, CPHA=0</item>
+        <item>CPOL=1, CPHA=1</item>
+    </string-array>
+
+    <string-array name="clock_divier">
+        <item >1/2</item>
+        <item >1/4</item>
+        <item >1/8</item>
+        <item >1/16</item>
+        <item >1/32</item>
+        <item >1/64</item>
+        <item >1/128</item>
+        <item >1/256</item>
+        <item >1/512</item>
+    </string-array>
+
+    <string-array name="clock_freq">
+        <item >24MHz</item>
+        <item >48MHz</item>
+        <item >60MHz</item>
+        <item >80MHz</item>
+    </string-array>
+
+    <string-array name="SPI_freq">
+        <item >24MHz</item>
+        <item >48MHz</item>
+        <item >60MHz</item>
+        <item >80MHz</item>
+    </string-array>
+
+    <string-array name="I2C_freq">
+        <item >60KHz</item>
+        <item >100KHz</item>
+        <item >400KHz</item>
+        <item >1MHz</item>
+        <item >3.4MHz</item>
+    </string-array>
+</resources>

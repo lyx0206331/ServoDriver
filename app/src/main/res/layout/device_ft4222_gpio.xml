@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    
+	<LinearLayout
+			android:orientation="vertical"
+    		android:layout_width="fill_parent"
+    		android:layout_height="fill_parent"
+    		>
+    
+    	<LinearLayout
+    	android:layout_width="fill_parent"
+    	android:layout_height="0dp"
+    	android:tag="Config block"
+    	android:layout_margin="2dip"
+    	android:background="#505050"
+    	android:layout_weight="1"
+   	 	>
+
+     	<TextView
+     	    android:id="@+id/PortConfig"
+     	    android:layout_width="fill_parent"
+     	    android:layout_height="fill_parent"
+     	    android:layout_margin="6dip"
+     	    android:layout_weight="6.6"
+     	    android:background="#408040"
+     	    android:gravity="center"
+     	    android:text="Port Config" >
+</TextView>
+     	
+     <LinearLayout
+         android:layout_width="fill_parent"
+         android:layout_height="fill_parent"
+         android:layout_margin="2dip"
+         android:layout_weight="1"
+         android:orientation="horizontal" >
+
+         <LinearLayout
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent"
+             android:layout_weight="1"
+             android:orientation="vertical" >
+
+             <TextView
+                 android:id="@+id/TextPortNumber"
+                 android:layout_width="match_parent"
+                 android:layout_height="fill_parent"
+                 android:layout_weight="1"
+                 android:gravity="left|center"
+                 android:text="Port Number" />
+
+             <TextView
+                 android:id="@+id/TextOutPut"
+                 android:layout_width="match_parent"
+                 android:layout_height="fill_parent"
+                 android:layout_weight="1"
+                 android:gravity="left|center"
+                 android:text="Output" />
+
+             <TextView
+                 android:id="@+id/TextInput"
+                 android:layout_width="match_parent"
+                 android:layout_height="fill_parent"
+                 android:layout_weight="1"
+                 android:gravity="left|center"
+                 android:text="Input" />
+
+             <TextView
+                 android:id="@+id/TextView05"
+                 android:layout_width="match_parent"
+                 android:layout_height="fill_parent"
+                 android:layout_weight="1"
+                 android:gravity="left|center"
+                 android:text="High" />
+
+             <TextView
+                 android:id="@+id/TextView06"
+                 android:layout_width="match_parent"
+                 android:layout_height="fill_parent"
+                 android:layout_weight="1"
+                 android:gravity="left|center"
+                 android:text="Low" />
+
+         </LinearLayout>
+
+         <LinearLayout
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent"
+             android:layout_weight="1"
+             android:orientation="vertical" >
+
+             <RadioGroup
+                 android:id="@+id/GroupIO0"
+                 android:layout_width="fill_parent"
+                 android:layout_height="fill_parent"
+                 android:layout_weight="2"
+                 android:checkedButton="@+id/sex1"
+                 android:orientation="vertical" >
+
+                 <TextView
+                     android:id="@+id/TextPort0"
+                     android:layout_width="fill_parent"
+                     android:layout_height="fill_parent"
+                     android:layout_weight="1"
+                     android:gravity="left|center"
+                     android:text="   0" />
+
+                 <RadioButton
+                     android:id="@+id/RadioOutput0"
+                     android:layout_width="fill_parent"
+                     android:layout_height="fill_parent"
+                     android:layout_weight="1" />
+
+                 <RadioButton
+                     android:id="@+id/RadioInput0"
+                     android:layout_width="fill_parent"
+                     android:layout_height="fill_parent"
+                     android:layout_centerInParent="true"
+                     android:layout_gravity="center"
+                     android:layout_weight="1"
+                     android:gravity="center" />
+
+             </RadioGroup>
+
+             <RadioGroup
+                 android:id="@+id/GroupHL0"
+                 android:layout_width="fill_parent"
+                 android:layout_height="fill_parent"
+                 android:layout_weight="3"
+                 android:checkedButton="@+id/sex1"
+                 android:orientation="vertical" >
+
+                 <RadioButton
+                     android:id="@+id/RadioHigh0"
+                     android:button="@drawable/radio_button_pattern"
+                     android:layout_width="fill_parent"
+                     android:layout_height="fill_parent"
+                     android:layout_weight="1" />
+
+                 <RadioButton
+                     android:id="@+id/RadioLow0"
+                     android:button="@drawable/radio_button_pattern"
+                     android:layout_width="fill_parent"
+                     android:layout_height="fill_parent"
+                     android:layout_centerInParent="true"
+                     android:layout_gravity="center"
+                     android:layout_weight="1"
+                     android:gravity="center" />
+             </RadioGroup>
+
+         </LinearLayout>
+
+         <LinearLayout
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent"
+             android:layout_weight="1"
+             android:orientation="vertical" >
+
+             <RadioGroup
+                 android:id="@+id/GroupIO1"
+                 android:layout_width="fill_parent"
+                 android:layout_height="fill_parent"
+                 android:layout_weight="2"
+                 android:checkedButton="@+id/sex1"
+                 android:orientation="vertical" >
+
+                 <TextView
+                     android:id="@+id/TextPort1"
+                     android:layout_width="fill_parent"
+                     android:layout_height="fill_parent"
+                     android:layout_weight="1"
+                     android:gravity="left|center"
+                     android:text="   1" />
+
+                 <RadioButton
+                     android:id="@+id/RadioOutput1"
+                     android:layout_width="fill_parent"
+                     android:layout_height="fill_parent"
+                     android:layout_weight="1" />
+
+                 <RadioButton
+                     android:id="@+id/RadioInput1"
+                     android:layout_width="fill_parent"
+                     android:layout_height="fill_parent"
+                     android:layout_weight="1" />
+
+             </RadioGroup>
+
+             <RadioGroup
+                 android:id="@+id/GroupHL1"
+                 android:layout_width="fill_parent"
+                 android:layout_height="fill_parent"
+                 android:layout_weight="3"
+                 android:checkedButton="@+id/sex1"
+                 android:orientation="vertical" >
+
+                 <RadioButton
+                     android:id="@+id/RadioHigh1"
+                     android:button="@drawable/radio_button_pattern"
+                     android:layout_width="fill_parent"
+                     android:layout_height="fill_parent"
+                     android:layout_weight="1" />
+
+                 <RadioButton
+                     android:id="@+id/RadioLow1"
+                     android:button="@drawable/radio_button_pattern"
+                     android:layout_width="fill_parent"
+                     android:layout_height="fill_parent"
+                     android:layout_weight="1" />
+             </RadioGroup>
+
+         </LinearLayout>
+
+         <LinearLayout
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent"
+             android:layout_weight="1"
+             android:orientation="vertical" >
+
+             <RadioGroup
+                 android:id="@+id/GroupIO2"
+                 android:layout_width="fill_parent"
+                 android:layout_height="fill_parent"
+                 android:layout_weight="2"
+                 android:checkedButton="@+id/sex1"
+                 android:orientation="vertical" >
+
+                 <TextView
+                     android:id="@+id/TextPort2"
+                     android:layout_width="fill_parent"
+                     android:layout_height="fill_parent"
+                     android:layout_weight="1"
+                     android:gravity="left|center"
+                     android:text="   2" />
+
+                 <RadioButton
+                     android:id="@+id/RadioOutput2"
+                     android:layout_width="fill_parent"
+                     android:layout_height="fill_parent"
+                     android:layout_weight="1" />
+
+                 <RadioButton
+                     android:id="@+id/RadioInput2"
+                     android:layout_width="fill_parent"
+                     android:layout_height="fill_parent"
+                     android:layout_gravity="center"
+                     android:layout_weight="1"
+                     android:gravity="center" />
+
+             </RadioGroup>
+
+             <RadioGroup
+                 android:id="@+id/GroupHL2"
+                 android:layout_width="fill_parent"
+                 android:layout_height="fill_parent"
+                 android:layout_weight="3"
+                 android:checkedButton="@+id/sex1"
+                 android:orientation="vertical" >
+
+                 <RadioButton
+                     android:id="@+id/RadioHigh2"
+                     android:button="@drawable/radio_button_pattern"
+                     android:layout_width="fill_parent"
+                     android:layout_height="fill_parent"
+                     android:layout_weight="1" />
+
+                 <RadioButton
+                     android:id="@+id/RadioLow2"
+                     android:button="@drawable/radio_button_pattern"
+                     android:layout_width="fill_parent"
+                     android:layout_height="fill_parent"
+                     android:layout_gravity="center"
+                     android:layout_weight="1"
+                     android:gravity="center" />
+             </RadioGroup>
+
+         </LinearLayout>
+
+         <LinearLayout
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent"
+             android:layout_weight="1"
+             android:orientation="vertical" >
+
+             <RadioGroup
+                 android:id="@+id/GroupIO3"
+                 android:layout_width="fill_parent"
+                 android:layout_height="fill_parent"
+                 android:layout_weight="2"
+                 android:checkedButton="@+id/sex1"
+                 android:orientation="vertical" >
+
+                 <TextView
+                     android:id="@+id/TextPort3"
+                     android:layout_width="fill_parent"
+                     android:layout_height="fill_parent"
+                     android:layout_weight="1"
+                     android:gravity="left|center"
+                     android:text="   3" />
+
+                 <RadioButton
+                     android:id="@+id/RadioOutput3"
+                     android:layout_width="fill_parent"
+                     android:layout_height="fill_parent"
+                     android:layout_weight="1" />
+
+                 <RadioButton
+                     android:id="@+id/RadioInput3"
+                     android:layout_width="fill_parent"
+                     android:layout_height="fill_parent"
+                     android:layout_gravity="center"
+                     android:layout_weight="1"
+                     android:gravity="center" />
+
+             </RadioGroup>
+
+             <RadioGroup
+                 android:id="@+id/GroupHL3"
+                 android:layout_width="fill_parent"
+                 android:layout_height="fill_parent"
+                 android:layout_weight="3"
+                 android:checkedButton="@+id/sex1"
+                 android:orientation="vertical" >
+
+                 <RadioButton
+                     android:id="@+id/RadioHigh3"
+                     android:button="@drawable/radio_button_pattern"
+                     android:layout_width="fill_parent"
+                     android:layout_height="fill_parent"
+                     android:layout_weight="1" />
+
+                 <RadioButton
+                     android:id="@+id/RadioLow3"
+                     android:button="@drawable/radio_button_pattern"
+                     android:layout_width="fill_parent"
+                     android:layout_height="fill_parent"
+                     android:layout_gravity="center"
+                     android:layout_weight="1"
+                     android:gravity="center" />
+             </RadioGroup>
+
+         </LinearLayout>
+    </LinearLayout>
+
+   </LinearLayout>
+    
+  </LinearLayout>
+       
+</LinearLayout>

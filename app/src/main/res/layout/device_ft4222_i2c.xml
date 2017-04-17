@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    
+	<LinearLayout 
+			android:orientation="vertical"
+    		android:layout_width="fill_parent"
+    		android:layout_height="fill_parent"
+    		>
+    
+<!-- Clock Config -->    
+    	<LinearLayout 
+    	android:layout_width="fill_parent"
+    	android:layout_height="0dp"
+    	android:tag="Config block"
+    	android:layout_margin="2dip"
+    	android:background="#505050"
+    	android:layout_weight="1"
+   	 	>
+
+     
+     	<TextView android:id="@+id/SetConfig"
+     			android:text="Config"
+     			android:layout_height="fill_parent"
+     			android:layout_width="0dp"
+     			android:layout_margin="6dip"
+     			android:background="#408040"
+     			android:gravity="center"
+     			android:layout_weight="1"
+     			></TextView>
+     	
+<!-- Frequency -->
+
+     <LinearLayout
+         android:layout_width="0dp"
+         android:layout_height="fill_parent"
+         android:layout_margin="5dip"
+         android:layout_weight="3.5"
+         android:orientation="vertical" >
+      
+		     <TextView android:id="@+id/ClockFreq"
+		     			  android:text="@string/clockFreq"
+		     			  android:layout_height="0dp"
+		     			  android:layout_width="fill_parent"
+		     			  android:gravity="center|bottom"
+		     			  android:inputType="none"
+		     			  android:layout_weight="1" 
+		     			  ></TextView>		
+		        
+		    <Spinner android:id="@+id/ClockFreqValue"        
+		     		  android:layout_height="0dp"
+		    		  android:layout_width="fill_parent"
+		    		  android:layout_margin="1dip"
+		    		  android:gravity="center"
+		    		  android:inputType="none"
+		    		  android:prompt="@string/clockFreq"    		  
+		    		  android:background="#668b8b"
+		    		  android:layout_weight="2"    		  
+		    		  />
+		    		     
+    </LinearLayout>
+
+    
+<!-- config button -->
+
+     <LinearLayout
+         android:layout_width="0dp"
+         android:layout_height="fill_parent"
+         android:layout_margin="5dip"
+         android:layout_weight="2"
+         android:orientation="vertical" >
+
+         <TextView
+             android:id="@+id/DeviceAddress"
+             android:layout_width="fill_parent"
+             android:layout_height="0dp"
+             android:layout_weight="1"
+             android:gravity="center|bottom"
+             android:text="Device Address(HEX)"
+             android:textStyle="bold" />
+
+         <EditText
+             android:id="@+id/DeviceAddressValue"
+             android:layout_width="fill_parent"
+             android:layout_height="0dp"
+             android:layout_weight="2"
+             android:digits="0123456789abcdefABCDEF"
+             android:lines="1"
+             android:maxLength="3"
+             android:numeric="integer" >
+
+             <requestFocus />
+         </EditText>
+     </LinearLayout>
+     
+     <LinearLayout
+         android:layout_width="0dp"
+         android:layout_height="fill_parent"
+         android:layout_margin="5dip"
+         android:layout_weight="1.5"
+         android:orientation="vertical"
+         android:tag="Reset block" >
+   
+	    		 	<Button android:id="@+id/ConfigButton"
+		 			android:layout_height="fill_parent"
+		 			android:layout_width="fill_parent"
+					android:layout_margin="5dp"
+		 			android:gravity="center"
+		 			android:background="@drawable/button_pattern"
+		 			android:layout_weight="1"
+		 			android:text="Config"
+		 			/>   			 
+    </LinearLayout>
+
+<!-- device address  -->
+
+        	
+   </LinearLayout>
+    
+   
+    	
+<!-- Master Write -->
+
+    	<LinearLayout
+    	    android:layout_width="fill_parent"
+    	    android:layout_height="0dp"
+    	    android:layout_margin="2dip"
+    	    android:layout_weight="1"
+    	    android:background="#505050"
+    	    android:tag="Write block" >
+
+    	    <TextView
+    	        android:id="@+id/MasterWriteBlock"
+    	        android:layout_width="0dp"
+    	        android:layout_height="fill_parent"
+    	        android:layout_margin="6dip"
+    	        android:layout_weight="1"
+    	        android:background="#408040"
+    	        android:gravity="center"
+    	        android:text="Master Write" />
+
+    	    <LinearLayout
+    	        android:layout_width="0dp"
+    	        android:layout_height="fill_parent"
+    	        android:layout_margin="5dip"
+    	        android:layout_weight="4"
+    	        android:orientation="vertical" >
+
+    	        <TextView
+    	            android:id="@+id/MasterWriteBytes"
+    	            android:layout_width="fill_parent"
+    	            android:layout_height="0dp"
+    	            android:layout_weight="1"
+    	            android:gravity="center|bottom"
+    	            android:text="Write Data"
+    	            android:textStyle="bold" />
+
+    	        <EditText
+    	            android:id="@+id/WriteValues"
+    	            android:layout_width="fill_parent"
+    	            android:layout_height="0dp"
+    	            android:layout_margin="5dip"
+    	            android:layout_weight="2"
+    	            android:editable="true"
+    	            android:gravity="left|center_vertical"
+    	            android:inputType="none" />
+    	    </LinearLayout>
+
+    	    <LinearLayout
+    	        android:layout_width="0dp"
+    	        android:layout_height="fill_parent"
+    	        android:layout_margin="5dip"
+    	        android:layout_weight="1.5"
+    	        android:orientation="vertical" >
+
+    	        <TextView
+    	            android:id="@+id/MasterNumBytesWritten"
+    	            android:layout_width="fill_parent"
+    	            android:layout_height="0dp"
+    	            android:layout_weight="1"
+    	            android:gravity="center|bottom"
+    	            android:text="Transmit Bytes"
+    	            android:textStyle="bold" />
+
+    	        <EditText
+    	            android:id="@+id/WriteStatusValues"
+    	            android:layout_width="fill_parent"
+    	            android:layout_height="0dp"
+    	            android:layout_margin="2dip"
+    	            android:layout_weight="2"
+    	            android:background="#708070"
+    	            android:digits="0123456789abcdefABCDEF"
+    	            android:focusableInTouchMode="false"
+    	            android:gravity="center"
+    	            android:maxLength="120" />
+    	    </LinearLayout>
+
+    	    <LinearLayout
+    	        android:layout_width="0dp"
+    	        android:layout_height="fill_parent"
+    	        android:layout_margin="5dip"
+    	        android:layout_weight="1.5"
+    	        android:orientation="vertical" >
+
+    	        <Button
+    	            android:id="@+id/MasterWriteButton"
+    	            android:layout_width="fill_parent"
+    	            android:layout_height="fill_parent"
+    	            android:layout_margin="5dp"
+    	            android:layout_weight="1"
+    	            android:background="@drawable/button_pattern"
+    	            android:gravity="center"
+    	            android:text="Master Write" />
+    	    </LinearLayout>
+    	</LinearLayout>
+    
+<!-- Master Read -->    	
+	<LinearLayout 
+    		android:layout_width="fill_parent"
+    		android:layout_height="0dp"
+    		android:background="#505050"
+    		android:layout_margin="2dip"
+    		android:tag="Read block"
+    		android:layout_weight="1"
+    >
+
+     
+     <TextView android:text="Master Read"
+     			android:id="@+id/MasterReadBlock"
+     			android:gravity="center"
+     			android:layout_height="fill_parent"
+     			android:layout_width="0dp"
+     			android:layout_margin="6dip"
+     			android:background="#408040"
+     			android:layout_weight="1"/>
+     			
+<!-- read byte num  -->     
+
+     <LinearLayout
+         android:layout_width="0dp"
+         android:layout_height="fill_parent"
+         android:layout_margin="5dip"
+         android:layout_weight="1.5"
+         android:orientation="vertical" >
+  
+			 <TextView android:text = "Number of Bytes" 
+			 			android:textStyle="bold"
+			 			android:gravity="center|bottom"
+			 			android:id="@+id/MasterNumberOfBytes"
+			 			android:layout_height="0dp"
+			 			android:layout_width="fill_parent"
+			 			android:layout_weight="1"
+			 			/>
+			 			
+			 <EditText 	android:id="@+id/NumberOfBytesValue"
+			 			android:numeric="integer"
+			 			android:digits="0123456789abcdefABCDEF"
+			 			android:layout_height="0dp"
+			 			android:layout_width="fill_parent"
+			 			android:lines="1"
+			 			android:maxLength="3"
+			 			android:layout_weight="2"
+			 			/>
+    </LinearLayout>
+    
+<!-- read bytes  -->     
+
+		<LinearLayout
+		    android:layout_width="0dp"
+		    android:layout_height="fill_parent"
+		    android:layout_margin="5dip"
+		    android:layout_weight="2.5"
+		    android:orientation="vertical" >
+  
+			  <TextView android:text = "Read Data" 
+			 			android:textStyle="bold"
+			 			android:gravity="center|bottom"
+			 			android:id="@+id/MasterReadBytes"
+			 			android:layout_height="0dp"
+			 			android:layout_width="fill_parent"
+			 			android:layout_weight="1"
+			 			/>
+			 			
+			 	<EditText android:id="@+id/ReadValues"	
+			 			android:layout_height="0dp"
+			 			android:layout_width="fill_parent"
+			 			android:layout_margin="3dip"			 			
+			 			android:gravity="left|center_vertical"
+			 			android:background="#708070"
+			 			android:focusableInTouchMode="false"
+			 			android:layout_weight="2"
+			 			/>
+    	</LinearLayout>
+    		
+     
+<!-- Number -->
+
+		<LinearLayout
+		    android:layout_width="0dp"
+		    android:layout_height="fill_parent"
+		    android:layout_margin="5dip"
+		    android:layout_weight="1.5"
+		    android:orientation="vertical" >
+
+			<TextView
+			    android:id="@+id/MasterNumBytes"
+			    android:layout_width="fill_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center|bottom"
+			    android:text="Receive Bytes"
+			    android:textStyle="bold" />
+			 		   			
+			 		<EditText android:id="@+id/StatusValues"
+			 			android:digits="0123456789abcdefABCDEF"
+			 			android:layout_height="0dp"
+			 			android:layout_width="fill_parent"
+			 			android:layout_margin="2dip"			 			
+			 			android:maxLength="120"
+			 			android:gravity="center"
+			 			android:background="#708070"
+			 			android:focusableInTouchMode="false"
+			 			android:layout_weight="2"
+			 			/>
+			 			
+
+    	</LinearLayout> 		
+			 			
+<!-- Button -->
+		<LinearLayout 
+     		android:orientation="vertical"
+    		android:layout_width="0dp"
+    		android:layout_height="fill_parent"
+    		android:layout_margin="5dip"
+    		android:layout_weight="1.5"
+   			>
+
+	    		 <Button
+	    		     android:id="@+id/MasterReadButton"
+	    		     android:layout_width="fill_parent"
+	    		     android:layout_height="fill_parent"
+	    		     android:layout_margin="5dp"
+	    		     android:layout_weight="1"
+	    		     android:background="@drawable/button_pattern"
+	    		     android:gravity="center"
+	    		     android:text="Master Read" />
+
+    	</LinearLayout>
+	</LinearLayout>
+<!-- End - Master Read --> 	
+
+
+<!-- Slave Write -->
+
+	<LinearLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="0dp"
+	    android:layout_margin="2dip"
+	    android:layout_weight="1"
+	    android:background="#505050"
+	    android:tag="Write block" >
+
+	    <TextView
+	        android:id="@+id/SlaveWriteBlock"
+	        android:layout_width="0dp"
+	        android:layout_height="fill_parent"
+	        android:layout_margin="6dip"
+	        android:layout_weight="1"
+	        android:background="#408040"
+	        android:gravity="center"
+	        android:text="Slave Write" />
+
+	    <LinearLayout
+	        android:layout_width="0dp"
+	        android:layout_height="fill_parent"
+	        android:layout_margin="5dip"
+	        android:layout_weight="4"
+	        android:orientation="vertical" >
+
+	        <TextView
+	            android:id="@+id/SlaveWriteBytes"
+	            android:layout_width="fill_parent"
+	            android:layout_height="0dp"
+	            android:layout_weight="1"
+	            android:gravity="center|bottom"
+	            android:text="Write Data"
+	            android:textStyle="bold" />
+
+	        <EditText
+	            android:id="@+id/WriteValues_2"
+	            android:layout_width="fill_parent"
+	            android:layout_height="0dp"
+	            android:layout_margin="5dip"
+	            android:layout_weight="2"
+	            android:editable="true"
+	            android:gravity="left|center_vertical"
+	            android:inputType="none" />
+	    </LinearLayout>
+
+	    <LinearLayout
+	        android:layout_width="0dp"
+	        android:layout_height="fill_parent"
+	        android:layout_margin="5dip"
+	        android:layout_weight="1.5"
+	        android:orientation="vertical" >
+
+	        <TextView
+	            android:id="@+id/SlaveNumBytesWritten"
+	            android:layout_width="fill_parent"
+	            android:layout_height="0dp"
+	            android:layout_weight="1"
+	            android:gravity="center|bottom"
+	            android:text="Transmit Bytes"
+	            android:textStyle="bold" />
+
+	        <EditText
+	            android:id="@+id/WriteStatusValues_2"
+	            android:layout_width="fill_parent"
+	            android:layout_height="0dp"
+	            android:layout_margin="2dip"
+	            android:layout_weight="2"
+	            android:background="#708070"
+	            android:digits="0123456789abcdefABCDEF"
+	            android:focusableInTouchMode="false"
+	            android:gravity="center"
+	            android:maxLength="120" />
+	    </LinearLayout>
+
+	    <LinearLayout
+	        android:layout_width="0dp"
+	        android:layout_height="fill_parent"
+	        android:layout_margin="5dip"
+	        android:layout_weight="1.5"
+	        android:orientation="vertical" >
+
+	        <Button
+	            android:id="@+id/WriteButton_2"
+	            android:layout_width="fill_parent"
+	            android:layout_height="fill_parent"
+	            android:layout_margin="5dp"
+	            android:layout_weight="1"
+	            android:background="@drawable/button_pattern"
+	            android:gravity="center"
+	            android:text="Slave Write" />
+	    </LinearLayout>
+	</LinearLayout>
+    
+
+<!-- Slave Read -->	
+	<LinearLayout 
+    		android:layout_width="fill_parent"
+    		android:layout_height="0dp"
+    		android:background="#505050"
+    		android:layout_margin="2dip"
+    		android:tag="Read block"
+    		android:layout_weight="1"
+    >
+
+     
+     <TextView android:text="Slave Read"
+     			android:id="@+id/SlaveReadBlock"
+     			android:gravity="center"
+     			android:layout_height="fill_parent"
+     			android:layout_width="0dp"
+     			android:layout_margin="6dip"
+     			android:background="#408040"
+     			android:layout_weight="1"/>
+     			
+<!-- read byte num  -->     
+
+     <LinearLayout
+         android:layout_width="0dp"
+         android:layout_height="fill_parent"
+         android:layout_margin="5dip"
+         android:layout_weight="1.5"
+         android:orientation="vertical" >
+  
+			 <TextView android:text = "Number of Bytes" 
+			 			android:textStyle="bold"
+			 			android:gravity="center|bottom"
+			 			android:id="@+id/SlaveNumberOfBytes"
+			 			android:layout_height="0dp"
+			 			android:layout_width="fill_parent"
+			 			android:layout_weight="1"
+			 			/>
+			 			
+			 <EditText 	android:id="@+id/NumberOfBytesValue_2"
+			 			android:numeric="integer"
+			 			android:digits="0123456789abcdefABCDEF"
+			 			android:layout_height="0dp"
+			 			android:layout_width="fill_parent"
+			 			android:lines="1"
+			 			android:maxLength="3"
+			 			android:layout_weight="2"
+			 			/>
+    </LinearLayout>
+    
+<!-- read bytes  -->     
+
+		<LinearLayout
+		    android:layout_width="0dp"
+		    android:layout_height="fill_parent"
+		    android:layout_margin="5dip"
+		    android:layout_weight="2.5"
+		    android:orientation="vertical" >
+  
+			  <TextView android:text = "Read Data" 
+			 			android:textStyle="bold"
+			 			android:gravity="center|bottom"
+			 			android:id="@+id/SlaveReadBytes"
+			 			android:layout_height="0dp"
+			 			android:layout_width="fill_parent"
+			 			android:layout_weight="1"
+			 			/>
+			 			
+			 	<EditText android:id="@+id/ReadValues_2"	
+			 			android:layout_height="0dp"
+			 			android:layout_width="fill_parent"
+			 			android:layout_margin="3dip"			 			
+			 			android:gravity="left|center_vertical"
+			 			android:background="#708070"
+			 			android:focusableInTouchMode="false"
+			 			android:layout_weight="2"
+			 			/>
+    	</LinearLayout>
+    		
+     
+<!-- Number -->
+
+		<LinearLayout
+		    android:layout_width="0dp"
+		    android:layout_height="fill_parent"
+		    android:layout_margin="5dip"
+		    android:layout_weight="1.5"
+		    android:orientation="vertical" >
+
+			<TextView
+			    android:id="@+id/SlaveNumBytes"
+			    android:layout_width="fill_parent"
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
+			    android:gravity="center|bottom"
+			    android:text="Receive Bytes"
+			    android:textStyle="bold" />
+			 		   			
+			 		<EditText android:id="@+id/StatusValues_2"
+			 			android:digits="0123456789abcdefABCDEF"
+			 			android:layout_height="0dp"
+			 			android:layout_width="fill_parent"
+			 			android:layout_margin="2dip"			 			
+			 			android:maxLength="120"
+			 			android:gravity="center"
+			 			android:background="#708070"
+			 			android:focusableInTouchMode="false"
+			 			android:layout_weight="2"
+			 			/>
+			 			
+
+    	</LinearLayout> 		
+			 			
+<!-- Button -->
+		<LinearLayout 
+     		android:orientation="vertical"
+    		android:layout_width="0dp"
+    		android:layout_height="fill_parent"
+    		android:layout_margin="5dip"
+    		android:layout_weight="1.5"
+   			>
+
+	    		 <Button
+	    		     android:id="@+id/SlaveReadButton"
+	    		     android:layout_width="fill_parent"
+	    		     android:layout_height="fill_parent"
+	    		     android:layout_margin="5dp"
+	    		     android:layout_weight="1"
+	    		     android:background="@drawable/button_pattern"
+	    		     android:gravity="center"
+	    		     android:text="Slave Read" />
+
+    	</LinearLayout>
+	</LinearLayout>
+<!-- End - Slave Read --> 	
+    
+<!-- Slave Write -->
+<!-- End - Slave Write -->
+
+
+    
+  </LinearLayout>
+       
+
+</LinearLayout>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true" android:state_window_focused="false"
+          android:state_enabled="true"
+          android:drawable="@drawable/enable_on" />
+    <item android:state_checked="false" android:state_window_focused="false"
+          android:state_enabled="true"
+          android:drawable="@drawable/enable_off" />
+          
+    <item android:state_checked="true" android:state_pressed="true"
+          android:state_enabled="true"
+          android:drawable="@drawable/enable_on_pressed" />
+    <item android:state_checked="false" android:state_pressed="true"
+          android:state_enabled="true"
+          android:drawable="@drawable/enable_off_pressed" />
+
+    <item android:state_checked="true" android:state_focused="true"
+          android:state_enabled="true"
+          android:drawable="@drawable/enable_on" />
+    <item android:state_checked="false" android:state_focused="true"
+          android:state_enabled="true"
+          android:drawable="@drawable/enable_off" />
+
+    <item android:state_checked="false" android:state_enabled="true"
+          android:drawable="@drawable/enable_off" />
+    <item android:state_checked="true" android:state_enabled="true"
+          android:drawable="@drawable/enable_on" />
+
+    <!-- Disabled states -->
+
+    <item android:state_checked="true" android:state_window_focused="false"
+          android:drawable="@drawable/disable_on" />
+    <item android:state_checked="false" android:state_window_focused="false"
+          android:drawable="@drawable/enable_off" />
+
+    <item android:state_checked="true" android:state_focused="true"
+          android:drawable="@drawable/disable_on" />
+    <item android:state_checked="false" android:state_focused="true"
+          android:drawable="@drawable/enable_off" />
+
+    <item android:state_checked="false" android:drawable="@drawable/enable_off" />
+    <item android:state_checked="true" android:drawable="@drawable/disable_on" />
+
+</selector>
+
+    
