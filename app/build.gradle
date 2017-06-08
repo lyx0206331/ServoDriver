@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "com.adrian.servodriver"
-        minSdkVersion 15
+        minSdkVersion 13
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -17,6 +17,75 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    signingConfigs {
+        debug {
+            // No debug config
+        }
+
+        release {
+            storeFile file("/Volumes/MacintoshHD/Android/appkey.keystore")
+            storePassword "lengyuxuan1534."
+            keyAlias "adrian_keystore"
+            keyPassword "lengyuxuan1534."
+        }
+    }
+
+    buildTypes {
+        debug {
+            // 显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+
+            versionNameSuffix "-debug"
+            minifyEnabled false
+            zipAlignEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.debug
+        }
+
+        release {
+            // 不显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+
+            minifyEnabled true
+            zipAlignEnabled true
+            // 移除无用的resource文件
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile
+                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                        // 输出apk名称为应用名_v版本号_年-月-日_渠道名.apk
+                        def fileName = "ServoDriver_v${defaultConfig.versionName}_${releaseTime()}_${variant.productFlavors[0].name}.apk"
+                        output.outputFile = new File(outputFile.parent, fileName)
+                    }
+                }
+            }
+        }
+    }
+
+    productFlavors {
+
+        default_channel {}
+        wandoujia {}
+        _360 {}
+        yingyongbao {}
+        xiaomi {}
+        baidu {}
+        huawei {}
+        jifeng {}
+        meizu {}
+    }
+    sourceSets {
+        main { res.srcDirs = ['src/main/res', 'src/main/res/value-v19', 'src/main/res/values-v19'] }
+    }
+}
+
+def releaseTime() {
+    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
 }
 
 dependencies {

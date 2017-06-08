@@ -3,8 +3,12 @@ package com.adrian.servodriver.activities;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Window;
+
+import com.adrian.servodriver.views.StatusBarCompat;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
@@ -12,7 +16,10 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
+        StatusBarCompat.compat(this, Color.TRANSPARENT);
+        setContentView(getLayoutResId());
         initVariables();
         initViews();
         loadData();
@@ -37,6 +44,13 @@ public abstract class BaseActivity extends AppCompatActivity {
      * 数据加载
      */
     protected abstract void loadData();
+
+    /**
+     * 返回布局ID
+     *
+     * @return
+     */
+    protected abstract int getLayoutResId();
 
     protected void startActivity(Class<? extends BaseActivity> cls, Bundle bundle) {
         Intent intent = new Intent(this, cls);

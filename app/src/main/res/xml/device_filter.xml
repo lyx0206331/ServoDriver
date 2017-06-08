@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-	<usb-device vendor-id="1118" product-id="688"></usb-device>  
-	<usb-device vendor-id="1027" product-id="24577" /> <!-- FT232RL -->
-	<usb-device vendor-id="1027" product-id="24596" /> <!-- FT232H -->
-	<usb-device vendor-id="1027" product-id="24592" /> <!-- FT2232C/D/HL -->
-	<usb-device vendor-id="1027" product-id="24593" /> <!-- FT4232HL -->
-	<usb-device vendor-id="1027" product-id="24597" /> <!-- FT230X -->
-	<usb-device vendor-id="1027" product-id="24604" /> <!-- FT4222 -->
-	<usb-device vendor-id="1412" product-id="45088" /> <!-- REX-USB60F -->	
+    <usb-device
+        product-id="688"
+        vendor-id="1118"></usb-device>
+    <usb-device
+        product-id="24577"
+        vendor-id="1027" /> <!-- FT232RL -->
+    <usb-device
+        product-id="24596"
+        vendor-id="1027" /> <!-- FT232H -->
+    <usb-device
+        product-id="24592"
+        vendor-id="1027" /> <!-- FT2232C/D/HL -->
+    <usb-device
+        product-id="24593"
+        vendor-id="1027" /> <!-- FT4232HL -->
+    <usb-device
+        product-id="24597"
+        vendor-id="1027" /> <!-- FT230X -->
+    <usb-device
+        product-id="45088"
+        vendor-id="1412" /> <!-- REX-USB60F -->
 </resources>
