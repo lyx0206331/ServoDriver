@@ -97,6 +97,16 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
-
     compile 'com.blankj:utilcode:1.6.4'
+    compile('com.mikepenz:materialdrawer:5.9.2@aar') {
+        transitive = true
+    }
+    compile project(':wavesview')
+
+    // icon fonts used inside the sample
+    // https://github.com/mikepenz/Android-Iconics
+    compile "com.mikepenz:iconics-core:2.8.7@aar"
+    compile 'com.mikepenz:google-material-typeface:3.0.1.1.original@aar'
+    compile 'com.mikepenz:fontawesome-typeface:4.7.0.1@aar'
+    compile 'com.mikepenz:octicons-typeface:3.2.0.3@aar'
 }

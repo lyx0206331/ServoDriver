@@ -44,4 +44,5 @@
     <string name="reboot_effect">重启后生效</string>
     <string name="immediately_effect">立即生效</string>
     <string name="read_only">只读状态</string>
+    <string name="about">关于</string>
 </resources>

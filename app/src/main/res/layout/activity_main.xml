@@ -6,6 +6,10 @@
     android:layout_height="match_parent"
     tools:context="com.adrian.servodriver.activities.MainActivity">
 
-    <include layout="@layout/layout_menu" />
+    <Button
+        android:id="@+id/btn_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="menu" />
 
 </android.support.constraint.ConstraintLayout>
