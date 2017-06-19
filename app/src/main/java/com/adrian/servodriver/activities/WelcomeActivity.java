@@ -11,6 +11,7 @@ import android.view.Window;
 import com.adrian.servodriver.R;
 import com.adrian.servodriver.official_demo.J2xxHyperTerm;
 import com.adrian.servodriver.views.StatusBarCompat;
+import com.jaeger.library.StatusBarUtil;
 
 public class WelcomeActivity extends BaseActivity {
 
@@ -40,7 +41,7 @@ public class WelcomeActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
-
+//        StatusBarUtil.setTransparent(this);
         mHandler.sendEmptyMessageDelayed(0, 2000);
     }
 

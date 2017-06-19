@@ -8,7 +8,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 
+import com.adrian.servodriver.R;
 import com.adrian.servodriver.views.StatusBarCompat;
+import com.jaeger.library.StatusBarUtil;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
@@ -18,8 +20,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
-        StatusBarCompat.compat(this, Color.TRANSPARENT);
+//        StatusBarCompat.compat(this, Color.TRANSPARENT);
         setContentView(getLayoutResId());
+//        StatusBarUtil.setColor(this, getResources().getColor(R.color.picton_blue));
+        StatusBarUtil.setTransparent(this);
         initVariables();
         initViews();
         loadData();

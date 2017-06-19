@@ -9,10 +9,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.adrian.servodriver.R;
 import com.ftdi.j2xx.D2xxManager;
+import com.jaeger.library.StatusBarUtil;
 import com.mikepenz.fastadapter.IItem;
 import com.mikepenz.fontawesome_typeface_library.FontAwesome;
 import com.mikepenz.materialdrawer.Drawer;
@@ -28,6 +30,7 @@ import java.util.List;
 public class MainActivity extends BaseActivity {
 
     private Drawer mMenuDrawer;
+    private ImageButton mMenuIB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +44,10 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
-        Button menu = (Button) findViewById(R.id.btn_menu);
+//        StatusBarUtil.setColor(this, getResources().getColor(R.color.picton_blue));
+        mMenuIB = (ImageButton) findViewById(R.id.ib_menu);
 
-        mMenuDrawer = new DrawerBuilder().withActivity(this).withSliderBackgroundDrawableRes(R.mipmap.bg)
+        mMenuDrawer = new DrawerBuilder().withActivity(this).withSliderBackgroundDrawableRes(R.mipmap.menu_bg)
                 .withDisplayBelowStatusBar(false).withTranslucentStatusBar(false)
                 .withHeader(R.layout.layout_menu_header).withHeaderDivider(true)
                 .addDrawerItems(
@@ -98,7 +102,7 @@ public class MainActivity extends BaseActivity {
                         return false;
                     }
                 }).build();
-        menu.setOnClickListener(new View.OnClickListener() {
+        mMenuIB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mMenuDrawer.openDrawer();
