@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:kj="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <!--图片移动 方式的浪-->
+    <!--<com.adrian.wavesview.WaveViewDraw-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="bottom|right"-->
+    <!--kj:wave_duration="16000" />-->
+
+    <!--图片动画 方式的浪-->
+    <!--<include-->
+    <!--layout="@layout/wavepicview_bg"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent" />-->
+
+    <!--Shader 方式的浪-->
+    <com.adrian.wavesview.DoubleWavesShaderView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="95px" />
+
+    <!--图片动画 方式的浪2-->
+    <!--<com.adrian.wavesview.WavePicView2-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent" />-->
+
+    <!--计算 方式的浪-->
+    <!--<com.adrian.wavesview.DoubleWavesCalculateView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--kj:wave_back_acolor="#666837f4"-->
+    <!--kj:wave_back_acolor_after="#006837f4"-->
+    <!--kj:wave_back_alpha="102"-->
+    <!--kj:wave_front_acolor="#4d7743fb"-->
+    <!--kj:wave_front_acolor_after="#007743fb"-->
+    <!--kj:wave_front_alpha="77"-->
+    <!--kj:wave_weight="0.2" />-->
+
+</FrameLayout>
