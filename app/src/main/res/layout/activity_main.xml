@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/bg"
-    android:orientation="vertical"
     tools:context="com.adrian.servodriver.activities.MainActivity">
 
     <RelativeLayout
+        android:id="@+id/rl_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="12.5dp">
@@ -44,6 +44,7 @@
                 android:src="@mipmap/warn" />
 
             <ImageView
+                android:id="@+id/iv_warning_point"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
@@ -51,4 +52,76 @@
         </FrameLayout>
     </RelativeLayout>
 
-</LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_title"
+        android:layout_marginTop="50dp"
+        android:background="@color/gallery" />
+
+    <RelativeLayout
+        android:id="@+id/rl_color_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_title"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@mipmap/indexbg"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/reset" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/instant" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/rom" />
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/v_grid_head"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/rl_color_label"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/shape_top_fillet"></View>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/v_grid_head"
+        android:background="@color/white" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/rl_color_label"
+        android:layout_alignTop="@id/rl_color_label"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="88dp"
+        android:src="@mipmap/lable" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/rl_color_label"
+        android:layout_alignTop="@id/rl_color_label"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="88dp"
+        android:src="@mipmap/lable" />
+
+</RelativeLayout>
