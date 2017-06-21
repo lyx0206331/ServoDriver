@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item>
+    <item android:top="0dp">
+        <shape>
+            <corners
+                android:topLeftRadius="8dp"
+                android:topRightRadius="8dp" />
+            <solid android:color="@color/picton_blue3" />
+        </shape>
+    </item>
+    <item android:top=".8dp">
+        <shape>
+            <corners
+                android:topLeftRadius="8dp"
+                android:topRightRadius="8dp" />
+            <solid android:color="@color/picton_blue2" />
+        </shape>
+    </item>
+    <item android:top="1.6dp">
+        <shape>
+            <corners
+                android:topLeftRadius="8dp"
+                android:topRightRadius="8dp" />
+            <solid android:color="@color/picton_blue1" />
+        </shape>
+    </item>
+    <item android:top="2.4dp">
+        <shape>
+            <corners
+                android:topLeftRadius="8dp"
+                android:topRightRadius="8dp" />
+            <solid android:color="@color/picton_blue" />
+        </shape>
+    </item>
+    <item android:top="3.2dp">
         <shape>
             <corners
                 android:topLeftRadius="8dp"

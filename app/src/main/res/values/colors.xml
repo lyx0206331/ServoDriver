@@ -7,7 +7,10 @@
     <color name="transparent">#00000000</color>
 
     <color name="white">#ffffff</color>
-    <color name="picton_blue">#4CC7FD</color>
+    <color name="picton_blue">#804CC7FD</color>
+    <color name="picton_blue1">#604CC7FD</color>
+    <color name="picton_blue2">#404CC7FD</color>
+    <color name="picton_blue3">#204CC7FD</color>
     <color name="red_orange">#F94A4B</color>
     <color name="french_pass">#BFE8FE</color>
     <color name="gray">#F0F0F0</color>
