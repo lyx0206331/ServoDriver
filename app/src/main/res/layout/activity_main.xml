@@ -124,4 +124,17 @@
         android:layout_marginTop="88dp"
         android:src="@mipmap/lable" />
 
+    <sysu.zyb.panellistlibrary.PanelListLayout
+        android:id="@+id/pll_grid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/lv_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fastScrollEnabled="false"
+            android:overScrollMode="never" />
+    </sysu.zyb.panellistlibrary.PanelListLayout>
+
 </RelativeLayout>

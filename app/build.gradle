@@ -112,4 +112,6 @@ dependencies {
     compile 'com.mikepenz:octicons-typeface:3.2.0.3@aar'
     compile 'com.jaeger.statusbarutil:library:1.4.0'
     testCompile 'junit:junit:4.12'
+
+    compile 'com.github.z3896823:PanelList:v1.1.0.1'
 }

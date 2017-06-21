@@ -45,4 +45,49 @@
     <string name="immediately_effect">立即生效</string>
     <string name="read_only">只读状态</string>
     <string name="about">关于</string>
+
+    <string-array name="param_name">
+        <item>伺服型号</item>
+        <item>软件版本</item>
+        <item>控制方式</item>
+        <item>第1速度环增益</item>
+        <item>第1速度环积分时间常数</item>
+        <item>第1转矩滤波时间常数</item>
+        <item>第1位置环增益</item>
+        <item>第2速度环增益</item>
+        <item>第2速度环积分时间常数</item>
+        <item>第2转矩滤波时间常数</item>
+        <item>第2位置环增益</item>
+        <item>负载转动惯量比</item>
+        <item>速度环PDFF控制系数</item>
+        <item>速度检测滤波时间常数</item>
+        <item>位置环前馈增益</item>
+        <item>位置环前馈滤波时间常数</item>
+        <item>速度指令来源</item>
+        <item>转矩指令来源</item>
+        <item>编码器脉冲因子1</item>
+        <item>编码器脉冲因子2</item>
+        <item>指令脉冲电子齿轮第1分子</item>
+        <item>指令脉冲电子齿轮分母</item>
+        <item>指令脉冲电子齿轮第2分子</item>
+        <item>指令脉冲电子齿轮第3分子</item>
+        <item>指令脉冲电子齿轮第4分子</item>
+        <item>指令脉冲输入方式</item>
+        <item>指令脉冲输入方向</item>
+        <item>指令脉冲输入信号逻辑</item>
+        <item>指令脉冲输入信号滤波</item>
+        <item>指令脉冲输入滤波模式</item>
+    </string-array>
+
+    <string-array name="value_name">
+        <item>段号</item>
+        <item>编号</item>
+        <item>参数名称</item>
+        <item>最小值</item>
+        <item>最大值</item>
+        <item>默认值</item>
+        <item>当前值</item>
+        <item>单位</item>
+    </string-array>
+
 </resources>

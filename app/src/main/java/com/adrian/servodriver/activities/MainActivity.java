@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.adrian.servodriver.R;
@@ -27,10 +28,15 @@ import com.mikepenz.octicons_typeface_library.Octicons;
 
 import java.util.List;
 
+import sysu.zyb.panellistlibrary.PanelListLayout;
+
 public class MainActivity extends BaseActivity {
 
     private Drawer mMenuDrawer;
     private ImageButton mMenuIB;
+
+    private PanelListLayout mRootPLL;
+    private ListView mContentLV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,6 +114,9 @@ public class MainActivity extends BaseActivity {
                 mMenuDrawer.openDrawer();
             }
         });
+
+        mRootPLL = (PanelListLayout) findViewById(R.id.pll_grid);
+        mContentLV = (ListView) findViewById(R.id.lv_content);
     }
 
     @Override
