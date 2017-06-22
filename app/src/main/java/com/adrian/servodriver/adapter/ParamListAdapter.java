@@ -16,7 +16,6 @@ import com.adrian.servodriver.pojo.ParamBean;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import sysu.zyb.panellistlibrary.PanelListAdapter;
 import sysu.zyb.panellistlibrary.PanelListLayout;
@@ -32,10 +31,6 @@ public class ParamListAdapter extends PanelListAdapter {
     private ListView lv_content;
     private int contentResourceId;
     private List<ParamBean> contentList = new ArrayList<>();
-
-    public ParamListAdapter(Context context, PanelListLayout pl_root, ListView lv_content) {
-        super(context, pl_root, lv_content);
-    }
 
     public ParamListAdapter(Context context, PanelListLayout pl_root, ListView lv_content,
                             int contentResourceId, List<ParamBean> contentList) {
