@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sysu.zyb.panellistlibrary.CheckableLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_min_value"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:padding="5dp"
+        android:gravity="center"
+        android:textSize="@dimen/para_font"
+        android:text="minValue" />
+
+    <TextView
+        android:id="@+id/tv_max_value"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:padding="5dp"
+        android:gravity="center"
+        android:textSize="@dimen/para_font"
+        android:text="maxValue" />
+
+    <TextView
+        android:id="@+id/tv_def_value"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:padding="5dp"
+        android:gravity="center"
+        android:textSize="@dimen/para_font"
+        android:text="defValue" />
+
+    <EditText
+        android:id="@+id/et_cur_value"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:padding="5dp"
+        android:gravity="center"
+        android:textSize="@dimen/para_font"
+        android:text="curValue" />
+
+    <TextView
+        android:id="@+id/tv_unit"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:padding="5dp"
+        android:gravity="center"
+        android:textSize="@dimen/para_font"
+        android:text="unit" />
+
+</sysu.zyb.panellistlibrary.CheckableLinearLayout>

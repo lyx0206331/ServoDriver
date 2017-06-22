@@ -127,7 +127,9 @@
     <sysu.zyb.panellistlibrary.PanelListLayout
         android:id="@+id/pll_grid"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignTop="@id/v_grid_head"
+        android:layout_marginTop="20dp">
 
         <ListView
             android:id="@+id/lv_content"

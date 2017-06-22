@@ -80,9 +80,9 @@
     </string-array>
 
     <string-array name="value_name">
-        <item>段号</item>
+        <!--<item>段号</item>
         <item>编号</item>
-        <item>参数名称</item>
+        <item>参数名称</item>-->
         <item>最小值</item>
         <item>最大值</item>
         <item>默认值</item>
