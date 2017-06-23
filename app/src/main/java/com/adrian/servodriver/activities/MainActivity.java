@@ -173,21 +173,27 @@ public class MainActivity extends BaseActivity {
      * 初始化content数据
      */
     private void initDataList() {
-        for (int i = 1; i < 1001; i++) {
-//            Map<String ,String> data = new HashMap<>();
-//            data.put("1","第"+i+"行第一个");
-//            data.put("2","第"+i+"行第二个");
-//            data.put("3","第"+i+"行第三个");
-//            data.put("4","第"+i+"行第四个");
-//            data.put("5","第"+i+"行第五个");
+        String[] params = getResources().getStringArray(R.array.param_name);
+        for (int i = 0; i < params.length; i++) {
             ParamBean data = new ParamBean();
+            data.setParamName(params[i]);
             data.setMinValue("0.00");
             data.setMaxValue("0.00");
             data.setDefValue("0.00");
             data.setCurValue("TL05");
             data.setUnit("--");
+            data.setType((int) (Math.random() * params.length % 3));
             contentList.add(data);
         }
+//        for (int i = 1; i < 1001; i++) {
+//            ParamBean data = new ParamBean();
+//            data.setMinValue("0.00");
+//            data.setMaxValue("0.00");
+//            data.setDefValue("0.00");
+//            data.setCurValue("TL05");
+//            data.setUnit("--");
+//            contentList.add(data);
+//        }
     }
 
     /**

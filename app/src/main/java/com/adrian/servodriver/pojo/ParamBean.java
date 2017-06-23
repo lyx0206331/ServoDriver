@@ -13,6 +13,7 @@ public class ParamBean {
     private String defValue; //默认值
     private String curValue; //当前值
     private String unit;    //单位
+    private int type;   //0：重启后生效；1：立即生效；2：只读状态
 
     public int getSegId() {
         return segId;
@@ -76,5 +77,13 @@ public class ParamBean {
 
     public void setUnit(String unit) {
         this.unit = unit;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 }

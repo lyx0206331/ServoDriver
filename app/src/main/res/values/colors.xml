@@ -14,4 +14,7 @@
     <color name="red_orange">#F94A4B</color>
     <color name="french_pass">#BFE8FE</color>
     <color name="gray">#F0F0F0</color>
+    <color name="reboot_valid">#4B87F3</color>
+    <color name="rightnow_valid">#FB8A7B</color>
+    <color name="read_only">#77D86B</color>
 </resources>

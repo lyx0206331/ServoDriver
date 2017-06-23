@@ -50,7 +50,7 @@ public class ParamListAdapter extends PanelListAdapter {
     public void initAdapter() {
         setTitle("名称\\值");//设置表的标题
         setTitleHeight(100);//设置表标题的高
-        setTitleWidth(250);//设置表标题的宽
+        setTitleWidth(270);//设置表标题的宽
         setRowDataList(getRowDataList());//设置横向表头的内容
         setColumnDataList(getColumnDataList());
 
@@ -88,10 +88,10 @@ public class ParamListAdapter extends PanelListAdapter {
 
     private List<String> getColumnDataList() {
         List<String> colDataList = new ArrayList<>();
-        String[] values = context.getResources().getStringArray(R.array.param_name);
-        for (String value :
-                values) {
-            colDataList.add(value);
+//        String[] values = context.getResources().getStringArray(R.array.param_name);
+        for (ParamBean bean :
+                contentList) {
+            colDataList.add(bean.getParamName());
         }
         return colDataList;
     }
@@ -137,16 +137,30 @@ public class ParamListAdapter extends PanelListAdapter {
             viewHolder.mCurValueET.setText(data.getCurValue());
             viewHolder.mUnit.setText(data.getUnit());
 
-            if (lv_content.isItemChecked(position)) {
-                view.setBackgroundColor(context.getResources().getColor(R.color.french_pass));
-            } else {
-                view.setBackgroundColor(context.getResources().getColor(R.color.colorDeselected));
+//            if (lv_content.isItemChecked(position)) {
+//                view.setBackgroundColor(context.getResources().getColor(R.color.french_pass));
+//            } else {
+//                view.setBackgroundColor(context.getResources().getColor(R.color.colorDeselected));
+//            }
+            switch (data.getType()) {
+                case 0:
+                    view.setBackgroundColor(context.getResources().getColor(R.color.reboot_valid));
+                    break;
+                case 1:
+                    view.setBackgroundColor(context.getResources().getColor(R.color.rightnow_valid));
+                    break;
+                case 2:
+                    view.setBackgroundColor(context.getResources().getColor(R.color.read_only));
+                    break;
+                default:
+                    break;
             }
 
             return view;
         }
 
         private class ViewHolder {
+
             TextView mMinValueTV;
             TextView mMaxValueTV;
             TextView mDefValueTV;
