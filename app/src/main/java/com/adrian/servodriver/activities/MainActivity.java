@@ -25,6 +25,7 @@ import android.widget.Toast;
 import com.adrian.servodriver.R;
 import com.adrian.servodriver.adapter.ParamListAdapter;
 import com.adrian.servodriver.pojo.ParamBean;
+import com.blankj.utilcode.util.ToastUtils;
 import com.ftdi.j2xx.D2xxManager;
 import com.jaeger.library.StatusBarUtil;
 import com.mikepenz.fastadapter.IItem;
@@ -142,7 +143,8 @@ public class MainActivity extends BaseActivity {
         mContentLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(MainActivity.this, "你选中的position为：" + position, Toast.LENGTH_SHORT).show();
+                ToastUtils.showShortSafe("你选中的position为：" + position);
+//                Toast.makeText(MainActivity.this, "你选中的position为：" + position, Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -185,15 +187,6 @@ public class MainActivity extends BaseActivity {
             data.setType((int) (Math.random() * params.length % 3));
             contentList.add(data);
         }
-//        for (int i = 1; i < 1001; i++) {
-//            ParamBean data = new ParamBean();
-//            data.setMinValue("0.00");
-//            data.setMaxValue("0.00");
-//            data.setDefValue("0.00");
-//            data.setCurValue("TL05");
-//            data.setUnit("--");
-//            contentList.add(data);
-//        }
     }
 
     /**

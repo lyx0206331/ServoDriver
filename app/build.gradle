@@ -114,4 +114,8 @@ dependencies {
     testCompile 'junit:junit:4.12'
 
     compile 'com.github.z3896823:PanelList:v1.1.0.1'
+
+    compile 'com.blankj:utilcode:1.7.1'
+
+    compile 'com.classic.common:multiple-status-view:1.2'
 }

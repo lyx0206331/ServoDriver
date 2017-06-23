@@ -3,6 +3,8 @@ package com.adrian.servodriver.adapter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,6 +53,9 @@ public class ParamListAdapter extends PanelListAdapter {
         setTitle("名称\\值");//设置表的标题
         setTitleHeight(100);//设置表标题的高
         setTitleWidth(270);//设置表标题的宽
+        setTitleColor("#00000000");
+        setRowColor("#00000000");
+        setColumnColor("#BFE8FE");
         setRowDataList(getRowDataList());//设置横向表头的内容
         setColumnDataList(getColumnDataList());
 
@@ -94,6 +99,15 @@ public class ParamListAdapter extends PanelListAdapter {
             colDataList.add(bean.getParamName());
         }
         return colDataList;
+    }
+
+    /**
+     * 获取所有数据
+     *
+     * @return
+     */
+    public List<ParamBean> getData() {
+        return contentList;
     }
 
     /**
@@ -145,12 +159,31 @@ public class ParamListAdapter extends PanelListAdapter {
             switch (data.getType()) {
                 case 0:
                     view.setBackgroundColor(context.getResources().getColor(R.color.reboot_valid));
+                    viewHolder.mCurValueET.setEnabled(true);
+                    viewHolder.mCurValueET.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                        @Override
+                        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+//                            Log.e("INPUT", v.getText().toString());
+                            data.setCurValue(v.getText().toString());
+                            return false;
+                        }
+                    });
                     break;
                 case 1:
                     view.setBackgroundColor(context.getResources().getColor(R.color.rightnow_valid));
+                    viewHolder.mCurValueET.setEnabled(true);
+                    viewHolder.mCurValueET.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                        @Override
+                        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+//                            Log.e("INPUT", v.getText().toString());
+                            data.setCurValue(v.getText().toString());
+                            return false;
+                        }
+                    });
                     break;
                 case 2:
                     view.setBackgroundColor(context.getResources().getColor(R.color.read_only));
+                    viewHolder.mCurValueET.setEnabled(false);
                     break;
                 default:
                     break;

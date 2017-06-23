@@ -1,52 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <sysu.zyb.panellistlibrary.CheckableLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
 
     <TextView
         android:id="@+id/tv_min_value"
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:padding="5dp"
         android:gravity="center"
-        android:textSize="@dimen/para_font"
-        android:text="minValue" />
+        android:padding="5dp"
+        android:text="minValue"
+        android:textSize="@dimen/para_font" />
 
     <TextView
         android:id="@+id/tv_max_value"
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:padding="5dp"
         android:gravity="center"
-        android:textSize="@dimen/para_font"
-        android:text="maxValue" />
+        android:padding="5dp"
+        android:text="maxValue"
+        android:textSize="@dimen/para_font" />
 
     <TextView
         android:id="@+id/tv_def_value"
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:padding="5dp"
         android:gravity="center"
-        android:textSize="@dimen/para_font"
-        android:text="defValue" />
+        android:padding="5dp"
+        android:text="defValue"
+        android:textSize="@dimen/para_font" />
 
     <EditText
         android:id="@+id/et_cur_value"
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:padding="5dp"
         android:gravity="center"
-        android:textSize="@dimen/para_font"
-        android:text="curValue" />
+        android:imeOptions="actionDone"
+        android:padding="5dp"
+        android:singleLine="true"
+        android:text="curValue"
+        android:textSize="@dimen/para_font" />
 
     <TextView
         android:id="@+id/tv_unit"
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:padding="5dp"
         android:gravity="center"
-        android:textSize="@dimen/para_font"
-        android:text="unit" />
+        android:padding="5dp"
+        android:text="unit"
+        android:textSize="@dimen/para_font" />
 
 </sysu.zyb.panellistlibrary.CheckableLinearLayout>
