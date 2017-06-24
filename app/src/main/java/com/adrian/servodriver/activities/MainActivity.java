@@ -3,6 +3,8 @@ package com.adrian.servodriver.activities;
 import android.content.Context;
 import android.content.IntentFilter;
 import android.hardware.usb.UsbManager;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
@@ -14,10 +16,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.OvershootInterpolator;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +33,9 @@ import android.widget.Toast;
 import com.adrian.servodriver.R;
 import com.adrian.servodriver.adapter.ParamListAdapter;
 import com.adrian.servodriver.pojo.ParamBean;
+import com.adrian.servodriver.views.LoadDialog;
+import com.adrian.servodriver.views.SaveDialog;
+import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.ftdi.j2xx.D2xxManager;
 import com.jaeger.library.StatusBarUtil;
@@ -45,15 +56,33 @@ import java.util.Map;
 
 import sysu.zyb.panellistlibrary.PanelListLayout;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private Drawer mMenuDrawer;
     private ImageButton mMenuIB;
+    private FrameLayout mWarningFL;
+    private ImageView mWaringPointIV;
 
     private PanelListLayout mRootPLL;
     private ListView mContentLV;
+    private LinearLayout mWriteLL;
+    private LinearLayout mZeroLL;
+    private LinearLayout mSaveLL;
+    private LinearLayout mLoadLL;
+    private FloatingActionButton mAddFAB;
+    private FloatingActionButton mWriteFAB;
+    private FloatingActionButton mZeroFAB;
+    private FloatingActionButton mSaveFAB;
+    private FloatingActionButton mLoadFAB;
 
     private List<ParamBean> contentList = new ArrayList<>();
+
+    private Animation fabOpenAnimation;
+    private Animation fabCloseAnimation;
+    private boolean isFabMenuOpen = false;
+
+    private SaveDialog mSaveFileDialog;
+    private LoadDialog mLoadParamDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,16 +98,18 @@ public class MainActivity extends BaseActivity {
     protected void initViews() {
 //        StatusBarUtil.setColor(this, getResources().getColor(R.color.picton_blue));
         mMenuIB = (ImageButton) findViewById(R.id.ib_menu);
+        mWarningFL = (FrameLayout) findViewById(R.id.fl_warning);
+        mWaringPointIV = (ImageView) findViewById(R.id.iv_warning_point);
 
         mMenuDrawer = new DrawerBuilder().withActivity(this).withSliderBackgroundDrawableRes(R.mipmap.menu_bg)
                 .withDisplayBelowStatusBar(false).withTranslucentStatusBar(false)
                 .withHeader(R.layout.layout_menu_header).withHeaderDivider(true)
                 .addDrawerItems(
                         new PrimaryDrawerItem().withName(R.string.write_eeprom).withIcon(Octicons.Icon.oct_pencil),
-                        new PrimaryDrawerItem().withName(R.string.coder_zero).withIcon(Octicons.Icon.oct_file_binary),
-                        new PrimaryDrawerItem().withName(R.string.load_param).withIcon(Octicons.Icon.oct_zap),
-                        new PrimaryDrawerItem().withName(R.string.save_param).withIcon(Octicons.Icon.oct_sign_in),
-                        new PrimaryDrawerItem().withName(R.string.warning).withIcon(Octicons.Icon.oct_alert).withBadge("3").withIdentifier(1),
+//                        new PrimaryDrawerItem().withName(R.string.coder_zero).withIcon(Octicons.Icon.oct_file_binary),
+//                        new PrimaryDrawerItem().withName(R.string.load_param).withIcon(Octicons.Icon.oct_zap),
+//                        new PrimaryDrawerItem().withName(R.string.save_param).withIcon(Octicons.Icon.oct_sign_in),
+                        new PrimaryDrawerItem().withName(R.string.warning).withIcon(Octicons.Icon.oct_alert).withBadge("1").withIdentifier(1),
                         new PrimaryDrawerItem().withName(R.string.firmware_update).withIcon(Octicons.Icon.oct_ruby),
                         new PrimaryDrawerItem().withName(R.string.state_monitor).withIcon(Octicons.Icon.oct_eye),
                         new PrimaryDrawerItem().withName(R.string.auto_adjust).withIcon(Octicons.Icon.oct_settings),
@@ -105,6 +136,30 @@ public class MainActivity extends BaseActivity {
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
                         if (drawerItem != null) {
+//                            LogUtils.e("MENU", "pos" + position);
+                            switch (position) {
+                                case 1:
+                                    break;
+                                case 2:
+                                    goWarningPage();
+                                    break;
+                                case 3:
+                                    break;
+                                case 4:
+                                    break;
+                                case 5:
+                                    break;
+                                case 6:
+                                    break;
+                                case 7:
+                                    break;
+                                case 8:
+                                    break;
+                                case 9:
+                                    break;
+                                default:
+                                    break;
+                            }
                             if (drawerItem instanceof Nameable) {
                                 Toast.makeText(MainActivity.this, ((Nameable) drawerItem).getName().getText(MainActivity.this), Toast.LENGTH_SHORT).show();
                             }
@@ -125,19 +180,15 @@ public class MainActivity extends BaseActivity {
                         return false;
                     }
                 }).build();
-        mMenuIB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mMenuDrawer.openDrawer();
-            }
-        });
+        mMenuIB.setOnClickListener(this);
+        mWarningFL.setOnClickListener(this);
 
         mRootPLL = (PanelListLayout) findViewById(R.id.pll_grid);
         mContentLV = (ListView) findViewById(R.id.lv_content);
 
         //设置listView为多选模式，长按自动触发
-        mContentLV.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
-        mContentLV.setMultiChoiceModeListener(new MultiChoiceModeCallback());
+        mContentLV.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+//        mContentLV.setMultiChoiceModeListener(new MultiChoiceModeCallback());
 
         //listView的点击监听
         mContentLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -147,6 +198,29 @@ public class MainActivity extends BaseActivity {
 //                Toast.makeText(MainActivity.this, "你选中的position为：" + position, Toast.LENGTH_SHORT).show();
             }
         });
+
+        mWriteLL = (LinearLayout) findViewById(R.id.ll_commit);
+        mZeroLL = (LinearLayout) findViewById(R.id.ll_zero);
+        mSaveLL = (LinearLayout) findViewById(R.id.ll_save);
+        mLoadLL = (LinearLayout) findViewById(R.id.ll_load);
+        mAddFAB = (FloatingActionButton) findViewById(R.id.fab_add);
+        mWriteFAB = (FloatingActionButton) findViewById(R.id.fab_commit);
+        mZeroFAB = (FloatingActionButton) findViewById(R.id.fab_zero);
+        mSaveFAB = (FloatingActionButton) findViewById(R.id.fab_save);
+        mLoadFAB = (FloatingActionButton) findViewById(R.id.fab_load);
+        mAddFAB.setOnClickListener(this);
+        mWriteFAB.setOnClickListener(this);
+        mZeroFAB.setOnClickListener(this);
+        mSaveFAB.setOnClickListener(this);
+        mLoadFAB.setOnClickListener(this);
+
+        getAnimations();
+    }
+
+    private void goWarningPage() {
+        ToastUtils.showShortSafe(R.string.warning);
+        mWaringPointIV.setVisibility(View.GONE);
+        startActivity(WarnActivity.class);
     }
 
     @Override
@@ -166,6 +240,8 @@ public class MainActivity extends BaseActivity {
     public void onBackPressed() {
         if (mMenuDrawer != null && mMenuDrawer.isDrawerOpen()) {
             mMenuDrawer.closeDrawer();
+        } else if (isFabMenuOpen) {
+            collapseFabMenu();
         } else {
             super.onBackPressed();
         }
@@ -189,13 +265,107 @@ public class MainActivity extends BaseActivity {
         }
     }
 
+    private void getAnimations() {
+
+        fabOpenAnimation = AnimationUtils.loadAnimation(this, R.anim.fab_open);
+
+        fabCloseAnimation = AnimationUtils.loadAnimation(this, R.anim.fab_close);
+
+    }
+
+    private void expandFabMenu() {
+
+        ViewCompat.animate(mAddFAB).rotation(45.0F).withLayer().setDuration(300).setInterpolator(new OvershootInterpolator(10.0F)).start();
+        mZeroLL.startAnimation(fabOpenAnimation);
+        mWriteLL.startAnimation(fabOpenAnimation);
+        mSaveLL.startAnimation(fabOpenAnimation);
+        mLoadLL.startAnimation(fabOpenAnimation);
+        mZeroFAB.setClickable(true);
+        mWriteFAB.setClickable(true);
+        mSaveFAB.setClickable(true);
+        mLoadFAB.setClickable(true);
+        isFabMenuOpen = true;
+
+
+    }
+
+    private void collapseFabMenu() {
+
+        ViewCompat.animate(mAddFAB).rotation(0.0F).withLayer().setDuration(300).setInterpolator(new OvershootInterpolator(10.0F)).start();
+        mZeroLL.startAnimation(fabCloseAnimation);
+        mWriteLL.startAnimation(fabCloseAnimation);
+        mSaveLL.startAnimation(fabCloseAnimation);
+        mLoadLL.startAnimation(fabCloseAnimation);
+        mZeroFAB.setClickable(false);
+        mWriteFAB.setClickable(false);
+        mSaveFAB.setClickable(false);
+        mLoadFAB.setClickable(false);
+        isFabMenuOpen = false;
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.ib_menu:
+                if (isFabMenuOpen) {
+                    collapseFabMenu();
+                }
+                mMenuDrawer.openDrawer();
+                break;
+            case R.id.fl_warning:
+                if (isFabMenuOpen) {
+                    collapseFabMenu();
+                }
+                goWarningPage();
+                break;
+            case R.id.fab_add:
+                if (isFabMenuOpen) {
+                    collapseFabMenu();
+                } else {
+                    expandFabMenu();
+                }
+                break;
+            case R.id.fab_commit:
+                if (isFabMenuOpen) {
+                    collapseFabMenu();
+                }
+                ToastUtils.showShortSafe(R.string.write);
+                break;
+            case R.id.fab_zero:
+                if (isFabMenuOpen) {
+                    collapseFabMenu();
+                }
+                ToastUtils.showShortSafe(R.string.coder_zero);
+                break;
+            case R.id.fab_save:
+                if (isFabMenuOpen) {
+                    collapseFabMenu();
+                }
+                if (mSaveFileDialog == null) {
+                    mSaveFileDialog = new SaveDialog(this);
+                }
+                mSaveFileDialog.show();
+                break;
+            case R.id.fab_load:
+                if (isFabMenuOpen) {
+                    collapseFabMenu();
+                }
+                if (mLoadParamDialog == null) {
+                    mLoadParamDialog = new LoadDialog(this);
+                }
+                mLoadParamDialog.show();
+                break;
+        }
+    }
+
     /**
      * 多选模式的监听器
      */
     private class MultiChoiceModeCallback implements ListView.MultiChoiceModeListener {
 
-        private View actionBarView;
-        private TextView tv_selectedCount;
+//        private View actionBarView;
+//        private TextView tv_selectedCount;
 
         /**
          * 进入ActionMode时调用
@@ -289,7 +459,7 @@ public class MainActivity extends BaseActivity {
         @Override
         public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked) {
             int selectedCount = mContentLV.getCheckedItemCount();
-            tv_selectedCount.setText(String.valueOf(selectedCount));
+//            tv_selectedCount.setText(String.valueOf(selectedCount));
             ((ArrayAdapter) mContentLV.getAdapter()).notifyDataSetChanged();
         }
     }

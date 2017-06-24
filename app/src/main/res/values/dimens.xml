@@ -3,5 +3,8 @@
     <dimen name="title_font">18sp</dimen>
     <dimen name="title_height">44dp</dimen>
 
+    <dimen name="normal_font">16sp</dimen>
     <dimen name="para_font">14sp</dimen>
+
+    <dimen name="divider">1dp</dimen>
 </resources>

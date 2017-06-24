@@ -6,8 +6,10 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -118,6 +120,8 @@ public class ParamListAdapter extends PanelListAdapter {
         private List<ParamBean> contentList;
         private int resourceId;
 
+        private int hisFocusPos = -1;
+
         ContentAdapter(Context context, int resourceId, List<ParamBean> contentList) {
             super(context, resourceId);
             this.contentList = contentList;
@@ -156,6 +160,20 @@ public class ParamListAdapter extends PanelListAdapter {
 //            } else {
 //                view.setBackgroundColor(context.getResources().getColor(R.color.colorDeselected));
 //            }
+            final int pos = position;
+            viewHolder.mCurValueET.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    hisFocusPos = pos;
+                    return false;
+                }
+            });
+            if (hisFocusPos != -1 && pos == hisFocusPos) {
+                viewHolder.mCurValueET.requestFocus();
+                viewHolder.mCurValueET.setSelection(viewHolder.mCurValueET.getText().length());
+            } else {
+                viewHolder.mCurValueET.clearFocus();
+            }
             switch (data.getType()) {
                 case 0:
                     view.setBackgroundColor(context.getResources().getColor(R.color.reboot_valid));
@@ -164,7 +182,9 @@ public class ParamListAdapter extends PanelListAdapter {
                         @Override
                         public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
 //                            Log.e("INPUT", v.getText().toString());
-                            data.setCurValue(v.getText().toString());
+                            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                                data.setCurValue(v.getText().toString());
+                            }
                             return false;
                         }
                     });
@@ -176,7 +196,9 @@ public class ParamListAdapter extends PanelListAdapter {
                         @Override
                         public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
 //                            Log.e("INPUT", v.getText().toString());
-                            data.setCurValue(v.getText().toString());
+                            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                                data.setCurValue(v.getText().toString());
+                            }
                             return false;
                         }
                     });

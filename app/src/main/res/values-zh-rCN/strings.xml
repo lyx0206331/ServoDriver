@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ServoDriver</string>
+    <string name="app_name">Maxsine</string>
 
     <string name="online">在线</string>
     <string name="offline">离线</string>
@@ -24,7 +24,9 @@
     <string name="path_calculator">参数路径值计算器</string>
     <string name="param_backup">参数备份</string>
     <string name="load_param">加载参数</string>
+    <string name="load">加载</string>
     <string name="save_param">保存参数</string>
+    <string name="save">保存</string>
     <string name="other_func">其它功能</string>
     <string name="fft">FFT</string>
     <string name="warning">报警</string>
@@ -32,6 +34,7 @@
     <string name="state_monitor">状态监视</string>
     <string name="auto_adjust">自动增益调整</string>
     <string name="coder_zero">调编码器零点</string>
+    <string name="set_zero">调零</string>
     <string name="obj_editor">对象编辑器</string>
     <string name="soft2zero">软回零/软限位</string>
     <string name="help">帮助</string>
@@ -45,6 +48,16 @@
     <string name="immediately_effect">立即生效</string>
     <string name="read_only">只读状态</string>
     <string name="about">关于</string>
+
+    <string name="cancel">取消</string>
+    <string name="input_save_name">请输入保存文件名</string>
+    <string name="rename_file">有重名文件</string>
+    <string name="network_error">网络未连接</string>
+    <string name="confirm">确定</string>
+    <string name="request_permission_again">申请手机权限，存储介质读写权限</string>
+    <string name="null_file_name">文件名不能为空</string>
+    <string name="has_same_name">有同名文件</string>
+    <string name="choose_one">请选择加载文件</string>
 
     <string-array name="param_name">
         <item>伺服型号</item>

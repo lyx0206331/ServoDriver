@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:src="@mipmap/save" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="-1dp"
+        android:background="@drawable/shape_dialog_bg">
+
+        <LinearLayout
+            android:id="@+id/ll_btns"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:background="@color/transparent"
+                android:text="@string/save"
+                android:textColor="@color/pressed_font"
+                android:textSize="@dimen/normal_font" />
+
+            <View
+                android:layout_width="@dimen/divider"
+                android:layout_height="match_parent"
+                android:background="@color/divider" />
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:background="@color/transparent"
+                android:text="@string/cancel"
+                android:textColor="@color/normal_font"
+                android:textSize="@dimen/normal_font" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider"
+            android:layout_above="@id/ll_btns"
+            android:background="@color/divider" />
+
+        <EditText
+            android:id="@+id/et_save_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/ll_btns"
+            android:layout_marginBottom="@dimen/divider"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:hint="@string/input_save_name"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:textSize="@dimen/normal_font" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider"
+            android:layout_above="@id/et_save_name"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/divider" />
+
+        <ListView
+            android:id="@+id/lv_files"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/et_save_name"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:divider="@color/divider"
+            android:dividerHeight="@dimen/divider"></ListView>
+
+
+    </RelativeLayout>
+</LinearLayout>

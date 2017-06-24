@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ServoDriver</string>
+    <string name="app_name">Maxsine</string>
 
     <string name="baudRate">Baud rate</string>
     <string-array name="baud_rate_1">
