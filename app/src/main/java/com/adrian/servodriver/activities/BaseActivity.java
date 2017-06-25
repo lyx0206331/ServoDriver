@@ -21,17 +21,23 @@ public abstract class BaseActivity extends AppCompatActivity {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
 //        StatusBarCompat.compat(this, Color.TRANSPARENT);
-        setContentView(getLayoutResId());
+//        setContentView(getLayoutResId());
 //        StatusBarUtil.setColor(this, getResources().getColor(R.color.picton_blue));
-        StatusBarUtil.setTransparent(this);
         initVariables();
         initViews();
+        StatusBarUtil.setTransparent(this);
         loadData();
     }
 
     protected void startActivity(Class<? extends Activity> dstAct) {
         Intent intent = new Intent(this, dstAct);
         startActivity(intent);
+        overridePendingTransition(R.anim.right_in, R.anim.left_out);
+    }
+
+    public void close() {
+        finish();
+        overridePendingTransition(R.anim.left_in, R.anim.right_out);
     }
 
     /**
@@ -54,7 +60,7 @@ public abstract class BaseActivity extends AppCompatActivity {
      *
      * @return
      */
-    protected abstract int getLayoutResId();
+//    protected abstract int getLayoutResId();
 
     protected void startActivity(Class<? extends BaseActivity> cls, Bundle bundle) {
         Intent intent = new Intent(this, cls);

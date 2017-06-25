@@ -1,33 +1,21 @@
 package com.adrian.servodriver.activities;
 
-import android.content.Context;
-import android.content.IntentFilter;
-import android.hardware.usb.UsbManager;
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.ViewCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.util.SparseBooleanArray;
 import android.view.ActionMode;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.OvershootInterpolator;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.adrian.servodriver.R;
@@ -35,12 +23,8 @@ import com.adrian.servodriver.adapter.ParamListAdapter;
 import com.adrian.servodriver.pojo.ParamBean;
 import com.adrian.servodriver.views.LoadDialog;
 import com.adrian.servodriver.views.SaveDialog;
-import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.ToastUtils;
-import com.ftdi.j2xx.D2xxManager;
 import com.jaeger.library.StatusBarUtil;
-import com.mikepenz.fastadapter.IItem;
-import com.mikepenz.fontawesome_typeface_library.FontAwesome;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
@@ -50,13 +34,13 @@ import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 import com.mikepenz.octicons_typeface_library.Octicons;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import sysu.zyb.panellistlibrary.PanelListLayout;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
+
+    private long lastPressTime;
 
     private Drawer mMenuDrawer;
     private ImageButton mMenuIB;
@@ -96,6 +80,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void initViews() {
+        setContentView(R.layout.activity_main);
+        StatusBarUtil.setTransparent(this);
 //        StatusBarUtil.setColor(this, getResources().getColor(R.color.picton_blue));
         mMenuIB = (ImageButton) findViewById(R.id.ib_menu);
         mWarningFL = (FrameLayout) findViewById(R.id.fl_warning);
@@ -141,21 +127,38 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                                 case 1:
                                     break;
                                 case 2:
+                                    if (drawerItem instanceof Badgeable) {
+                                        Badgeable badgeable = (Badgeable) drawerItem;
+                                        if (badgeable.getBadge() != null) {
+                                            //note don't do this if your badge contains a "+"
+                                            //only use toString() if you set the test as String
+                                            int badge = Integer.valueOf(badgeable.getBadge().toString());
+                                            if (badge > 0) {
+                                                badgeable.withBadge(String.valueOf(badge - 1));
+                                                mMenuDrawer.updateItem(drawerItem);
+                                            }
+                                        }
+                                    }
                                     goWarningPage();
                                     break;
                                 case 3:
                                     break;
                                 case 4:
+                                    startActivity(StateMonitorActivity.class);
                                     break;
                                 case 5:
+                                    startActivity(AutoAdjustActivity.class);
                                     break;
                                 case 6:
                                     break;
                                 case 7:
+                                    startActivity(FFTActivity.class);
                                     break;
                                 case 8:
+                                    startActivity(HelpActivity.class);
                                     break;
                                 case 9:
+                                    startActivity(AboutActivity.class);
                                     break;
                                 default:
                                     break;
@@ -187,17 +190,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mContentLV = (ListView) findViewById(R.id.lv_content);
 
         //设置listView为多选模式，长按自动触发
-        mContentLV.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+//        mContentLV.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 //        mContentLV.setMultiChoiceModeListener(new MultiChoiceModeCallback());
 
-        //listView的点击监听
-        mContentLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ToastUtils.showShortSafe("你选中的position为：" + position);
+//        //listView的点击监听
+//        mContentLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                ToastUtils.showShortSafe("你选中的position为：" + position);
 //                Toast.makeText(MainActivity.this, "你选中的position为：" + position, Toast.LENGTH_SHORT).show();
-            }
-        });
+//            }
+//        });
 
         mWriteLL = (LinearLayout) findViewById(R.id.ll_commit);
         mZeroLL = (LinearLayout) findViewById(R.id.ll_zero);
@@ -219,6 +222,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private void goWarningPage() {
         ToastUtils.showShortSafe(R.string.warning);
+        IDrawerItem drawerItem = mMenuDrawer.getDrawerItem(1);
+        if (drawerItem instanceof Badgeable) {
+            Badgeable badgeable = (Badgeable) drawerItem;
+            if (badgeable.getBadge() != null) {
+                //note don't do this if your badge contains a "+"
+                //only use toString() if you set the test as String
+                int badge = Integer.valueOf(badgeable.getBadge().toString());
+                if (badge > 0) {
+                    badgeable.withBadge(String.valueOf(badge - 1));
+                    mMenuDrawer.updateItem(drawerItem);
+                }
+            }
+        }
         mWaringPointIV.setVisibility(View.GONE);
         startActivity(WarnActivity.class);
     }
@@ -232,16 +248,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
     @Override
-    protected int getLayoutResId() {
-        return R.layout.activity_main;
-    }
-
-    @Override
     public void onBackPressed() {
         if (mMenuDrawer != null && mMenuDrawer.isDrawerOpen()) {
             mMenuDrawer.closeDrawer();
         } else if (isFabMenuOpen) {
             collapseFabMenu();
+        } else if (System.currentTimeMillis() - lastPressTime > 3000) {
+            ToastUtils.showShortSafe(R.string.quit_prompt);
+            lastPressTime = System.currentTimeMillis();
         } else {
             super.onBackPressed();
         }

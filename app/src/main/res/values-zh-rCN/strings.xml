@@ -48,6 +48,7 @@
     <string name="immediately_effect">立即生效</string>
     <string name="read_only">只读状态</string>
     <string name="about">关于</string>
+    <string name="copy_right">copyright&#169;2017</string>
 
     <string name="cancel">取消</string>
     <string name="input_save_name">请输入保存文件名</string>
@@ -58,6 +59,12 @@
     <string name="null_file_name">文件名不能为空</string>
     <string name="has_same_name">有同名文件</string>
     <string name="choose_one">请选择加载文件</string>
+    <string name="period">周期:</string>
+    <string name="state_name">状态名称</string>
+    <string name="state_value">状态值</string>
+    <string name="unit">单位</string>
+
+    <string name="quit_prompt">连续两次点击返回退出应用</string>
 
     <string-array name="param_name">
         <item>伺服型号</item>

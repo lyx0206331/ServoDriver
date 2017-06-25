@@ -2,6 +2,7 @@ package com.adrian.servodriver.views;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -73,6 +74,14 @@ public class SaveDialog extends Dialog implements View.OnClickListener {
             data.add(bean);
         }
         mAdapter.setData(data);
+
+        setOnDismissListener(new OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                mFileNameET.setText(null);
+                mFileNameET.setError(null);
+            }
+        });
     }
 
     /**

@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.adrian.servodriver.R;
 
-public class WarnActivity extends BaseActivity {
+public class AutoAdjustActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +19,7 @@ public class WarnActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
-        setContentView(R.layout.activity_warn);
+        setContentView(R.layout.activity_auto_adjust);
     }
 
     @Override

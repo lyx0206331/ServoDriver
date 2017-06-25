@@ -35,8 +35,7 @@ public class WelcomeActivity extends BaseActivity {
             switch (msg.what) {
                 case 0:
 //                    Intent intent = new Intent(WelcomeActivity.this, J2xxHyperTerm.class);
-                    Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
-                    startActivity(intent);
+                    startActivity(MainActivity.class);
                     finish();
                     break;
             }
@@ -55,6 +54,7 @@ public class WelcomeActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
+        setContentView(R.layout.activity_welcome);
 //        StatusBarUtil.setTransparent(this);
 //        mHandler.sendEmptyMessageDelayed(0, 2000);
         if (NetworkUtils.isConnected()) {
@@ -68,11 +68,6 @@ public class WelcomeActivity extends BaseActivity {
     @Override
     protected void loadData() {
 
-    }
-
-    @Override
-    protected int getLayoutResId() {
-        return R.layout.activity_welcome;
     }
 
     @NeedsPermission({Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE})
@@ -110,6 +105,6 @@ public class WelcomeActivity extends BaseActivity {
 
     @OnNeverAskAgain({Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE})
     void neverAskAgain() {
-        ToastUtils.showShortSafe("不再询问");
+//        ToastUtils.showShortSafe("不再询问");
     }
 }

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg"
+    tools:context="com.adrian.servodriver.activities.StateMonitorActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="25dp"
+        android:background="@mipmap/monitorbg">
+
+        <RelativeLayout
+            android:id="@+id/rl_period"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp">
+
+            <TextView
+                android:id="@+id/tv_period"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/period"
+                android:textColor="@color/period"
+                android:textSize="@dimen/normal_font" />
+
+            <ImageView
+                android:id="@+id/iv_line"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_period"
+                android:layout_toRightOf="@id/tv_period"
+                android:background="@mipmap/curve" />
+
+            <EditText
+                android:id="@+id/et_period"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/iv_line"
+                android:layout_alignLeft="@id/iv_line"
+                android:layout_alignRight="@id/iv_line"
+                android:background="@null"
+                android:gravity="center"
+                android:text="300"
+                android:textColor="@color/normal_font"
+                android:textSize="@dimen/normal_font" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/et_period"
+                android:text="ms"
+                android:textColor="@color/period"
+                android:textSize="@dimen/normal_font" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center"
+                android:text="@string/state_name"
+                android:textColor="@color/period"
+                android:textSize="@dimen/normal_font" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:text="@string/state_value"
+                android:textColor="@color/period"
+                android:textSize="@dimen/normal_font" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="@string/unit"
+                android:textColor="@color/period"
+                android:textSize="@dimen/normal_font" />
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/lv_state"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/rl_period"
+            android:layout_below="@id/ll_header"
+            android:layout_marginBottom="30dp"
+            android:divider="@color/divider"
+            android:dividerHeight="@dimen/divider"></ListView>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_stop_monitor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@mipmap/stopwatch" />
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12.5dp">
+
+        <ImageButton
+            android:id="@+id/ib_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@color/transparent"
+            android:src="@mipmap/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/state_monitor"
+            android:textColor="@color/white"
+            android:textSize="@dimen/title_font" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -17,6 +17,8 @@ import android.widget.TextView;
 
 import com.adrian.servodriver.R;
 import com.adrian.servodriver.pojo.ParamBean;
+import com.blankj.utilcode.util.ScreenUtils;
+import com.blankj.utilcode.util.SizeUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,9 +55,9 @@ public class ParamListAdapter extends PanelListAdapter {
     @Override
     public void initAdapter() {
         setTitle("名称\\值");//设置表的标题
-        setTitleHeight(100);//设置表标题的高
-        setTitleWidth(270);//设置表标题的宽
-        setTitleColor("#00000000");
+        setTitleHeight(SizeUtils.dp2px(36));//设置表标题的高
+        setTitleWidth(SizeUtils.dp2px(90));//设置表标题的宽
+        setTitleColor("#BFE8FE");
         setRowColor("#00000000");
         setColumnColor("#BFE8FE");
         setRowDataList(getRowDataList());//设置横向表头的内容

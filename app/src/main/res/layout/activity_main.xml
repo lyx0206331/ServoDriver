@@ -130,7 +130,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignTop="@id/v_grid_head"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="15dp">
 
         <ListView
             android:id="@+id/lv_content"
