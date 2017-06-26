@@ -8,21 +8,42 @@
     tools:context="com.adrian.servodriver.activities.StateMonitorActivity">
 
     <RelativeLayout
+        android:id="@+id/rl_title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12.5dp">
+
+        <ImageButton
+            android:id="@+id/ib_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@color/transparent"
+            android:src="@mipmap/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/state_monitor"
+            android:textColor="@color/white"
+            android:textSize="@dimen/title_font" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_period"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
         android:layout_marginBottom="30dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="25dp"
-        android:background="@mipmap/monitorbg">
-
+        android:background="@drawable/state_bg"
+        android:gravity="center"
+        android:orientation="horizontal">
         <RelativeLayout
-            android:id="@+id/rl_period"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="30dp">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/tv_period"
@@ -61,12 +82,27 @@
                 android:textColor="@color/period"
                 android:textSize="@dimen/normal_font" />
         </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/ll_period"
+        android:layout_below="@id/rl_title"
+        android:layout_marginBottom="-10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/state_bg"
+        android:orientation="vertical"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp">
 
         <LinearLayout
             android:id="@+id/ll_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <TextView
@@ -101,12 +137,28 @@
             android:id="@+id/lv_state"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@id/rl_period"
             android:layout_below="@id/ll_header"
             android:layout_marginBottom="30dp"
             android:divider="@color/divider"
             android:dividerHeight="@dimen/divider"></ListView>
-    </RelativeLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/ll_period"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="-14dp"
+        android:background="@mipmap/lable" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/ll_period"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="-14dp"
+        android:background="@mipmap/lable" />
 
     <Button
         android:id="@+id/btn_stop_monitor"
@@ -116,27 +168,5 @@
         android:layout_centerHorizontal="true"
         android:background="@mipmap/stopwatch" />
 
-    <RelativeLayout
-        android:id="@+id/rl_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="12.5dp">
-
-        <ImageButton
-            android:id="@+id/ib_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:background="@color/transparent"
-            android:src="@mipmap/back" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@string/state_monitor"
-            android:textColor="@color/white"
-            android:textSize="@dimen/title_font" />
-    </RelativeLayout>
 
 </RelativeLayout>

@@ -34,22 +34,23 @@
     <LinearLayout
         android:layout_width="235dp"
         android:layout_height="84dp"
+        android:layout_gravity="right"
+        android:layout_marginRight="6dp"
+        android:layout_marginTop="-12dp"
         android:background="@mipmap/warning_0"
-        android:orientation="horizontal"
         android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="14dp"
         android:paddingLeft="12dp"
         android:paddingRight="12dp"
-        android:paddingTop="12dp"
-        android:paddingBottom="14dp"
-        android:layout_marginRight="6dp"
-        android:layout_gravity="right">
+        android:paddingTop="12dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/warn_code"
-            android:textSize="@dimen/normal_font"
-            android:textColor="@color/period" />
+            android:textColor="@color/period"
+            android:textSize="@dimen/normal_font" />
 
         <TextView
             android:id="@+id/tv_code"
@@ -63,22 +64,22 @@
     <LinearLayout
         android:layout_width="280dp"
         android:layout_height="84dp"
-        android:orientation="horizontal"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="53dp"
         android:background="@mipmap/warning_1"
         android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="14dp"
         android:paddingLeft="12dp"
         android:paddingRight="12dp"
-        android:paddingTop="12dp"
-        android:paddingBottom="14dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="6dp">
+        android:paddingTop="12dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/warn_content"
-            android:textSize="@dimen/normal_font"
-            android:textColor="@color/period" />
+            android:textColor="@color/period"
+            android:textSize="@dimen/normal_font" />
 
         <TextView
             android:id="@+id/tv_content"
@@ -92,23 +93,23 @@
     <LinearLayout
         android:layout_width="269dp"
         android:layout_height="84dp"
-        android:background="@mipmap/warning_2"
-        android:orientation="horizontal"
-        android:gravity="center"
         android:layout_gravity="right"
+        android:layout_marginRight="6dp"
+        android:layout_marginTop="55dp"
+        android:background="@mipmap/warning_2"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="14dp"
         android:paddingLeft="12dp"
         android:paddingRight="12dp"
-        android:paddingTop="12dp"
-        android:paddingBottom="14dp"
-        android:layout_marginRight="6dp"
-        android:layout_marginTop="40dp">
+        android:paddingTop="12dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/warn_reason"
-            android:textSize="@dimen/normal_font"
-            android:textColor="@color/period" />
+            android:textColor="@color/period"
+            android:textSize="@dimen/normal_font" />
 
         <TextView
             android:id="@+id/tv_reason"
@@ -122,28 +123,28 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="40dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="106dp"
-            android:orientation="horizontal"
             android:layout_marginTop="24dp"
+            android:background="@mipmap/warning_3_1"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="14dp"
             android:paddingLeft="40dp"
             android:paddingRight="40dp"
-            android:paddingTop="14dp"
-            android:paddingBottom="14dp"
-            android:gravity="center"
-            android:background="@mipmap/warning_3_1">
+            android:paddingTop="14dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/solution"
-                android:textSize="@dimen/normal_font"
-                android:textColor="@color/period" />
+                android:textColor="@color/period"
+                android:textSize="@dimen/normal_font" />
 
             <TextView
                 android:id="@+id/tv_solution"
@@ -157,8 +158,8 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@mipmap/coord"
-            android:layout_marginLeft="70dp" />
+            android:layout_marginLeft="70dp"
+            android:background="@mipmap/coord" />
     </RelativeLayout>
 
 </LinearLayout>
