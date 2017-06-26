@@ -8,6 +8,7 @@ import android.view.View;
 import com.adrian.servodriver.R;
 import com.adrian.servodriver.databinding.ActivityHelpBinding;
 import com.blankj.utilcode.util.ToastUtils;
+import com.jaeger.library.StatusBarUtil;
 
 public class HelpActivity extends BaseActivity {
 
@@ -26,6 +27,7 @@ public class HelpActivity extends BaseActivity {
         ActivityHelpBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_help);
         Help help = new Help();
         binding.setHelp(help);
+        StatusBarUtil.setTransparent(this);
     }
 
     @Override

@@ -1,5 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Maxsine</string>
+
+    <string name="online">在线</string>
+    <string name="offline">离线</string>
+    <string name="status">状态:</string>
+    <string name="series">系列:</string>
+    <string name="file">文件</string>
+    <string name="settings">设置</string>
+    <string name="conn">与驱动器通讯</string>
+    <string name="lang">语言</string>
+    <string name="quit">退出</string>
+    <string name="english">英文</string>
+    <string name="chinese">中文</string>
+    <string name="parameter">参数</string>
+    <string name="read">读取</string>
+    <string name="write">写入</string>
+    <string name="eeprom">EEPROM</string>
+    <string name="write_eeprom">写入EEPROM</string>
+    <string name="recovery_setings">恢复出厂设置</string>
+    <string name="assist_tool">辅助工具</string>
+    <string name="ep3_calculator">EP3motion参数计算器</string>
+    <string name="path_calculator">参数路径值计算器</string>
+    <string name="param_backup">参数备份</string>
+    <string name="load_param">加载参数</string>
+    <string name="load">加载</string>
+    <string name="save_param">保存参数</string>
+    <string name="save">保存</string>
+    <string name="other_func">其它功能</string>
+    <string name="fft">FFT</string>
+    <string name="warning">报警</string>
+    <string name="firmware_update">固件升级</string>
+    <string name="state_monitor">状态监视</string>
+    <string name="auto_adjust">自动增益调整</string>
+    <string name="coder_zero">调编码器零点</string>
+    <string name="set_zero">调零</string>
+    <string name="obj_editor">对象编辑器</string>
+    <string name="soft2zero">软回零/软限位</string>
+    <string name="help">帮助</string>
+    <string name="ep1c_help">EP1C增量式的帮助</string>
+    <string name="ep1c_a_help">EP1C-A增量式的帮助</string>
+    <string name="ep3_st_help">EP3标准式的帮助</string>
+    <string name="ep3_io_help">EP3多IO式的帮助</string>
+    <string name="install_usb_driver">安装USB驱动</string>
+    <string name="version_info">版本信息</string>
+    <string name="reboot_effect">重启后生效</string>
+    <string name="immediately_effect">立即生效</string>
+    <string name="read_only">只读状态</string>
+    <string name="about">关于</string>
+    <string name="copy_right">copyright&#169;2017</string>
+
+    <string name="cancel">取消</string>
+    <string name="input_save_name">请输入保存文件名</string>
+    <string name="rename_file">有重名文件</string>
+    <string name="network_error">网络未连接</string>
+    <string name="confirm">确定</string>
+    <string name="request_permission_again">申请手机权限，存储介质读写权限</string>
+    <string name="null_file_name">文件名不能为空</string>
+    <string name="has_same_name">有同名文件</string>
+    <string name="choose_one">请选择加载文件</string>
+    <string name="period">周期:</string>
+    <string name="state_name">状态名称</string>
+    <string name="state_value">状态值</string>
+    <string name="unit">单位</string>
+
+    <string name="warn_code">报警代码:</string>
+    <string name="warn_content">报警内容:</string>
+    <string name="warn_reason">报警原因:</string>
+    <string name="solution">解决方案:</string>
+
+    <string name="quit_prompt">连续两次点击返回退出应用</string>
+    <string name="offical">http://www.maxsine.com</string>
+
+    <string-array name="param_name">
+        <item>伺服型号</item>
+        <item>软件版本</item>
+        <item>控制方式</item>
+        <item>第1速度环增益</item>
+        <item>第1速度环积分时间常数</item>
+        <item>第1转矩滤波时间常数</item>
+        <item>第1位置环增益</item>
+        <item>第2速度环增益</item>
+        <item>第2速度环积分时间常数</item>
+        <item>第2转矩滤波时间常数</item>
+        <item>第2位置环增益</item>
+        <item>负载转动惯量比</item>
+        <item>速度环PDFF控制系数</item>
+        <item>速度检测滤波时间常数</item>
+        <item>位置环前馈增益</item>
+        <item>位置环前馈滤波时间常数</item>
+        <item>速度指令来源</item>
+        <item>转矩指令来源</item>
+        <item>编码器脉冲因子1</item>
+        <item>编码器脉冲因子2</item>
+        <item>指令脉冲电子齿轮第1分子</item>
+        <item>指令脉冲电子齿轮分母</item>
+        <item>指令脉冲电子齿轮第2分子</item>
+        <item>指令脉冲电子齿轮第3分子</item>
+        <item>指令脉冲电子齿轮第4分子</item>
+        <item>指令脉冲输入方式</item>
+        <item>指令脉冲输入方向</item>
+        <item>指令脉冲输入信号逻辑</item>
+        <item>指令脉冲输入信号滤波</item>
+        <item>指令脉冲输入滤波模式</item>
+    </string-array>
+
+    <string-array name="value_name">
+        <!--<item>段号</item>
+        <item>编号</item>
+        <item>参数名称</item>-->
+        <item>最小值</item>
+        <item>最大值</item>
+        <item>默认值</item>
+        <item>当前值</item>
+        <item>单位</item>
+    </string-array>
 
     <string name="baudRate">Baud rate</string>
     <string-array name="baud_rate_1">
@@ -115,4 +230,5 @@
         <item>6</item>
         <item>7</item>
     </string-array>
+
 </resources>

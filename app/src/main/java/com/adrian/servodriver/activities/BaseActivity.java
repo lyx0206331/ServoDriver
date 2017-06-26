@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.view.Window;
 
 import com.adrian.servodriver.R;
@@ -18,14 +19,15 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+//        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
+//        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
 //        StatusBarCompat.compat(this, Color.TRANSPARENT);
 //        setContentView(getLayoutResId());
 //        StatusBarUtil.setColor(this, getResources().getColor(R.color.picton_blue));
         initVariables();
         initViews();
-        StatusBarUtil.setTransparent(this);
+//        StatusBarUtil.setTransparent(this);
         loadData();
     }
 

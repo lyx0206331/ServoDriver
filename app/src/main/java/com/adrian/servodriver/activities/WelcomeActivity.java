@@ -55,7 +55,7 @@ public class WelcomeActivity extends BaseActivity {
     @Override
     protected void initViews() {
         setContentView(R.layout.activity_welcome);
-//        StatusBarUtil.setTransparent(this);
+        StatusBarUtil.setTransparent(this);
 //        mHandler.sendEmptyMessageDelayed(0, 2000);
         if (NetworkUtils.isConnected()) {
             WelcomeActivityPermissionsDispatcher.needsMaxsinePermmissionWithCheck(this);

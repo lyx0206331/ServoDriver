@@ -53,11 +53,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private LinearLayout mZeroLL;
     private LinearLayout mSaveLL;
     private LinearLayout mLoadLL;
+    private LinearLayout mEepromLL;
+    private LinearLayout mRecoveryLL;
     private FloatingActionButton mAddFAB;
     private FloatingActionButton mWriteFAB;
     private FloatingActionButton mZeroFAB;
     private FloatingActionButton mSaveFAB;
     private FloatingActionButton mLoadFAB;
+    private FloatingActionButton mEepromFAB;
+    private FloatingActionButton mRecoveryFAB;
 
     private List<ParamBean> contentList = new ArrayList<>();
 
@@ -82,16 +86,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     protected void initViews() {
         setContentView(R.layout.activity_main);
         StatusBarUtil.setTransparent(this);
-//        StatusBarUtil.setColor(this, getResources().getColor(R.color.picton_blue));
         mMenuIB = (ImageButton) findViewById(R.id.ib_menu);
         mWarningFL = (FrameLayout) findViewById(R.id.fl_warning);
         mWaringPointIV = (ImageView) findViewById(R.id.iv_warning_point);
 
         mMenuDrawer = new DrawerBuilder().withActivity(this).withSliderBackgroundDrawableRes(R.mipmap.menu_bg)
-                .withDisplayBelowStatusBar(false).withTranslucentStatusBar(false)
+                .withDisplayBelowStatusBar(true).withTranslucentStatusBar(false)
                 .withHeader(R.layout.layout_menu_header).withHeaderDivider(true)
                 .addDrawerItems(
-                        new PrimaryDrawerItem().withName(R.string.write_eeprom).withIcon(Octicons.Icon.oct_pencil),
+//                        new PrimaryDrawerItem().withName(R.string.write_eeprom).withIcon(Octicons.Icon.oct_pencil),
 //                        new PrimaryDrawerItem().withName(R.string.coder_zero).withIcon(Octicons.Icon.oct_file_binary),
 //                        new PrimaryDrawerItem().withName(R.string.load_param).withIcon(Octicons.Icon.oct_zap),
 //                        new PrimaryDrawerItem().withName(R.string.save_param).withIcon(Octicons.Icon.oct_sign_in),
@@ -99,7 +102,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                         new PrimaryDrawerItem().withName(R.string.firmware_update).withIcon(Octicons.Icon.oct_ruby),
                         new PrimaryDrawerItem().withName(R.string.state_monitor).withIcon(Octicons.Icon.oct_eye),
                         new PrimaryDrawerItem().withName(R.string.auto_adjust).withIcon(Octicons.Icon.oct_settings),
-                        new PrimaryDrawerItem().withName(R.string.recovery_setings).withIcon(Octicons.Icon.oct_sync),
+//                        new PrimaryDrawerItem().withName(R.string.recovery_setings).withIcon(Octicons.Icon.oct_sync),
                         new PrimaryDrawerItem().withName(R.string.fft).withIcon(Octicons.Icon.oct_graph),
                         new PrimaryDrawerItem().withName(R.string.help).withIcon(Octicons.Icon.oct_question),
                         new PrimaryDrawerItem().withName(R.string.about).withIcon(Octicons.Icon.oct_info)
@@ -125,8 +128,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 //                            LogUtils.e("MENU", "pos" + position);
                             switch (position) {
                                 case 1:
-                                    break;
-                                case 2:
                                     if (drawerItem instanceof Badgeable) {
                                         Badgeable badgeable = (Badgeable) drawerItem;
                                         if (badgeable.getBadge() != null) {
@@ -141,23 +142,21 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                                     }
                                     goWarningPage();
                                     break;
-                                case 3:
+                                case 2:
                                     break;
-                                case 4:
+                                case 3:
                                     startActivity(StateMonitorActivity.class);
                                     break;
-                                case 5:
+                                case 4:
                                     startActivity(AutoAdjustActivity.class);
                                     break;
-                                case 6:
-                                    break;
-                                case 7:
+                                case 5:
                                     startActivity(FFTActivity.class);
                                     break;
-                                case 8:
+                                case 6:
                                     startActivity(HelpActivity.class);
                                     break;
-                                case 9:
+                                case 7:
                                     startActivity(AboutActivity.class);
                                     break;
                                 default:
@@ -206,16 +205,22 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mZeroLL = (LinearLayout) findViewById(R.id.ll_zero);
         mSaveLL = (LinearLayout) findViewById(R.id.ll_save);
         mLoadLL = (LinearLayout) findViewById(R.id.ll_load);
+        mEepromLL = (LinearLayout) findViewById(R.id.ll_eeprom);
+        mRecoveryLL = (LinearLayout) findViewById(R.id.ll_recovery);
         mAddFAB = (FloatingActionButton) findViewById(R.id.fab_add);
         mWriteFAB = (FloatingActionButton) findViewById(R.id.fab_commit);
         mZeroFAB = (FloatingActionButton) findViewById(R.id.fab_zero);
         mSaveFAB = (FloatingActionButton) findViewById(R.id.fab_save);
         mLoadFAB = (FloatingActionButton) findViewById(R.id.fab_load);
+        mEepromFAB = (FloatingActionButton) findViewById(R.id.fab_eeprom);
+        mRecoveryFAB = (FloatingActionButton) findViewById(R.id.fab_recovery);
         mAddFAB.setOnClickListener(this);
         mWriteFAB.setOnClickListener(this);
         mZeroFAB.setOnClickListener(this);
         mSaveFAB.setOnClickListener(this);
         mLoadFAB.setOnClickListener(this);
+        mEepromFAB.setOnClickListener(this);
+        mRecoveryFAB.setOnClickListener(this);
 
         getAnimations();
     }
@@ -294,10 +299,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mWriteLL.startAnimation(fabOpenAnimation);
         mSaveLL.startAnimation(fabOpenAnimation);
         mLoadLL.startAnimation(fabOpenAnimation);
+        mEepromLL.startAnimation(fabOpenAnimation);
+        mRecoveryLL.startAnimation(fabOpenAnimation);
         mZeroFAB.setClickable(true);
         mWriteFAB.setClickable(true);
         mSaveFAB.setClickable(true);
         mLoadFAB.setClickable(true);
+        mEepromFAB.setClickable(true);
+        mRecoveryFAB.setClickable(true);
         isFabMenuOpen = true;
 
 
@@ -310,10 +319,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mWriteLL.startAnimation(fabCloseAnimation);
         mSaveLL.startAnimation(fabCloseAnimation);
         mLoadLL.startAnimation(fabCloseAnimation);
+        mEepromLL.startAnimation(fabCloseAnimation);
+        mRecoveryLL.startAnimation(fabCloseAnimation);
         mZeroFAB.setClickable(false);
         mWriteFAB.setClickable(false);
         mSaveFAB.setClickable(false);
         mLoadFAB.setClickable(false);
+        mEepromFAB.setClickable(false);
+        mRecoveryFAB.setClickable(false);
         isFabMenuOpen = false;
 
     }
@@ -369,6 +382,18 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     mLoadParamDialog = new LoadDialog(this);
                 }
                 mLoadParamDialog.show();
+                break;
+            case R.id.fab_eeprom:
+                if (isFabMenuOpen) {
+                    collapseFabMenu();
+                }
+                ToastUtils.showShortSafe(R.string.write_eeprom);
+                break;
+            case R.id.fab_recovery:
+                if (isFabMenuOpen) {
+                    collapseFabMenu();
+                }
+                ToastUtils.showShortSafe(R.string.recovery_setings);
                 break;
         }
     }

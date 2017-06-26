@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/bg"
+    android:background="@mipmap/warn_bg"
     android:orientation="vertical"
     tools:context="com.adrian.servodriver.activities.WarnActivity">
 
@@ -29,6 +29,136 @@
             android:text="@string/warning"
             android:textColor="@color/white"
             android:textSize="@dimen/title_font" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="235dp"
+        android:layout_height="84dp"
+        android:background="@mipmap/warning_0"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="14dp"
+        android:layout_marginRight="6dp"
+        android:layout_gravity="right">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/warn_code"
+            android:textSize="@dimen/normal_font"
+            android:textColor="@color/period" />
+
+        <TextView
+            android:id="@+id/tv_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Err20"
+            android:textColor="@color/warn_code"
+            android:textSize="@dimen/normal_font" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="280dp"
+        android:layout_height="84dp"
+        android:orientation="horizontal"
+        android:background="@mipmap/warning_1"
+        android:gravity="center"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="14dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="6dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/warn_content"
+            android:textSize="@dimen/normal_font"
+            android:textColor="@color/period" />
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EEROM写入时错误"
+            android:textColor="@color/warn_content"
+            android:textSize="@dimen/normal_font" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="269dp"
+        android:layout_height="84dp"
+        android:background="@mipmap/warning_2"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_gravity="right"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="14dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginTop="40dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/warn_reason"
+            android:textSize="@dimen/normal_font"
+            android:textColor="@color/period" />
+
+        <TextView
+            android:id="@+id/tv_reason"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EEROM芯片损坏"
+            android:textColor="@color/warn_reason"
+            android:textSize="@dimen/normal_font" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="106dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="24dp"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp"
+            android:gravity="center"
+            android:background="@mipmap/warning_3_1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/solution"
+                android:textSize="@dimen/normal_font"
+                android:textColor="@color/period" />
+
+            <TextView
+                android:id="@+id/tv_solution"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="重新上电检查故障不消失请更换驱动器！"
+                android:textColor="@color/solution"
+                android:textSize="@dimen/normal_font" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/coord"
+            android:layout_marginLeft="70dp" />
     </RelativeLayout>
 
 </LinearLayout>

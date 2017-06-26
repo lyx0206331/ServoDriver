@@ -20,5 +20,10 @@
     <color name="pressed_font">#F89D92</color>
     <color name="divider">#F1F1F1</color>
     <color name="normal_font">#85859A</color>
-    <color name="period">#AECEE6</color>
+    <color name="period">#7bb0d8</color>
+
+    <color name="warn_code">#f93755</color>
+    <color name="warn_content">#6464f4</color>
+    <color name="warn_reason">#a04ceb</color>
+    <color name="solution">#ffbc3b</color>
 </resources>

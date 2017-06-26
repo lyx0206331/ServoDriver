@@ -11,6 +11,7 @@ import android.widget.ListView;
 
 import com.adrian.servodriver.R;
 import com.blankj.utilcode.util.ToastUtils;
+import com.jaeger.library.StatusBarUtil;
 
 public class StateMonitorActivity extends BaseActivity implements View.OnClickListener {
 
@@ -32,6 +33,7 @@ public class StateMonitorActivity extends BaseActivity implements View.OnClickLi
     @Override
     protected void initViews() {
         setContentView(R.layout.activity_state_monitor);
+        StatusBarUtil.setTransparent(this);
         mBackIV = (ImageButton) findViewById(R.id.ib_back);
         mStopBtn = (Button) findViewById(R.id.btn_stop_monitor);
         mStateLV = (ListView) findViewById(R.id.lv_state);

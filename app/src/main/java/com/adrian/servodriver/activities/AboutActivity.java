@@ -35,7 +35,7 @@ public class AboutActivity extends BaseActivity {
         About about = new About();
         about.setVersion("v" + AppUtils.getAppVersionName());
         binding.setAbout(about);
-//        StatusBarUtil.setTransparent(this);
+        StatusBarUtil.setTransparent(this);
     }
 
     @Override

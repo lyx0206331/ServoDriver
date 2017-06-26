@@ -51,8 +51,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
             android:text="@{about.version}"
-            android:textColor="@color/normal_font"
+            android:textColor="@color/white"
+            android:textSize="@dimen/normal_font" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:autoLink="web"
+            android:text="@string/offical"
+            android:textColor="@color/white"
             android:textSize="@dimen/normal_font" />
 
     </LinearLayout>
