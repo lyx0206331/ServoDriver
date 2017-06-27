@@ -98,14 +98,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 //                        new PrimaryDrawerItem().withName(R.string.coder_zero).withIcon(Octicons.Icon.oct_file_binary),
 //                        new PrimaryDrawerItem().withName(R.string.load_param).withIcon(Octicons.Icon.oct_zap),
 //                        new PrimaryDrawerItem().withName(R.string.save_param).withIcon(Octicons.Icon.oct_sign_in),
-                        new PrimaryDrawerItem().withName(R.string.warning).withIcon(Octicons.Icon.oct_alert).withBadge("1").withIdentifier(1),
-                        new PrimaryDrawerItem().withName(R.string.firmware_update).withIcon(Octicons.Icon.oct_ruby),
-                        new PrimaryDrawerItem().withName(R.string.state_monitor).withIcon(Octicons.Icon.oct_eye),
-                        new PrimaryDrawerItem().withName(R.string.auto_adjust).withIcon(Octicons.Icon.oct_settings),
+                        new PrimaryDrawerItem().withName(R.string.warning).withIcon(Octicons.Icon.oct_alert).withSelectedColorRes(R.color.menu_bg).withBadge("1").withIdentifier(1),
+                        new PrimaryDrawerItem().withName(R.string.firmware_update).withIcon(Octicons.Icon.oct_ruby).withSelectedColorRes(R.color.menu_bg),
+                        new PrimaryDrawerItem().withName(R.string.state_monitor).withIcon(Octicons.Icon.oct_eye).withSelectedColorRes(R.color.menu_bg),
+                        new PrimaryDrawerItem().withName(R.string.auto_adjust).withIcon(Octicons.Icon.oct_settings).withSelectedColorRes(R.color.menu_bg),
 //                        new PrimaryDrawerItem().withName(R.string.recovery_setings).withIcon(Octicons.Icon.oct_sync),
-                        new PrimaryDrawerItem().withName(R.string.fft).withIcon(Octicons.Icon.oct_graph),
-                        new PrimaryDrawerItem().withName(R.string.help).withIcon(Octicons.Icon.oct_question),
-                        new PrimaryDrawerItem().withName(R.string.about).withIcon(Octicons.Icon.oct_info)
+                        new PrimaryDrawerItem().withName(R.string.fft).withIcon(Octicons.Icon.oct_graph).withSelectedColorRes(R.color.menu_bg),
+                        new PrimaryDrawerItem().withName(R.string.help).withIcon(Octicons.Icon.oct_question).withSelectedColorRes(R.color.menu_bg),
+                        new PrimaryDrawerItem().withName(R.string.about).withIcon(Octicons.Icon.oct_info).withSelectedColorRes(R.color.menu_bg)
                 ).withOnDrawerListener(new Drawer.OnDrawerListener() {
                     @Override
                     public void onDrawerOpened(View drawerView) {
@@ -226,7 +226,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void goWarningPage() {
-        ToastUtils.showShortSafe(R.string.warning);
         IDrawerItem drawerItem = mMenuDrawer.getDrawerItem(1);
         if (drawerItem instanceof Badgeable) {
             Badgeable badgeable = (Badgeable) drawerItem;

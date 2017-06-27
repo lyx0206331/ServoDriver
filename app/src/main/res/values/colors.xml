@@ -26,4 +26,6 @@
     <color name="warn_content">#6464f4</color>
     <color name="warn_reason">#a04ceb</color>
     <color name="solution">#ffbc3b</color>
+    <color name="fillet_stroke">#A8E0FB</color>
+    <color name="menu_bg">#F9F9F9</color>
 </resources>
