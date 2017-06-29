@@ -78,6 +78,19 @@
     <string name="p2_04">P2-04 第2共振陷波器品质因数:</string>
     <string name="p2_05">P2-05 第2共振陷波器深度:</string>
 
+    <string name="rigid_hierarchy">刚性等级</string>
+    <string name="inertia_ratio">惯量比</string>
+    <string name="calcutate_gain">计算增益</string>
+    <string name="auto_illation">自动惯量推定</string>
+    <string name="read_param">读取参数</string>
+    <string name="calcutate_result">计算结果区</string>
+    <string name="dayz_content">私服内容区</string>
+    <string name="p0_17">P0-17 负载转动惯量比</string>
+    <string name="p0_09">P0-09 位置环增益</string>
+    <string name="p0_05">P0-05 速度环增益</string>
+    <string name="p0_06">P0-06 速度环积分时间常数</string>
+    <string name="p0_19">P0-19 速度检测滤波时间常数</string>
+
     <string name="quit_prompt">连续两次点击返回退出应用</string>
     <string name="offical">http://www.maxsine.com</string>
 

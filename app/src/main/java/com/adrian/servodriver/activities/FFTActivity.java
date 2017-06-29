@@ -59,7 +59,19 @@ public class FFTActivity extends BaseActivity implements View.OnClickListener {
         mBackIB = (ImageButton) findViewById(R.id.ib_back);
         mCheckBtn = (Button) findViewById(R.id.btn_check);
         mChart = (LineChart) findViewById(R.id.chart);
+        mP200NS = (NumSelector) findViewById(R.id.ns_p2_00);
+        mP201NS = (NumSelector) findViewById(R.id.ns_p2_01);
+        mP202NS = (NumSelector) findViewById(R.id.ns_p2_02);
+        mP203NS = (NumSelector) findViewById(R.id.ns_p2_03);
+        mP204NS = (NumSelector) findViewById(R.id.ns_p2_04);
+        mP205NS = (NumSelector) findViewById(R.id.ns_p2_05);
 
+        mP200NS.setUnit("Hz");
+        mP201NS.setUnit("--");
+        mP202NS.setUnit("%");
+        mP203NS.setUnit("Hz");
+        mP204NS.setUnit("--");
+        mP205NS.setUnit("%");
 
         mBackIB.setOnClickListener(this);
         mCheckBtn.setOnClickListener(this);

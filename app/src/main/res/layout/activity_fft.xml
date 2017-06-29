@@ -31,40 +31,41 @@
             android:textSize="@dimen/title_font" />
     </RelativeLayout>
 
+    <FrameLayout
+        android:id="@+id/fl_chart"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:background="@drawable/shape_fillet_white"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp">
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/chart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_weight="1.0">
+        android:layout_weight="1.0"
+        android:scrollbars="none">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <FrameLayout
-                android:id="@+id/fl_chart"
-                android:layout_width="match_parent"
-                android:layout_height="140dp"
-                android:layout_marginLeft="4dp"
-                android:layout_marginRight="4dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:background="@drawable/shape_fillet_white">
-
-                <com.github.mikephil.charting.charts.LineChart
-                    android:id="@+id/chart"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-            </FrameLayout>
-
             <LinearLayout
                 android:id="@+id/ll_fist_trapper"
                 android:layout_width="match_parent"
                 android:layout_height="74dp"
-                android:background="@mipmap/fftbglitle0"
                 android:layout_marginTop="5dp"
-                android:layout_below="@id/fl_chart"
+                android:background="@mipmap/fftbglitle0"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -73,24 +74,24 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1.0"
                     android:gravity="center"
-                    android:textSize="@dimen/normal_font"
+                    android:text="@string/first_trapper"
                     android:textColor="@color/white"
-                    android:text="@string/first_trapper" />
+                    android:textSize="@dimen/normal_font" />
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
                     android:layout_weight="2.6"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
+                        android:text="@string/p2_00"
                         android:textColor="@color/period"
-                        android:textSize="@dimen/normal_font"
-                        android:text="@string/p2_00" />
+                        android:textSize="@dimen/normal_font" />
 
                     <com.adrian.servodriver.views.NumSelector
                         android:id="@+id/ns_p2_00"
@@ -103,19 +104,19 @@
                 android:id="@+id/ll_p2_01"
                 android:layout_width="249dp"
                 android:layout_height="74dp"
-                android:orientation="vertical"
+                android:layout_alignParentRight="true"
                 android:layout_below="@id/ll_fist_trapper"
                 android:background="@mipmap/fftbglittle"
-                android:layout_alignParentRight="true"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
+                    android:text="@string/p2_01"
                     android:textColor="@color/period"
-                    android:textSize="@dimen/normal_font"
-                    android:text="@string/p2_01" />
+                    android:textSize="@dimen/normal_font" />
 
                 <com.adrian.servodriver.views.NumSelector
                     android:id="@+id/ns_p2_01"
@@ -127,19 +128,19 @@
                 android:id="@+id/ll_p2_02"
                 android:layout_width="249dp"
                 android:layout_height="74dp"
-                android:orientation="vertical"
+                android:layout_alignParentRight="true"
                 android:layout_below="@id/ll_p2_01"
                 android:background="@mipmap/fftbglittle"
-                android:layout_alignParentRight="true"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
+                    android:text="@string/p2_02"
                     android:textColor="@color/period"
-                    android:textSize="@dimen/normal_font"
-                    android:text="@string/p2_02" />
+                    android:textSize="@dimen/normal_font" />
 
                 <com.adrian.servodriver.views.NumSelector
                     android:id="@+id/ns_p2_02"
@@ -151,9 +152,9 @@
                 android:id="@+id/ll_second_trapper"
                 android:layout_width="match_parent"
                 android:layout_height="74dp"
-                android:background="@mipmap/fftbglitle0"
-                android:layout_marginTop="5dp"
                 android:layout_below="@id/ll_p2_02"
+                android:layout_marginTop="5dp"
+                android:background="@mipmap/fftbglitle0"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -162,24 +163,24 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1.0"
                     android:gravity="center"
-                    android:textSize="@dimen/normal_font"
+                    android:text="@string/second_trapper"
                     android:textColor="@color/white"
-                    android:text="@string/second_trapper" />
+                    android:textSize="@dimen/normal_font" />
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
                     android:layout_weight="2.6"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
+                        android:text="@string/p2_03"
                         android:textColor="@color/period"
-                        android:textSize="@dimen/normal_font"
-                        android:text="@string/p2_03" />
+                        android:textSize="@dimen/normal_font" />
 
                     <com.adrian.servodriver.views.NumSelector
                         android:id="@+id/ns_p2_03"
@@ -192,19 +193,19 @@
                 android:id="@+id/ll_p2_04"
                 android:layout_width="249dp"
                 android:layout_height="74dp"
-                android:orientation="vertical"
+                android:layout_alignParentRight="true"
                 android:layout_below="@id/ll_second_trapper"
                 android:background="@mipmap/fftbglittle"
-                android:layout_alignParentRight="true"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
+                    android:text="@string/p2_04"
                     android:textColor="@color/period"
-                    android:textSize="@dimen/normal_font"
-                    android:text="@string/p2_04" />
+                    android:textSize="@dimen/normal_font" />
 
                 <com.adrian.servodriver.views.NumSelector
                     android:id="@+id/ns_p2_04"
@@ -216,19 +217,19 @@
                 android:id="@+id/ll_p2_05"
                 android:layout_width="249dp"
                 android:layout_height="74dp"
-                android:orientation="vertical"
+                android:layout_alignParentRight="true"
                 android:layout_below="@id/ll_p2_04"
                 android:background="@mipmap/fftbglittle"
-                android:layout_alignParentRight="true"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
+                    android:text="@string/p2_05"
                     android:textColor="@color/period"
-                    android:textSize="@dimen/normal_font"
-                    android:text="@string/p2_05" />
+                    android:textSize="@dimen/normal_font" />
 
                 <com.adrian.servodriver.views.NumSelector
                     android:id="@+id/ns_p2_05"

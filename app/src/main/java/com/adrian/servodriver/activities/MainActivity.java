@@ -162,9 +162,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                                 default:
                                     break;
                             }
-                            if (drawerItem instanceof Nameable) {
-                                Toast.makeText(MainActivity.this, ((Nameable) drawerItem).getName().getText(MainActivity.this), Toast.LENGTH_SHORT).show();
-                            }
+//                            if (drawerItem instanceof Nameable) {
+//                                Toast.makeText(MainActivity.this, ((Nameable) drawerItem).getName().getText(MainActivity.this), Toast.LENGTH_SHORT).show();
+//                            }
 
                             if (drawerItem instanceof Badgeable) {
                                 Badgeable badgeable = (Badgeable) drawerItem;
