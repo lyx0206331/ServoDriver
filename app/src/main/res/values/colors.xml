@@ -18,7 +18,7 @@
     <color name="rightnow_valid">#FB8A7B</color>
     <color name="read_only">#77D86B</color>
     <color name="pressed_font">#F89D92</color>
-    <color name="divider">#F1F1F1</color>
+    <color name="divider">#44e5fe</color>
     <color name="normal_font">#85859A</color>
     <color name="period">#7bb0d8</color>
 
@@ -28,4 +28,5 @@
     <color name="solution">#ffbc3b</color>
     <color name="fillet_stroke">#A8E0FB</color>
     <color name="menu_bg">#F9F9F9</color>
+    <color name="plus">#44E5FE</color>
 </resources>

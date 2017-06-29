@@ -124,4 +124,5 @@ dependencies {
     compile 'com.github.hotchemi:permissionsdispatcher:2.4.0'
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:2.4.0'
+    compile 'com.github.PhilJay:MPAndroidChart:v3.0.2'
 }

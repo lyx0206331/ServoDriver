@@ -69,6 +69,15 @@
     <string name="warn_reason">报警原因:</string>
     <string name="solution">解决方案:</string>
 
+    <string name="first_trapper">第一陷波器</string>
+    <string name="second_trapper">第二陷波器</string>
+    <string name="p2_00">P2-00 第1共振陷波器频率:</string>
+    <string name="p2_01">P2-01 第1共振陷波器品质因数:</string>
+    <string name="p2_02">P2-02 第1共振陷波器深度:</string>
+    <string name="p2_03">P2-03 第2共振陷波器频率:</string>
+    <string name="p2_04">P2-04 第2共振陷波器品质因数:</string>
+    <string name="p2_05">P2-05 第2共振陷波器深度:</string>
+
     <string name="quit_prompt">连续两次点击返回退出应用</string>
     <string name="offical">http://www.maxsine.com</string>
 
