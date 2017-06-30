@@ -37,6 +37,13 @@ public abstract class BaseActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.right_in, R.anim.left_out);
     }
 
+    protected void startActivity(Class<? extends Activity> dstAct, Bundle bundle) {
+        Intent intent = new Intent(this, dstAct);
+        intent.putExtras(bundle);
+        startActivity(intent);
+        overridePendingTransition(R.anim.right_in, R.anim.left_out);
+    }
+
     public void close() {
         finish();
         overridePendingTransition(R.anim.left_in, R.anim.right_out);
@@ -63,12 +70,6 @@ public abstract class BaseActivity extends AppCompatActivity {
      * @return
      */
 //    protected abstract int getLayoutResId();
-
-    protected void startActivity(Class<? extends BaseActivity> cls, Bundle bundle) {
-        Intent intent = new Intent(this, cls);
-        intent.putExtras(bundle);
-        startActivity(intent);
-    }
 
     public void showProgress(String msg) {
         if (mPd == null) {

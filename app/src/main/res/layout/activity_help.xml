@@ -52,8 +52,60 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="24dp"
+                android:paddingLeft="40dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="40dp"
                 android:background="@mipmap/helpbg"
-                android:orientation="vertical"></LinearLayout>
+                android:orientation="vertical">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.0"
+                    android:drawableLeft="@drawable/ic_help"
+                    android:drawablePadding="10dp"
+                    android:onClick="@{help.clickEp1cHelp}"
+                    android:text="@string/ep1c_help"
+                    android:textSize="@dimen/normal_font"
+                    android:textColor="@color/period"
+                    android:background="@color/transparent" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.0"
+                    android:drawableLeft="@drawable/ic_help"
+                    android:drawablePadding="10dp"
+                    android:onClick="@{help.clickEp1cAHelp}"
+                    android:text="@string/ep1c_a_help"
+                    android:textSize="@dimen/normal_font"
+                    android:textColor="@color/period"
+                    android:background="@color/transparent" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.0"
+                    android:drawableLeft="@drawable/ic_help"
+                    android:drawablePadding="10dp"
+                    android:onClick="@{help.clickEp3StdHelp}"
+                    android:text="@string/ep3_st_help"
+                    android:textSize="@dimen/normal_font"
+                    android:textColor="@color/period"
+                    android:background="@color/transparent" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.0"
+                    android:drawableLeft="@drawable/ic_help"
+                    android:drawablePadding="10dp"
+                    android:onClick="@{help.clickEp3IoHelp}"
+                    android:text="@string/ep3_io_help"
+                    android:textSize="@dimen/normal_font"
+                    android:textColor="@color/period"
+                    android:background="@color/transparent" />
+            </LinearLayout>
 
             <Button
                 android:id="@+id/btn_disconn"

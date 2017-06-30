@@ -70,6 +70,8 @@
                 android:layout_alignRight="@id/iv_line"
                 android:background="@null"
                 android:gravity="center"
+                android:singleLine="true"
+                android:inputType="number"
                 android:text="300"
                 android:textColor="@color/normal_font"
                 android:textSize="@dimen/normal_font" />

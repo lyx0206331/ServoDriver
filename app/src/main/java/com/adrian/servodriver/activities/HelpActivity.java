@@ -52,5 +52,33 @@ public class HelpActivity extends BaseActivity {
         public void clickDisconnect(View view) {
             ToastUtils.showShortSafe("断开连接");
         }
+
+        public void clickEp1cHelp(View view) {
+            Bundle bundle = new Bundle();
+            bundle.putString("title", getString(R.string.ep1c_help));
+            bundle.putInt("type", 0);
+            startActivity(ChmReaderActivity.class, bundle);
+        }
+
+        public void clickEp1cAHelp(View view) {
+            Bundle bundle = new Bundle();
+            bundle.putString("title", getString(R.string.ep1c_a_help));
+            bundle.putInt("type", 1);
+            startActivity(ChmReaderActivity.class, bundle);
+        }
+
+        public void clickEp3StdHelp(View view) {
+            Bundle bundle = new Bundle();
+            bundle.putString("title", getString(R.string.ep3_st_help));
+            bundle.putInt("type", 2);
+            startActivity(ChmReaderActivity.class, bundle);
+        }
+
+        public void clickEp3IoHelp(View view) {
+            Bundle bundle = new Bundle();
+            bundle.putString("title", getString(R.string.ep3_io_help));
+            bundle.putInt("type", 3);
+            startActivity(ChmReaderActivity.class, bundle);
+        }
     }
 }

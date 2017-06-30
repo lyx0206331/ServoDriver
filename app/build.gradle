@@ -122,7 +122,9 @@ dependencies {
     compile 'com.github.z3896823:PanelList:v1.1.0.1'
     compile 'com.classic.common:multiple-status-view:1.2'
     compile 'com.github.hotchemi:permissionsdispatcher:2.4.0'
+    compile 'com.github.PhilJay:MPAndroidChart:v3.0.2'
+    compile 'com.ahmadnemati.clickablewebview:clickablewebview:1.1.2'
+    compile 'org.ccil.cowan.tagsoup:tagsoup:1.2.1'
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:2.4.0'
-    compile 'com.github.PhilJay:MPAndroidChart:v3.0.2'
 }
