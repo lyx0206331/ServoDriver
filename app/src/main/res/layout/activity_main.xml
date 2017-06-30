@@ -58,7 +58,7 @@
         android:layout_height="match_parent"
         android:layout_below="@id/rl_title"
         android:layout_marginTop="50dp"
-        android:background="@color/gray" />
+        android:background="@color/divider" />
 
     <RelativeLayout
         android:id="@+id/rl_color_label"

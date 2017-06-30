@@ -91,6 +91,10 @@
     <string name="p0_06">P0-06 速度环积分时间常数</string>
     <string name="p0_19">P0-19 速度检测滤波时间常数</string>
 
+    <string name="info_prompt">信息提示</string>
+    <string name="dev_disconn">设备连接已断开</string>
+    <string name="know">知道了</string>
+
     <string name="quit_prompt">连续两次点击返回退出应用</string>
     <string name="offical">http://www.maxsine.com</string>
 

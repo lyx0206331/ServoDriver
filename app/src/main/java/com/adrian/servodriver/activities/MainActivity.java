@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.adrian.servodriver.R;
 import com.adrian.servodriver.adapter.ParamListAdapter;
 import com.adrian.servodriver.pojo.ParamBean;
+import com.adrian.servodriver.views.ExceptDialog;
 import com.adrian.servodriver.views.LoadDialog;
 import com.adrian.servodriver.views.SaveDialog;
 import com.blankj.utilcode.util.ToastUtils;
@@ -71,6 +72,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private SaveDialog mSaveFileDialog;
     private LoadDialog mLoadParamDialog;
+    private ExceptDialog mExceptDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -357,6 +359,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     collapseFabMenu();
                 }
                 ToastUtils.showShortSafe(R.string.write);
+                showExcDialog("写入伺服驱动器失败");
                 break;
             case R.id.fab_zero:
                 if (isFabMenuOpen) {
@@ -395,6 +398,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 ToastUtils.showShortSafe(R.string.recovery_setings);
                 break;
         }
+    }
+
+    private void showExcDialog(String content) {
+        if (mExceptDialog == null) {
+            mExceptDialog = new ExceptDialog(this);
+        }
+//        mExceptDialog.setContent(content);
+        mExceptDialog.show();
     }
 
     /**

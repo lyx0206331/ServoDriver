@@ -30,6 +30,25 @@
             android:text="@string/help"
             android:textColor="@color/white"
             android:textSize="@dimen/title_font" />
+
+        <ImageButton
+            android:id="@+id/ib_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@color/transparent"
+            app:srcCompat="@drawable/ic_next_page" />
+
+        <ImageButton
+            android:id="@+id/ib_last"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/ib_next"
+            android:background="@color/transparent"
+            app:srcCompat="@drawable/ic_last_page" />
     </RelativeLayout>
 
     <ProgressBar

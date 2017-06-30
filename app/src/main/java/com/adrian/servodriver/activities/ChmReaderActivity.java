@@ -13,6 +13,7 @@ import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageButton;
@@ -36,10 +37,13 @@ public class ChmReaderActivity extends BaseActivity implements View.OnClickListe
     public static String chmFilePath = "", extractPath, md5File;
     private ImageButton mBackIB;
     private TextView mTitleTV;
+    private ImageButton mNextPageIB;
+    private ImageButton mLastPageIB;
     private WebView webview;
     private ProgressDialog progress;
     private ProgressBar progressLoadWeb;
     private ArrayList<String> listSite;
+    private int tempIndex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,29 +60,36 @@ public class ChmReaderActivity extends BaseActivity implements View.OnClickListe
         StatusBarUtil.setTransparent(this);
         mBackIB = (ImageButton) findViewById(R.id.ib_back);
         mTitleTV = (TextView) findViewById(R.id.tv_title);
+        mNextPageIB = (ImageButton) findViewById(R.id.ib_next);
+        mLastPageIB = (ImageButton) findViewById(R.id.ib_last);
         Bundle bundle = getIntent().getExtras();
         mTitleTV.setText(bundle.getString("title"));
         mBackIB.setOnClickListener(this);
+        mNextPageIB.setOnClickListener(this);
+        mLastPageIB.setOnClickListener(this);
 
         switch (bundle.getInt("type")) {
             case 0:
-                chmFilePath = Constants.ROOT_PATH + Constants.HELP + "test.chm";
+                chmFilePath = Constants.ROOT_PATH + Constants.HELP + "EP1C_Increment_CN.chm";
                 break;
             case 1:
-                chmFilePath = Constants.ROOT_PATH + Constants.HELP + "PowerCollections.chm";
+                chmFilePath = Constants.ROOT_PATH + Constants.HELP + "EP1C-A_Increment_CN.chm";
                 break;
             case 2:
-                chmFilePath = Constants.ROOT_PATH + Constants.HELP + "test.chm";
+                chmFilePath = Constants.ROOT_PATH + Constants.HELP + "EP3_Standard_CN.chm";
                 break;
             case 3:
-                chmFilePath = Constants.ROOT_PATH + Constants.HELP + "PowerCollections.chm";
+                chmFilePath = Constants.ROOT_PATH + Constants.HELP + "EP3_Multi_IO_CN.chm";
                 break;
         }
         Utils.chm = null;
         listSite = new ArrayList<>();
 
         webview = (WebView) findViewById(R.id.webview);
-        webview.getSettings().setJavaScriptEnabled(true);
+        WebSettings settings = webview.getSettings();
+        settings.setJavaScriptEnabled(true);
+        settings.setDefaultTextEncodingName("GBK");
+
         webview.setWebChromeClient(new WebChromeClient() {
             @Override
             public void onProgressChanged(WebView view, int newProgress) {
@@ -267,13 +278,50 @@ public class ChmReaderActivity extends BaseActivity implements View.OnClickListe
         return super.onKeyDown(keyCode, event);
     }
 
+    private void goLastPage() {
+        String temp = webview.getUrl().replaceAll("%20", " ").substring(("file://" + extractPath).length() + 1);
+        if (temp.contains("#")) {
+            temp = temp.substring(0, temp.indexOf("#"));
+        }
+        if (temp.contains("?")) {
+            temp = temp.substring(0, temp.indexOf("?"));
+        }
+        tempIndex = listSite.indexOf(temp);
+        if (tempIndex == 1) {
+            ToastUtils.showShortSafe("first site");
+        } else {
+            webview.loadUrl("file://" + extractPath + "/" + listSite.get(tempIndex - 1));
+        }
+    }
+
+    private void goNextPage() {
+        String temp = webview.getUrl().replaceAll("%20", " ").substring(("file://" + extractPath).length() + 1);
+        if (temp.contains("#")) {
+            temp = temp.substring(0, temp.indexOf("#"));
+        }
+        if (temp.contains("?")) {
+            temp = temp.substring(0, temp.indexOf("?"));
+        }
+        tempIndex = listSite.indexOf(temp);
+        if (tempIndex == listSite.size() - 1) {
+            ToastUtils.showShortSafe("end site");
+        } else {
+            webview.loadUrl("file://" + extractPath + "/" + listSite.get(tempIndex + 1));
+        }
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.ib_back:
                 close();
                 break;
-
+            case R.id.ib_next:
+                goNextPage();
+                break;
+            case R.id.ib_last:
+                goLastPage();
+                break;
         }
     }
 }

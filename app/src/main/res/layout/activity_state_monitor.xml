@@ -70,8 +70,8 @@
                 android:layout_alignRight="@id/iv_line"
                 android:background="@null"
                 android:gravity="center"
-                android:singleLine="true"
                 android:inputType="number"
+                android:singleLine="true"
                 android:text="300"
                 android:textColor="@color/normal_font"
                 android:textSize="@dimen/normal_font" />
@@ -141,7 +141,7 @@
             android:layout_height="match_parent"
             android:layout_below="@id/ll_header"
             android:layout_marginBottom="30dp"
-            android:divider="@color/gray"
+            android:divider="@color/divider"
             android:dividerHeight="@dimen/divider" />
     </LinearLayout>
 
