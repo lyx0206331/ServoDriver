@@ -2,6 +2,8 @@ package com.adrian.servodriver.application;
 
 import android.app.Application;
 
+import com.adrian.servodriver.utils.Constants;
+import com.adrian.servodriver.utils.FileUtil;
 import com.blankj.utilcode.util.Utils;
 
 /**
@@ -23,5 +25,7 @@ public class MyApplication extends Application {
         instance = this;
 
         Utils.init(this);
+
+        FileUtil.getInstance(this).copyAssetsToSD("help", Constants.ROOT_PATH + Constants.HELP);
     }
 }

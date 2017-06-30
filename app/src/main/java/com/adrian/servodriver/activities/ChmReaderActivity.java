@@ -6,7 +6,6 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Environment;
 import android.support.annotation.RequiresApi;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -19,9 +18,9 @@ import android.webkit.WebViewClient;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.adrian.servodriver.R;
+import com.adrian.servodriver.utils.Constants;
 import com.adrian.servodriver.utils.chm.Utils;
 import com.ahmadnemati.clickablewebview.ClickableWebView;
 import com.ahmadnemati.clickablewebview.listener.OnWebViewClicked;
@@ -34,11 +33,10 @@ import java.util.ArrayList;
 
 public class ChmReaderActivity extends BaseActivity implements View.OnClickListener {
 
+    public static String chmFilePath = "", extractPath, md5File;
     private ImageButton mBackIB;
     private TextView mTitleTV;
-
     private WebView webview;
-    public static String chmFilePath = "", extractPath, md5File;
     private ProgressDialog progress;
     private ProgressBar progressLoadWeb;
     private ArrayList<String> listSite;
@@ -50,9 +48,6 @@ public class ChmReaderActivity extends BaseActivity implements View.OnClickListe
 
     @Override
     protected void initVariables() {
-        chmFilePath = Environment.getExternalStorageDirectory().getPath() + "/test.chm";
-        Utils.chm = null;
-        listSite = new ArrayList<>();
     }
 
     @Override
@@ -61,8 +56,26 @@ public class ChmReaderActivity extends BaseActivity implements View.OnClickListe
         StatusBarUtil.setTransparent(this);
         mBackIB = (ImageButton) findViewById(R.id.ib_back);
         mTitleTV = (TextView) findViewById(R.id.tv_title);
-        mTitleTV.setText(getIntent().getExtras().getString("title"));
+        Bundle bundle = getIntent().getExtras();
+        mTitleTV.setText(bundle.getString("title"));
         mBackIB.setOnClickListener(this);
+
+        switch (bundle.getInt("type")) {
+            case 0:
+                chmFilePath = Constants.ROOT_PATH + Constants.HELP + "test.chm";
+                break;
+            case 1:
+                chmFilePath = Constants.ROOT_PATH + Constants.HELP + "PowerCollections.chm";
+                break;
+            case 2:
+                chmFilePath = Constants.ROOT_PATH + Constants.HELP + "test.chm";
+                break;
+            case 3:
+                chmFilePath = Constants.ROOT_PATH + Constants.HELP + "PowerCollections.chm";
+                break;
+        }
+        Utils.chm = null;
+        listSite = new ArrayList<>();
 
         webview = (WebView) findViewById(R.id.webview);
         webview.getSettings().setJavaScriptEnabled(true);

@@ -8,4 +8,5 @@ import android.os.Environment;
 
 public class Constants {
     public static final String ROOT_PATH = Environment.getExternalStorageDirectory().getPath() + "/Maxsine/";
+    public static final String HELP = "help/";
 }
