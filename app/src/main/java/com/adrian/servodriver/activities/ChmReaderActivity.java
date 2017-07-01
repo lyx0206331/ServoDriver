@@ -115,6 +115,9 @@ public class ChmReaderActivity extends BaseActivity implements View.OnClickListe
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
                 progressLoadWeb.setProgress(100);
+                if (tempIndex == 0) {//第一页为空白，所以进入第一页后跳转到第二页
+                    goNextPage();
+                }
             }
 
             @Override
@@ -210,6 +213,7 @@ public class ChmReaderActivity extends BaseActivity implements View.OnClickListe
                 ToastUtils.showShortSafe(url);
             }
         });
+        webview.setInitialScale(300);
         progressLoadWeb = (ProgressBar) findViewById(R.id.progressBar);
         progressLoadWeb.setMax(100);
     }
@@ -287,7 +291,7 @@ public class ChmReaderActivity extends BaseActivity implements View.OnClickListe
             temp = temp.substring(0, temp.indexOf("?"));
         }
         tempIndex = listSite.indexOf(temp);
-        if (tempIndex == 1) {
+        if (tempIndex == 2) {   //第一页为空白，所以只让返回到第二页
             ToastUtils.showShortSafe("first site");
         } else {
             webview.loadUrl("file://" + extractPath + "/" + listSite.get(tempIndex - 1));

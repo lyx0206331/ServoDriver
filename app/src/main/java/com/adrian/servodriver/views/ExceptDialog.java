@@ -42,26 +42,23 @@ public class ExceptDialog extends Dialog implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        View view = LayoutInflater.from(context).inflate(R.layout.layout_except_dialog, null, false);
-        setContentView(view);
+        setContentView(R.layout.layout_except_dialog);
 
-        mCloseBtn = (ImageButton) view.findViewById(R.id.ib_close);
-        mTitleTV = (TextView) view.findViewById(R.id.tv_title);
-        mContentTV = (TextView) view.findViewById(R.id.tv_content);
-        mKnowBtn = (Button) view.findViewById(R.id.btn_know);
+        mCloseBtn = (ImageButton) findViewById(R.id.ib_close);
+        mTitleTV = (TextView) findViewById(R.id.tv_title);
+        mContentTV = (TextView) findViewById(R.id.tv_content);
+        mKnowBtn = (Button) findViewById(R.id.btn_know);
 
         mKnowBtn.setOnClickListener(this);
         mCloseBtn.setOnClickListener(this);
     }
 
-    public ExceptDialog setTitle(String title) {
+    public void setTitle(String title) {
         mTitleTV.setText(title);
-        return this;
     }
 
-    public ExceptDialog setContent(String content) {
+    public void setContent(String content) {
         mContentTV.setText(content);
-        return this;
     }
 
     @Override

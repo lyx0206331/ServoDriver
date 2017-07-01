@@ -145,6 +145,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                                     goWarningPage();
                                     break;
                                 case 2:
+                                    showExcDialog(getString(R.string.usb_read_error));
                                     break;
                                 case 3:
                                     startActivity(StateMonitorActivity.class);
@@ -191,7 +192,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mContentLV = (ListView) findViewById(R.id.lv_content);
 
         //设置listView为多选模式，长按自动触发
-//        mContentLV.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+//        mContentLV.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 //        mContentLV.setMultiChoiceModeListener(new MultiChoiceModeCallback());
 
 //        //listView的点击监听
@@ -358,14 +359,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 if (isFabMenuOpen) {
                     collapseFabMenu();
                 }
-                ToastUtils.showShortSafe(R.string.write);
-                showExcDialog("写入伺服驱动器失败");
+//                ToastUtils.showShortSafe(R.string.write);
+                showExcDialog(getString(R.string.write_error));
                 break;
             case R.id.fab_zero:
                 if (isFabMenuOpen) {
                     collapseFabMenu();
                 }
-                ToastUtils.showShortSafe(R.string.coder_zero);
+//                ToastUtils.showShortSafe(R.string.coder_zero);
+                showExcDialog(getString(R.string.set_coder_zero_error));
                 break;
             case R.id.fab_save:
                 if (isFabMenuOpen) {
@@ -389,7 +391,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 if (isFabMenuOpen) {
                     collapseFabMenu();
                 }
-                ToastUtils.showShortSafe(R.string.write_eeprom);
+//                ToastUtils.showShortSafe(R.string.write_eeprom);
+                showExcDialog(getString(R.string.write_eeprom_error));
                 break;
             case R.id.fab_recovery:
                 if (isFabMenuOpen) {
@@ -404,8 +407,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         if (mExceptDialog == null) {
             mExceptDialog = new ExceptDialog(this);
         }
-//        mExceptDialog.setContent(content);
         mExceptDialog.show();
+        mExceptDialog.setContent(content);
     }
 
     /**

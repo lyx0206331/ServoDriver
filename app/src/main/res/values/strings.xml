@@ -94,6 +94,12 @@
     <string name="info_prompt">信息提示</string>
     <string name="dev_disconn">设备连接已断开</string>
     <string name="know">知道了</string>
+    <string name="write_error">写入伺服驱动器失败</string>
+    <string name="write_eeprom_error">写入EEPROM失败</string>
+    <string name="install_usb_error">预安装USB驱动失败</string>
+    <string name="set_coder_zero_error">调编码器零点操作失败</string>
+    <string name="usb_read_error">USB读取异常</string>
+    <string name="illation_error">惯量推定失败</string>
 
     <string name="quit_prompt">连续两次点击返回退出应用</string>
     <string name="offical">http://www.maxsine.com</string>
