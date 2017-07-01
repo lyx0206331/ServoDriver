@@ -63,34 +63,100 @@
     <RelativeLayout
         android:id="@+id/rl_color_label"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="104dp"
         android:layout_below="@id/rl_title"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="@mipmap/indexbg"
-        android:paddingBottom="10dp"
+        android:paddingBottom="20dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:paddingTop="10dp">
 
-        <ImageView
+        <TextView
+            android:id="@+id/tv_seg_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:src="@mipmap/reset" />
+            android:layout_marginTop="7dp"
+            android:text="@string/segment_num"
+            android:textColor="@color/period"
+            android:textSize="@dimen/normal_font" />
 
-        <ImageView
-            android:layout_width="wrap_content"
+        <com.xw.repo.BubbleSeekBar
+            android:id="@+id/bsb_segment_num"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:src="@mipmap/instant" />
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@id/tv_seg_num"
+            app:bsb_auto_adjust_section_mark="true"
+            app:bsb_max="4"
+            app:bsb_min="1"
+            app:bsb_second_track_color="@color/colorAccent"
+            app:bsb_section_count="3"
+            app:bsb_section_text_position="below_section_mark"
+            app:bsb_show_section_mark="true"
+            app:bsb_show_section_text="true"
+            app:bsb_show_thumb_text="true"
+            app:bsb_thumb_text_size="18sp"
+            app:bsb_touch_to_seek="true" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:src="@mipmap/rom" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/reset" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="@string/reboot_effect"
+                android:textColor="@color/reboot_valid"
+                android:textSize="@dimen/para_font" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/instant" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/immediately_effect"
+                    android:textColor="@color/rightnow_valid"
+                    android:textSize="@dimen/para_font" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/rom" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="@string/read_only"
+                android:textColor="@color/read_only"
+                android:textSize="@dimen/para_font" />
+        </LinearLayout>
     </RelativeLayout>
 
     <View
@@ -99,7 +165,7 @@
         android:layout_height="50dp"
         android:layout_below="@id/rl_color_label"
         android:layout_marginTop="5dp"
-        android:background="@drawable/shape_top_fillet"></View>
+        android:background="@drawable/shape_top_fillet" />
 
     <View
         android:layout_width="match_parent"

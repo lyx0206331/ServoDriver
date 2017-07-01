@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">Maxsine</string>
 
+    <string name="segment_num">段号:</string>
     <string name="online">在线</string>
     <string name="offline">离线</string>
     <string name="status">状态:</string>
@@ -44,7 +45,7 @@
     <string name="ep3_io_help">EP3多IO式的帮助</string>
     <string name="install_usb_driver">安装USB驱动</string>
     <string name="version_info">版本信息</string>
-    <string name="reboot_effect">重启后生效</string>
+    <string name="reboot_effect">重启生效</string>
     <string name="immediately_effect">立即生效</string>
     <string name="read_only">只读状态</string>
     <string name="about">关于</string>

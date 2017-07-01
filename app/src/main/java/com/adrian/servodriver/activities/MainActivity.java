@@ -33,6 +33,7 @@ import com.mikepenz.materialdrawer.model.interfaces.Badgeable;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 import com.mikepenz.octicons_typeface_library.Octicons;
+import com.xw.repo.BubbleSeekBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +48,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private ImageButton mMenuIB;
     private FrameLayout mWarningFL;
     private ImageView mWaringPointIV;
+    private BubbleSeekBar mSegmentNumBSB;
 
     private PanelListLayout mRootPLL;
     private ListView mContentLV;
@@ -91,6 +93,24 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mMenuIB = (ImageButton) findViewById(R.id.ib_menu);
         mWarningFL = (FrameLayout) findViewById(R.id.fl_warning);
         mWaringPointIV = (ImageView) findViewById(R.id.iv_warning_point);
+        mSegmentNumBSB = (BubbleSeekBar) findViewById(R.id.bsb_segment_num);
+
+        mSegmentNumBSB.setOnProgressChangedListener(new BubbleSeekBar.OnProgressChangedListener() {
+            @Override
+            public void onProgressChanged(int progress, float progressFloat) {
+
+            }
+
+            @Override
+            public void getProgressOnActionUp(int progress, float progressFloat) {
+
+            }
+
+            @Override
+            public void getProgressOnFinally(int progress, float progressFloat) {
+                ToastUtils.showShortSafe("段号：" + progress);
+            }
+        });
 
         mMenuDrawer = new DrawerBuilder().withActivity(this).withSliderBackgroundDrawableRes(R.mipmap.menu_bg)
                 .withDisplayBelowStatusBar(true).withTranslucentStatusBar(false)
