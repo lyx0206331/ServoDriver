@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="disconnect"
+            type="com.adrian.servodriver.activities.DevDisconnActivity.DevDisconnect"></variable>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/helpbigbg"
+        tools:context="com.adrian.servodriver.activities.DevDisconnActivity">
+
+        <RelativeLayout
+            android:id="@+id/rl_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12.5dp">
+
+            <ImageButton
+                android:id="@+id/ib_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@color/transparent"
+                android:onClick="@{disconnect.clickBack}"
+                android:src="@mipmap/back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/conn_dev"
+                android:textColor="@color/white"
+                android:textSize="@dimen/title_font" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/iv_disconn_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="40dp"
+            android:layout_marginTop="40dp"
+            android:src="@mipmap/connect_bg" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/iv_disconn_img"
+            android:layout_centerHorizontal="true"
+            android:text="@string/conn_hardware"
+            android:textColor="@color/period"
+            android:textSize="@dimen/normal_font" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_disconn_img"
+            android:layout_centerHorizontal="true"
+            android:background="@mipmap/connect"
+            android:onClick="@{disconnect.clickConn}" />
+
+    </RelativeLayout>
+</layout>

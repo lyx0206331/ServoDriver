@@ -50,6 +50,9 @@
     <string name="about">关于</string>
     <string name="copy_right">copyright&#169;2017</string>
 
+    <string name="conn_dev">连接设备</string>
+    <string name="conn_hardware">请连接到硬件设备</string>
+
     <string name="cancel">取消</string>
     <string name="input_save_name">请输入保存文件名</string>
     <string name="rename_file">有重名文件</string>

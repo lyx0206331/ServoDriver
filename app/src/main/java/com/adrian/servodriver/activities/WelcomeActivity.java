@@ -35,7 +35,7 @@ public class WelcomeActivity extends BaseActivity {
             switch (msg.what) {
                 case 0:
 //                    Intent intent = new Intent(WelcomeActivity.this, J2xxHyperTerm.class);
-                    startActivity(MainActivity.class);
+                    startActivity(DevDisconnActivity.class);
                     finish();
                     break;
             }

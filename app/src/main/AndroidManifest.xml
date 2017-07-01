@@ -82,6 +82,9 @@
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".activities.ChmReaderActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.DevDisconnActivity"
             android:screenOrientation="portrait"></activity>
     </application>
 
