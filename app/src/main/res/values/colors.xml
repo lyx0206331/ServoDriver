@@ -13,9 +13,9 @@
     <color name="picton_blue3">#204CC7FD</color>
     <color name="red_orange">#F94A4B</color>
     <color name="french_pass">#BFE8FE</color>
-    <color name="reboot_valid">#4B87F3</color>
-    <color name="rightnow_valid">#FB8A7B</color>
-    <color name="read_only">#77D86B</color>
+    <color name="reboot_valid">#ACDFFF</color>
+    <color name="rightnow_valid">#FEBEA6</color>
+    <color name="read_only">#B8F8A9</color>
     <color name="pressed_font">#F89D92</color>
     <color name="divider">#F0F0F0</color>
     <color name="normal_font">#85859A</color>
