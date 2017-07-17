@@ -24,6 +24,7 @@ import com.adrian.servodriver.pojo.ParamBean;
 import com.adrian.servodriver.views.ExceptDialog;
 import com.adrian.servodriver.views.LoadDialog;
 import com.adrian.servodriver.views.SaveDialog;
+import com.adrian.servodriver.views.WarningDialog;
 import com.blankj.utilcode.util.ToastUtils;
 import com.jaeger.library.StatusBarUtil;
 import com.mikepenz.materialdrawer.Drawer;
@@ -75,6 +76,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private SaveDialog mSaveFileDialog;
     private LoadDialog mLoadParamDialog;
     private ExceptDialog mExceptDialog;
+    private WarningDialog mWarningDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,7 +122,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 //                        new PrimaryDrawerItem().withName(R.string.coder_zero).withIcon(Octicons.Icon.oct_file_binary),
 //                        new PrimaryDrawerItem().withName(R.string.load_param).withIcon(Octicons.Icon.oct_zap),
 //                        new PrimaryDrawerItem().withName(R.string.save_param).withIcon(Octicons.Icon.oct_sign_in),
-                        new PrimaryDrawerItem().withName(R.string.warning).withIcon(Octicons.Icon.oct_alert).withSelectedColorRes(R.color.menu_bg).withBadge("1").withIdentifier(1),
+//                        new PrimaryDrawerItem().withName(R.string.warning).withIcon(Octicons.Icon.oct_alert).withSelectedColorRes(R.color.menu_bg).withBadge("1").withIdentifier(1),
                         new PrimaryDrawerItem().withName(R.string.firmware_update).withIcon(Octicons.Icon.oct_ruby).withSelectedColorRes(R.color.menu_bg),
                         new PrimaryDrawerItem().withName(R.string.state_monitor).withIcon(Octicons.Icon.oct_eye).withSelectedColorRes(R.color.menu_bg),
                         new PrimaryDrawerItem().withName(R.string.auto_adjust).withIcon(Octicons.Icon.oct_settings).withSelectedColorRes(R.color.menu_bg),
@@ -149,37 +151,37 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                         if (drawerItem != null) {
 //                            LogUtils.e("MENU", "pos" + position);
                             switch (position) {
+//                                case 1:
+//                                    if (drawerItem instanceof Badgeable) {
+//                                        Badgeable badgeable = (Badgeable) drawerItem;
+//                                        if (badgeable.getBadge() != null) {
+//                                            //note don't do this if your badge contains a "+"
+//                                            //only use toString() if you set the test as String
+//                                            int badge = Integer.valueOf(badgeable.getBadge().toString());
+//                                            if (badge > 0) {
+//                                                badgeable.withBadge(String.valueOf(badge - 1));
+//                                                mMenuDrawer.updateItem(drawerItem);
+//                                            }
+//                                        }
+//                                    }
+//                                    goWarningPage();
+//                                    break;
                                 case 1:
-                                    if (drawerItem instanceof Badgeable) {
-                                        Badgeable badgeable = (Badgeable) drawerItem;
-                                        if (badgeable.getBadge() != null) {
-                                            //note don't do this if your badge contains a "+"
-                                            //only use toString() if you set the test as String
-                                            int badge = Integer.valueOf(badgeable.getBadge().toString());
-                                            if (badge > 0) {
-                                                badgeable.withBadge(String.valueOf(badge - 1));
-                                                mMenuDrawer.updateItem(drawerItem);
-                                            }
-                                        }
-                                    }
-                                    goWarningPage();
-                                    break;
-                                case 2:
                                     showExcDialog(getString(R.string.usb_read_error));
                                     break;
-                                case 3:
+                                case 2:
                                     startActivity(StateMonitorActivity.class);
                                     break;
-                                case 4:
+                                case 3:
                                     startActivity(AutoAdjustActivity.class);
                                     break;
-                                case 5:
+                                case 4:
                                     startActivity(FFTActivity.class);
                                     break;
-                                case 6:
+                                case 5:
                                     startActivity(HelpActivity.class);
                                     break;
-                                case 7:
+                                case 6:
                                     startActivity(AboutActivity.class);
                                     break;
                                 default:
@@ -363,10 +365,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 mMenuDrawer.openDrawer();
                 break;
             case R.id.fl_warning:
+//                if (isFabMenuOpen) {
+//                    collapseFabMenu();
+//                }
+//                goWarningPage();
                 if (isFabMenuOpen) {
                     collapseFabMenu();
                 }
-                goWarningPage();
+                mWaringPointIV.setVisibility(View.GONE);
+                showWarningDialog("Err30", "EEROM写入时错误", "EEROM芯片损坏", "重新上电检查故障不消失请更换驱动器！");
                 break;
             case R.id.fab_add:
                 if (isFabMenuOpen) {
@@ -429,6 +436,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }
         mExceptDialog.show();
         mExceptDialog.setContent(content);
+    }
+
+    private void showWarningDialog(String code, String content, String reason, String solution) {
+        if (mWarningDialog == null) {
+            mWarningDialog = new WarningDialog(this);
+        }
+        mWarningDialog.show();
+        mWarningDialog.setErrCode(code).setErrContent(content).setErrReason(reason).setSolution(solution);
     }
 
     /**
