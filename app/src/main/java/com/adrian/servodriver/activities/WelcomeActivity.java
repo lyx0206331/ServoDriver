@@ -14,6 +14,7 @@ import android.view.Window;
 
 import com.adrian.servodriver.R;
 import com.adrian.servodriver.official_demo.J2xxHyperTerm;
+import com.adrian.servodriver.utils.D2xxUtil;
 import com.adrian.servodriver.views.StatusBarCompat;
 import com.blankj.utilcode.util.NetworkUtils;
 import com.blankj.utilcode.util.ToastUtils;
@@ -34,8 +35,12 @@ public class WelcomeActivity extends BaseActivity {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case 0:
+                    if (!D2xxUtil.getInstance().isConnected()) {
 //                    Intent intent = new Intent(WelcomeActivity.this, J2xxHyperTerm.class);
-                    startActivity(DevDisconnActivity.class);
+                        startActivity(DevDisconnActivity.class);
+                    } else {
+                        startActivity(MainActivity.class);
+                    }
                     finish();
                     break;
             }

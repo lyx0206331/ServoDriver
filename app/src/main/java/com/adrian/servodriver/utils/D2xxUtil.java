@@ -32,6 +32,8 @@ import java.io.IOException;
 
 public class D2xxUtil {
     private static D2xxUtil ourInstance;
+    private static D2xxManager ftD2xx;
+    private static Context context;
     final int MENU_CONTENT_FORMAT = Menu.FIRST;
     final int MENU_FONT_SIZE = Menu.FIRST + 1;
     final int MENU_SAVE_CONTENT_DATA = Menu.FIRST + 2;
@@ -205,7 +207,7 @@ public class D2xxUtil {
     // variables
     final int UI_READ_BUFFER_SIZE = 10240; // Notes: 115K:1440B/100ms, 230k:2880B/100ms
     final int MAX_NUM_BYTES = 65536;
-    public Context global_context;
+    //    public Context global_context;
     public int iavailable = 0;
     FT_Device ftDev;
     int DevCount = -1;
@@ -505,7 +507,7 @@ public class D2xxUtil {
                     break;
                 default:
                     midToast("NG CASE", Toast.LENGTH_LONG);
-                    //Toast.makeText(global_context, ".", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(context, ".", Toast.LENGTH_SHORT).show();
                     break;
             }
         }
@@ -517,13 +519,38 @@ public class D2xxUtil {
     int iTotalBytes;
     int iReadIndex;
     boolean bReadTheadEnable = false;
-    private D2xxManager ftD2xx;
 
     private D2xxUtil(Context context) {
+        init(context);
+    }
+
+    private D2xxUtil() {
+        // init modem variables
+        modemReceiveDataBytes = new int[1];
+        modemReceiveDataBytes[0] = 0;
+        modemDataBuffer = new byte[MODEM_BUFFER_SIZE];
+        zmDataBuffer = new byte[MODEM_BUFFER_SIZE];
+
+        /* allocate buffer */
+        writeBuffer = new byte[512];
+        readBuffer = new byte[UI_READ_BUFFER_SIZE];
+        readBufferToChar = new char[UI_READ_BUFFER_SIZE];
+        readDataBuffer = new byte[MAX_NUM_BYTES];
+        actualNumBytes = 0;
+
+        // start main text area read thread
+        handlerThread = new HandlerThread(handler);
+        handlerThread.start();
+    }
+
+    public static void init(Context ctx) {
+        context = ctx;
         try {
             ftD2xx = D2xxManager.getInstance(context);
         } catch (D2xxManager.D2xxException ex) {
             ex.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         IntentFilter filter = new IntentFilter();
         filter.addAction(UsbManager.ACTION_USB_DEVICE_ATTACHED);
@@ -544,9 +571,9 @@ public class D2xxUtil {
         throw new IllegalArgumentException(String.valueOf(ch));
     }
 
-    public static D2xxUtil getInstance(Context context) {
+    public static D2xxUtil getInstance() {
         if (ourInstance == null) {
-            ourInstance = new D2xxUtil(context);
+            ourInstance = new D2xxUtil();
         }
         return ourInstance;
     }
@@ -562,12 +589,27 @@ public class D2xxUtil {
 
     // call this API to show message
     void midToast(String str, int showTime) {
-        Toast toast = Toast.makeText(global_context, str, showTime);
+        Toast toast = Toast.makeText(context, str, showTime);
         toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL, 0, 0);
 
         TextView v = (TextView) toast.getView().findViewById(android.R.id.message);
         v.setTextColor(Color.YELLOW);
         toast.show();
+    }
+
+    // j2xx functions +
+    public void createDeviceList() {
+        int tempDevCount = ftD2xx.createDeviceInfoList(context);
+
+        if (tempDevCount > 0) {
+            if (DevCount != tempDevCount) {
+                DevCount = tempDevCount;
+//                updatePortNumberSelector();
+            }
+        } else {
+            DevCount = -1;
+            currentPortIndex = -1;
+        }
     }
 
     public void disconnectFunction() {
@@ -595,7 +637,7 @@ public class D2xxUtil {
         if (currentPortIndex == portIndex
                 && ftDev != null
                 && true == ftDev.isOpen()) {
-            //Toast.makeText(global_context,"Port("+portIndex+") is already opened.", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context,"Port("+portIndex+") is already opened.", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -609,9 +651,9 @@ public class D2xxUtil {
         }
 
         if (null == ftDev) {
-            ftDev = ftD2xx.openByIndex(global_context, portIndex);
+            ftDev = ftD2xx.openByIndex(context, portIndex);
         } else {
-            ftDev = ftD2xx.openByIndex(global_context, portIndex);
+            ftDev = ftD2xx.openByIndex(context, portIndex);
         }
         uart_configured = false;
 
@@ -622,7 +664,7 @@ public class D2xxUtil {
 
         if (true == ftDev.isOpen()) {
             currentPortIndex = portIndex;
-            //Toast.makeText(global_context, "open device port(" + portIndex + ") OK", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context, "open device port(" + portIndex + ") OK", Toast.LENGTH_SHORT).show();
 
             if (false == bReadTheadEnable) {
                 readThread = new ReadThread(handler);
@@ -633,7 +675,7 @@ public class D2xxUtil {
         }
     }
 
-    DeviceStatus checkDevice() {
+    private DeviceStatus checkDevice() {
         if (ftDev == null || false == ftDev.isOpen()) {
             midToast("Need to connect to cable.", Toast.LENGTH_SHORT);
             return DeviceStatus.DEV_NOT_CONNECT;
@@ -645,6 +687,43 @@ public class D2xxUtil {
 
         return DeviceStatus.DEV_CONFIG;
 
+    }
+
+    public boolean isConnected() {
+        if (DeviceStatus.DEV_CONFIG == checkDevice()) {
+            createDeviceList();
+            if (DevCount > 0) {
+                connectFunction();
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public void onStart() {
+        createDeviceList();
+        if (DevCount > 0) {
+            connectFunction();
+            setUARTInfoString();
+            setConfig(baudRate, dataBit, stopBit, parity, flowControl);
+        }
+    }
+
+    public void onResume() {
+        if (null == ftDev || false == ftDev.isOpen()) {
+            DLog.e(TT, "onResume - reconnect");
+            createDeviceList();
+            if (DevCount > 0) {
+                connectFunction();
+                setUARTInfoString();
+                setConfig(baudRate, dataBit, stopBit, parity, flowControl);
+            }
+        }
+    }
+
+    public void onDestroy() {
+        disconnectFunction();
+        android.os.Process.killProcess(android.os.Process.myPid());
     }
 
     void setUARTInfoString() {
@@ -780,7 +859,7 @@ public class D2xxUtil {
     void sendData(int numBytes, byte[] buffer) {
         if (ftDev.isOpen() == false) {
             DLog.e(TT, "SendData: device not open");
-            Toast.makeText(global_context, "Device not open!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Device not open!", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -1810,7 +1889,7 @@ public class D2xxUtil {
         return sb.toString();
     }
 
-    enum DeviceStatus {
+    public enum DeviceStatus {
         DEV_NOT_CONNECT,
         DEV_NOT_CONFIG,
         DEV_CONFIG

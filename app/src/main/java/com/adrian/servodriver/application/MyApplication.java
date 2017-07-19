@@ -3,6 +3,7 @@ package com.adrian.servodriver.application;
 import android.app.Application;
 
 import com.adrian.servodriver.utils.Constants;
+import com.adrian.servodriver.utils.D2xxUtil;
 import com.adrian.servodriver.utils.FileUtil;
 import com.blankj.utilcode.util.Utils;
 
@@ -23,6 +24,8 @@ public class MyApplication extends Application {
         super.onCreate();
 
         instance = this;
+
+        D2xxUtil.init(this);
 
         Utils.init(this);
 
