@@ -37,6 +37,7 @@ public class ParamListAdapter extends PanelListAdapter {
     private ListView lv_content;
     private int contentResourceId;
     private List<ParamBean> contentList = new ArrayList<>();
+    private List<ParamBean> modifiedBeans = new ArrayList<>();
 
     public ParamListAdapter(Context context, PanelListLayout pl_root, ListView lv_content,
                             int contentResourceId, List<ParamBean> contentList) {
@@ -103,6 +104,24 @@ public class ParamListAdapter extends PanelListAdapter {
             colDataList.add(bean.getParamName());
         }
         return colDataList;
+    }
+
+    /**
+     * 获取最后一条修改的数据
+     *
+     * @return
+     */
+    public ParamBean getLastModifyBean() {
+        return (modifiedBeans != null && modifiedBeans.size() > 0) ? modifiedBeans.get(modifiedBeans.size() - 1) : null;
+    }
+
+    /**
+     * 获取已修改列表
+     *
+     * @return
+     */
+    public List<ParamBean> getModifiedBeans() {
+        return modifiedBeans;
     }
 
     /**
@@ -186,6 +205,7 @@ public class ParamListAdapter extends PanelListAdapter {
 //                            Log.e("INPUT", v.getText().toString());
                             if (actionId == EditorInfo.IME_ACTION_DONE) {
                                 data.setCurValue(v.getText().toString());
+                                modifiedBeans.add(data);
                             }
                             return false;
                         }
@@ -200,6 +220,7 @@ public class ParamListAdapter extends PanelListAdapter {
 //                            Log.e("INPUT", v.getText().toString());
                             if (actionId == EditorInfo.IME_ACTION_DONE) {
                                 data.setCurValue(v.getText().toString());
+                                modifiedBeans.add(data);
                             }
                             return false;
                         }

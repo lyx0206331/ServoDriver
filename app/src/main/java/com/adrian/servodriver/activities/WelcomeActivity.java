@@ -35,11 +35,11 @@ public class WelcomeActivity extends BaseActivity {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case 0:
-                    if (!D2xxUtil.getInstance().isConnected()) {
+                    if (D2xxUtil.getInstance().isConnected()) {
 //                    Intent intent = new Intent(WelcomeActivity.this, J2xxHyperTerm.class);
-                        startActivity(DevDisconnActivity.class);
-                    } else {
                         startActivity(MainActivity.class);
+                    } else {
+//                        startActivity(DevDisconnActivity.class);
                     }
                     finish();
                     break;
@@ -73,6 +73,18 @@ public class WelcomeActivity extends BaseActivity {
     @Override
     protected void loadData() {
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        D2xxUtil.getInstance().onStart();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        D2xxUtil.getInstance().onResume();
     }
 
     @NeedsPermission({Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE})

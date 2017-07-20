@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.adrian.servodriver.R;
 import com.adrian.servodriver.databinding.ActivityDevDisconnBinding;
+import com.adrian.servodriver.utils.D2xxUtil;
 import com.blankj.utilcode.util.ToastUtils;
 import com.jaeger.library.StatusBarUtil;
 
@@ -44,8 +45,10 @@ public class DevDisconnActivity extends BaseActivity {
 
         public void clickConn(View v) {
 //            ToastUtils.showShortSafe("连接设备");
-            startActivity(MainActivity.class);
-            finish();
+            if (D2xxUtil.getInstance().isConnected()) {
+                startActivity(MainActivity.class);
+                finish();
+            }
         }
     }
 }

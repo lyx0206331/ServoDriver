@@ -6,6 +6,9 @@ import android.graphics.Color;
 import android.hardware.usb.UsbManager;
 import android.os.Handler;
 import android.os.Message;
+import android.text.SpannableString;
+import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
@@ -520,9 +523,9 @@ public class D2xxUtil {
     int iReadIndex;
     boolean bReadTheadEnable = false;
 
-    private D2xxUtil(Context context) {
-        init(context);
-    }
+//    private D2xxUtil(Context context) {
+//        init(context);
+//    }
 
     private D2xxUtil() {
         // init modem variables
@@ -541,6 +544,13 @@ public class D2xxUtil {
         // start main text area read thread
         handlerThread = new HandlerThread(handler);
         handlerThread.start();
+
+        baudRate = Constants.BAUD_RATE;
+        stopBit = Constants.STOP_BIT;
+        parity = Constants.PARITY_DIGIT;
+        flowControl = 1;
+        portIndex = 0;
+        dataBit = Constants.DATA_BIT;
     }
 
     public static void init(Context ctx) {
@@ -556,6 +566,8 @@ public class D2xxUtil {
         filter.addAction(UsbManager.ACTION_USB_DEVICE_ATTACHED);
         filter.addAction(UsbManager.ACTION_USB_DEVICE_DETACHED);
         filter.setPriority(500);
+
+        ourInstance = new D2xxUtil();
     }
 
     static int hexToInt(char ch) {
@@ -677,11 +689,11 @@ public class D2xxUtil {
 
     private DeviceStatus checkDevice() {
         if (ftDev == null || false == ftDev.isOpen()) {
-            midToast("Need to connect to cable.", Toast.LENGTH_SHORT);
+            midToast("设备未连接.", Toast.LENGTH_SHORT);
             return DeviceStatus.DEV_NOT_CONNECT;
         } else if (false == uart_configured) {
             //midToast("CHECK: uart_configured == false", Toast.LENGTH_SHORT);
-            midToast("Need to configure UART.", Toast.LENGTH_SHORT);
+            midToast("设备配置错误.", Toast.LENGTH_SHORT);
             return DeviceStatus.DEV_NOT_CONFIG;
         }
 
@@ -724,6 +736,105 @@ public class D2xxUtil {
     public void onDestroy() {
         disconnectFunction();
         android.os.Process.killProcess(android.os.Process.myPid());
+    }
+
+    public void writeData(String data) {
+        if (DeviceStatus.DEV_CONFIG != checkDevice()) {
+            return;
+        }
+
+        // check whether there is some data
+        if (!TextUtils.isEmpty(data)) {
+            // check format
+            if (false == bFormatHex) // character format
+            {
+                if (true == bWriteEcho) {
+                    String temp = data + "\n";
+                    String tmp = temp.replace("\\n", "\n");
+                    appendData(tmp);
+                }
+
+                int numBytes = data.length();
+
+                for (int i = 0; i < numBytes; i++) {
+                    writeBuffer[i] = (byte) (data.charAt(i));
+                }
+
+                sendData(numBytes, writeBuffer);
+            } else  // hexadecimal format
+            {
+                if (data.length() % 2 != 0) {
+                    midToast("Incorrect input for HEX format."
+                            + "\nIt should be 2 bytes for each HEX word.", Toast.LENGTH_SHORT);
+                    return;
+                }
+
+                try {
+                    String atemp = hexToAscii(data);
+                    DLog.e(TT, "atemp:" + atemp);
+
+                    byte numBytes = (byte) atemp.length();
+                    for (int i = 0; i < numBytes; i++) {
+                        writeBuffer[i] = (byte) atemp.charAt(i);
+                    }
+
+                    sendData(numBytes, writeBuffer);
+                } catch (IllegalArgumentException e) {
+                    midToast("Incorrect input for HEX format."
+                            + "\nAllowed charater: 0~9, a~f and A~F", Toast.LENGTH_SHORT);
+                    DLog.e(TT, "Illeagal HEX input.");
+                    return;
+                }
+
+                if (true == bWriteEcho) {
+                    data += "(hex)\n";
+                    String tmp = data.replace("\\n", "\n");
+                    bSendHexData = true;
+                    appendData(tmp);
+                }
+            }
+        }
+    }
+
+    void appendData(String data) {
+        if (true == bContentFormatHex) {
+            if (timesMessageHexFormatWriteData < 3) {
+                timesMessageHexFormatWriteData++;
+                midToast("The writing data won��t be showed on data area while content format is hexadecimal format.", Toast.LENGTH_LONG);
+            }
+            return;
+        }
+
+//        if (true == bSendHexData) {
+//            SpannableString text = new SpannableString(data);
+//            text.setSpan(new ForegroundColorSpan(Color.YELLOW), 0, data.length(), 0);
+//            readText.append(text);
+//            bSendHexData = false;
+//        } else {
+//            readText.append(data);
+//        }
+//
+//        int overLine = readText.getLineCount() - TEXT_MAX_LINE;
+//
+//        if (overLine > 0) {
+//            int IndexEndOfLine = 0;
+//            CharSequence charSequence = readText.getText();
+//
+//            for (int i = 0; i < overLine; i++) {
+//                do {
+//                    IndexEndOfLine++;
+//                }
+//                while (IndexEndOfLine < charSequence.length() && charSequence.charAt(IndexEndOfLine) != '\n');
+//            }
+//
+//            if (IndexEndOfLine < charSequence.length()) {
+//                readText.getEditableText().delete(0, IndexEndOfLine + 1);
+//            } else {
+//                readText.setText("");
+//            }
+//        }
+//
+//        scrollView.smoothScrollTo(0, readText.getHeight() + 30);
     }
 
     void setUARTInfoString() {

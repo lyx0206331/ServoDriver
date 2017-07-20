@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.adrian.servodriver.R;
 import com.adrian.servodriver.adapter.ParamListAdapter;
 import com.adrian.servodriver.pojo.ParamBean;
+import com.adrian.servodriver.utils.D2xxUtil;
 import com.adrian.servodriver.views.ExceptDialog;
 import com.adrian.servodriver.views.LoadDialog;
 import com.adrian.servodriver.views.SaveDialog;
@@ -77,6 +78,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private LoadDialog mLoadParamDialog;
     private ExceptDialog mExceptDialog;
     private WarningDialog mWarningDialog;
+
+    private ParamListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -272,7 +275,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     protected void loadData() {
         initDataList();
 
-        ParamListAdapter adapter = new ParamListAdapter(this, mRootPLL, mContentLV, R.layout.item_param, contentList);
+        adapter = new ParamListAdapter(this, mRootPLL, mContentLV, R.layout.item_param, contentList);
         adapter.initAdapter();
     }
 
@@ -288,6 +291,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         } else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        D2xxUtil.getInstance().onDestroy();
+        super.onDestroy();
     }
 
     /**
@@ -386,8 +395,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 if (isFabMenuOpen) {
                     collapseFabMenu();
                 }
-//                ToastUtils.showShortSafe(R.string.write);
-                showExcDialog(getString(R.string.write_error));
+                ParamBean last = adapter.getLastModifyBean();
+                if (last != null) {
+                    ToastUtils.showShortSafe("写入数据：" + last.getCurValue());
+                } else {
+                    ToastUtils.showShortSafe("无修改数据!");
+                }
+//                showExcDialog(getString(R.string.write_error));
                 break;
             case R.id.fab_zero:
                 if (isFabMenuOpen) {
