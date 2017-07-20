@@ -263,11 +263,11 @@ public class D2xxUtil {
     byte[] readBuffer;
     char[] readBufferToChar;
     int actualNumBytes;
-    int baudRate; /* baud rate */
-    byte stopBit; /* 1:1stop bits, 2:2 stop bits */
-    byte dataBit; /* 8:8bit, 7: 7bit */
-    byte parity; /* 0: none, 1: odd, 2: even, 3: mark, 4: space */
-    byte flowControl; /* 0:none, 1: CTS/RTS, 2:DTR/DSR, 3:XOFF/XON */
+    int baudRate = 2000000; /* baud rate */
+    byte stopBit = 1; /* 1:1stop bits, 2:2 stop bits */
+    byte dataBit = 8; /* 8:8bit, 7: 7bit */
+    byte parity = 0; /* 0: none, 1: odd, 2: even, 3: mark, 4: space */
+    byte flowControl = 0; /* 0:none, 1: CTS/RTS, 2:DTR/DSR, 3:XOFF/XON */
     boolean uart_configured = false;
     String uartSettings = "";
     //public static final int maxReadLength = 256;
