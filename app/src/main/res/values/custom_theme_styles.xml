@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme1" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@mipmap/leadingbg</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/plus</item>
+
+        <item name="base_bg">@mipmap/bg</item>
+        <item name="fab_bg">@color/plus</item>
+        <item name="normal_font_color">@color/normal_font</item>
+        <item name="warn_point_bg">@color/warn_code</item>
+        <item name="title_color">@color/white</item>
+        <item name="error_code_color">@color/warn_code</item>
+        <item name="solution_color">@color/solution</item>
+        <item name="btn_font_color">@color/white</item>
+        <item name="btn_bg_small">@drawable/btn_bg_small_selector</item>
+        <item name="btn_bg_normal">@drawable/btn_bg_normal_selector</item>
+        <item name="reboot_bg">@color/reboot_valid</item>
+        <item name="immediately_bg">@color/rightnow_valid</item>
+        <item name="read_only_bg">@color/read_only</item>
+        <item name="period_color">@color/period</item>
+    </style>
+
+    <style name="Theme2" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="base_bg">@color/base_bg</item>
+    </style>
+</resources>

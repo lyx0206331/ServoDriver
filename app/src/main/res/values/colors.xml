@@ -28,4 +28,6 @@
     <color name="fillet_stroke">#A8E0FB</color>
     <color name="menu_bg">#F9F9F9</color>
     <color name="plus">#44E5FE</color>
+
+    <color name="base_bg">#FF9D2E</color>
 </resources>

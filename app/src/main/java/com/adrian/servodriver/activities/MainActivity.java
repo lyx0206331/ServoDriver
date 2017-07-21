@@ -3,6 +3,7 @@ package com.adrian.servodriver.activities;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.ViewCompat;
+import android.text.TextUtils;
 import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,11 +17,13 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.adrian.servodriver.R;
 import com.adrian.servodriver.adapter.ParamListAdapter;
 import com.adrian.servodriver.pojo.ParamBean;
+import com.adrian.servodriver.utils.CommUtil;
 import com.adrian.servodriver.utils.D2xxUtil;
 import com.adrian.servodriver.views.ExceptDialog;
 import com.adrian.servodriver.views.LoadDialog;
@@ -49,7 +52,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private Drawer mMenuDrawer;
     private ImageButton mMenuIB;
     private FrameLayout mWarningFL;
-    private ImageView mWaringPointIV;
+    private TextView mWaringPointTV;
     private BubbleSeekBar mSegmentNumBSB;
 
     private PanelListLayout mRootPLL;
@@ -74,6 +77,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private Animation fabCloseAnimation;
     private boolean isFabMenuOpen = false;
 
+    private Animation pointAnimation;
+    private boolean hasError = false;
+
     private SaveDialog mSaveFileDialog;
     private LoadDialog mLoadParamDialog;
     private ExceptDialog mExceptDialog;
@@ -97,8 +103,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         StatusBarUtil.setTransparent(this);
         mMenuIB = (ImageButton) findViewById(R.id.ib_menu);
         mWarningFL = (FrameLayout) findViewById(R.id.fl_warning);
-        mWaringPointIV = (ImageView) findViewById(R.id.iv_warning_point);
+        mWaringPointTV = (TextView) findViewById(R.id.tv_warning_point);
         mSegmentNumBSB = (BubbleSeekBar) findViewById(R.id.bsb_segment_num);
+
+        setWarningCode("Error30");
 
         mSegmentNumBSB.setOnProgressChangedListener(new BubbleSeekBar.OnProgressChangedListener() {
             @Override
@@ -141,7 +149,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
                     @Override
                     public void onDrawerClosed(View drawerView) {
-
+                        setWarningCode("Error40");
                     }
 
                     @Override
@@ -267,7 +275,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 }
             }
         }
-        mWaringPointIV.setVisibility(View.GONE);
+        mWaringPointTV.setVisibility(View.GONE);
         startActivity(WarnActivity.class);
     }
 
@@ -314,6 +322,25 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             data.setUnit("--");
             data.setType((int) (Math.random() * params.length % 3));
             contentList.add(data);
+        }
+    }
+
+    private void setWarningCode(String errorCode) {
+        startPointAnim(false);
+        mWaringPointTV.setText(errorCode);
+        hasError = !TextUtils.isEmpty(errorCode);
+        startPointAnim(hasError);
+        mWaringPointTV.setVisibility(hasError ? View.VISIBLE : View.GONE);
+    }
+
+    private void startPointAnim(boolean isDoing) {
+        if (pointAnimation == null) {
+            pointAnimation = AnimationUtils.loadAnimation(this, R.anim.point_flash);
+        }
+        if (isDoing) {
+            mWaringPointTV.startAnimation(pointAnimation);
+        } else {
+            mWaringPointTV.clearAnimation();
         }
     }
 
@@ -381,8 +408,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 if (isFabMenuOpen) {
                     collapseFabMenu();
                 }
-                mWaringPointIV.setVisibility(View.GONE);
-                showWarningDialog("Err30", "EEROM写入时错误", "EEROM芯片损坏", "重新上电检查故障不消失请更换驱动器！");
+                if (hasError) {
+                    setWarningCode(null);
+                    showWarningDialog("Err30", "EEROM写入时错误", "EEROM芯片损坏", "重新上电检查故障不消失请更换驱动器！");
+                } else {
+                    CommUtil.showToast("无错误日志!");
+                }
                 break;
             case R.id.fab_add:
                 if (isFabMenuOpen) {

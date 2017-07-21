@@ -45,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/warn_code"
-            android:textColor="@color/period"
+            android:textColor="@color/normal_font"
             android:textSize="@dimen/normal_font" />
 
         <TextView
@@ -67,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/warn_content"
-            android:textColor="@color/period"
+            android:textColor="@color/normal_font"
             android:textSize="@dimen/normal_font" />
 
         <TextView
@@ -77,7 +77,7 @@
             android:maxLines="2"
             android:scrollbars="vertical"
             android:text="EEROM写入时错误"
-            android:textColor="@color/warn_content"
+            android:textColor="@color/normal_font"
             android:textSize="@dimen/normal_font" />
     </LinearLayout>
 
@@ -91,7 +91,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/warn_reason"
-            android:textColor="@color/period"
+            android:textColor="@color/normal_font"
             android:textSize="@dimen/normal_font" />
 
         <TextView
@@ -101,7 +101,7 @@
             android:maxLines="2"
             android:scrollbars="vertical"
             android:text="EEROM芯片损坏"
-            android:textColor="@color/warn_reason"
+            android:textColor="@color/normal_font"
             android:textSize="@dimen/normal_font" />
     </LinearLayout>
 
@@ -115,7 +115,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/solution"
-            android:textColor="@color/period"
+            android:textColor="@color/normal_font"
             android:textSize="@dimen/normal_font" />
 
         <TextView
@@ -135,7 +135,7 @@
         android:layout_height="30dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
-        android:background="@drawable/dialog_btn_bg_selector"
+        android:background="@drawable/btn_bg_small_selector"
         android:text="@string/know"
         android:textColor="@color/white"
         android:textSize="@dimen/normal_font" />

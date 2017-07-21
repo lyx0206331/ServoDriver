@@ -39,17 +39,23 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
                 android:layout_marginRight="2dp"
                 android:layout_marginTop="2dp"
                 android:background="@color/transparent"
                 android:src="@mipmap/warn" />
 
-            <ImageView
-                android:id="@+id/iv_warning_point"
+            <TextView
+                android:id="@+id/tv_warning_point"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:src="@drawable/warning_prompt" />
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/warning_prompt"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:text="Err20"
+                android:textColor="@color/white"
+                android:textSize="6sp" />
         </FrameLayout>
     </RelativeLayout>
 
@@ -118,7 +124,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:text="@string/reboot_effect"
-                android:textColor="@color/reboot_valid"
+                android:textColor="@color/normal_font"
                 android:textSize="@dimen/para_font" />
 
             <LinearLayout
@@ -138,7 +144,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:text="@string/immediately_effect"
-                    android:textColor="@color/rightnow_valid"
+                    android:textColor="@color/normal_font"
                     android:textSize="@dimen/para_font" />
             </LinearLayout>
 
@@ -154,7 +160,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:text="@string/read_only"
-                android:textColor="@color/read_only"
+                android:textColor="@color/normal_font"
                 android:textSize="@dimen/para_font" />
         </LinearLayout>
     </RelativeLayout>

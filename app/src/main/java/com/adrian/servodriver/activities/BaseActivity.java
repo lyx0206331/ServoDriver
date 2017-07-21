@@ -25,6 +25,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 //        StatusBarCompat.compat(this, Color.TRANSPARENT);
 //        setContentView(getLayoutResId());
 //        StatusBarUtil.setColor(this, getResources().getColor(R.color.picton_blue));
+        setTheme(R.style.Theme1);
         initVariables();
         initViews();
 //        StatusBarUtil.setTransparent(this);

@@ -48,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/dialog_btn_bg_selector"
+        android:background="@drawable/btn_bg_small_selector"
         android:text="@string/know"
         android:textColor="@color/white"
         android:textSize="@dimen/normal_font" />
