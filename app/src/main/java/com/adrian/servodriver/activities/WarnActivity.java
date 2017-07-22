@@ -63,4 +63,9 @@ public class WarnActivity extends BaseActivity {
         super.onBackPressed();
         close();
     }
+
+    @Override
+    public void notifyByThemeChanged() {
+
+    }
 }

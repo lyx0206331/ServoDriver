@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/bg"
+    android:background="?attr/base_bg"
     tools:context="com.adrian.servodriver.activities.StateMonitorActivity">
 
     <RelativeLayout
@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="@string/state_monitor"
-            android:textColor="@color/white"
+            android:textColor="?attr/title_color"
             android:textSize="@dimen/title_font" />
     </RelativeLayout>
 
@@ -38,7 +38,7 @@
         android:layout_marginBottom="35dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:background="@drawable/shape_fillet_white"
+        android:background="?attr/fillet_bg"
         android:gravity="center"
         android:orientation="horizontal">
         <RelativeLayout
@@ -50,7 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/period"
-                android:textColor="@color/period"
+                android:textColor="?attr/period_color"
                 android:textSize="@dimen/normal_font" />
 
             <ImageView
@@ -73,7 +73,7 @@
                 android:inputType="number"
                 android:singleLine="true"
                 android:text="300"
-                android:textColor="@color/normal_font"
+                android:textColor="?attr/normal_font_color"
                 android:textSize="@dimen/normal_font" />
 
             <TextView
@@ -81,7 +81,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/et_period"
                 android:text="ms"
-                android:textColor="@color/period"
+                android:textColor="?attr/period_color"
                 android:textSize="@dimen/normal_font" />
         </RelativeLayout>
     </LinearLayout>
@@ -94,7 +94,7 @@
         android:layout_marginBottom="6dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:background="@drawable/shape_fillet_white"
+        android:background="?attr/fillet_bg"
         android:orientation="vertical"
         android:paddingLeft="14dp"
         android:paddingRight="14dp">
@@ -113,7 +113,7 @@
                 android:layout_weight="4"
                 android:gravity="center"
                 android:text="@string/state_name"
-                android:textColor="@color/period"
+                android:textColor="?attr/period_color"
                 android:textSize="@dimen/normal_font" />
 
             <TextView
@@ -122,7 +122,7 @@
                 android:layout_weight="3"
                 android:gravity="center"
                 android:text="@string/state_value"
-                android:textColor="@color/period"
+                android:textColor="?attr/period_color"
                 android:textSize="@dimen/normal_font" />
 
             <TextView
@@ -131,7 +131,7 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="@string/unit"
-                android:textColor="@color/period"
+                android:textColor="?attr/period_color"
                 android:textSize="@dimen/normal_font" />
         </LinearLayout>
 
@@ -141,7 +141,7 @@
             android:layout_height="match_parent"
             android:layout_below="@id/ll_header"
             android:layout_marginBottom="30dp"
-            android:divider="@color/divider"
+            android:divider="?attr/divider_color"
             android:dividerHeight="@dimen/divider" />
     </LinearLayout>
 
@@ -165,10 +165,13 @@
     <Button
         android:id="@+id/btn_stop_monitor"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:background="@mipmap/stopwatch" />
+        android:layout_marginBottom="15dp"
+        android:background="?attr/btn_bg_normal"
+        android:text="@string/stop_monitor"
+        android:textColor="?attr/btn_font_color" />
 
 
 </RelativeLayout>

@@ -50,6 +50,8 @@
     <string name="read_only">只读状态</string>
     <string name="about">关于</string>
     <string name="copy_right">copyright&#169;2017</string>
+    <string name="stop_monitor">停止监视</string>
+    <string name="detection">检测</string>
 
     <string name="conn_dev">连接设备</string>
     <string name="conn_hardware">请连接到硬件设备</string>
@@ -107,6 +109,7 @@
 
     <string name="quit_prompt">连续两次点击返回退出应用</string>
     <string name="offical">http://www.maxsine.com</string>
+    <string name="switch_theme">切换主题</string>
 
     <string-array name="param_name">
         <item>伺服型号</item>

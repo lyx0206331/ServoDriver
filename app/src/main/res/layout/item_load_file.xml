@@ -9,7 +9,7 @@
     android:padding="10dp"
     android:singleLine="true"
     android:text="文件名"
-    android:textColor="@color/normal_font"
+    android:textColor="?attr/normal_font_color"
     android:textSize="@dimen/normal_font">
 
 </CheckedTextView>

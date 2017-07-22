@@ -193,4 +193,9 @@ public class FFTActivity extends BaseActivity implements View.OnClickListener {
                 break;
         }
     }
+
+    @Override
+    public void notifyByThemeChanged() {
+
+    }
 }

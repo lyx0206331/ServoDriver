@@ -242,4 +242,9 @@ public class AutoAdjustActivity extends BaseActivity implements View.OnClickList
         mIndicatorIV.startAnimation(anim);
         curPos = pos;
     }
+
+    @Override
+    public void notifyByThemeChanged() {
+
+    }
 }

@@ -86,8 +86,14 @@ public class StateMonitorActivity extends BaseActivity implements View.OnClickLi
                 close();
                 break;
             case R.id.btn_stop_monitor:
-                ToastUtils.showShortSafe("停止监视");
+//                ToastUtils.showShortSafe("停止监视");
+                close();
                 break;
         }
+    }
+
+    @Override
+    public void notifyByThemeChanged() {
+
     }
 }

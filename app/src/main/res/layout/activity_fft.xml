@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/fftbg"
+    android:background="?attr/fft_bg"
     android:orientation="vertical"
     tools:context="com.adrian.servodriver.activities.FFTActivity">
 
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="@string/fft"
-            android:textColor="@color/white"
+            android:textColor="?attr/title_color"
             android:textSize="@dimen/title_font" />
     </RelativeLayout>
 
@@ -38,7 +38,7 @@
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="14dp"
         android:layout_marginRight="14dp"
-        android:background="@drawable/shape_fillet_white"
+        android:background="?attr/fillet_bg"
         android:paddingBottom="8dp"
         android:paddingTop="8dp">
 
@@ -68,7 +68,7 @@
                 android:gravity="center"
                 android:paddingLeft="4dp"
                 android:text="@string/first_trapper"
-                android:textColor="@color/white"
+                android:textColor="?attr/adjust_lable_font_color"
                 android:textSize="@dimen/normal_font" />
 
             <LinearLayout
@@ -85,7 +85,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text="@string/p2_00"
-                    android:textColor="@color/period"
+                    android:textColor="?attr/period_color"
                     android:textSize="@dimen/normal_font" />
 
                 <com.adrian.servodriver.views.NumSelector
@@ -111,7 +111,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text="@string/p2_01"
-                    android:textColor="@color/period"
+                    android:textColor="?attr/period_color"
                     android:textSize="@dimen/normal_font" />
 
                 <com.adrian.servodriver.views.NumSelector
@@ -137,7 +137,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text="@string/p2_02"
-                    android:textColor="@color/period"
+                    android:textColor="?attr/period_color"
                     android:textSize="@dimen/normal_font" />
 
                 <com.adrian.servodriver.views.NumSelector
@@ -155,7 +155,7 @@
                 android:gravity="center"
                 android:paddingLeft="4dp"
                 android:text="@string/second_trapper"
-                android:textColor="@color/white"
+                android:textColor="?attr/adjust_lable_font_color"
                 android:textSize="@dimen/normal_font" />
 
             <LinearLayout
@@ -173,7 +173,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text="@string/p2_03"
-                    android:textColor="@color/period"
+                    android:textColor="?attr/period_color"
                     android:textSize="@dimen/normal_font" />
 
                 <com.adrian.servodriver.views.NumSelector
@@ -199,7 +199,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text="@string/p2_04"
-                    android:textColor="@color/period"
+                    android:textColor="?attr/period_color"
                     android:textSize="@dimen/normal_font" />
 
                 <com.adrian.servodriver.views.NumSelector
@@ -225,7 +225,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text="@string/p2_05"
-                    android:textColor="@color/period"
+                    android:textColor="?attr/period_color"
                     android:textSize="@dimen/normal_font" />
 
                 <com.adrian.servodriver.views.NumSelector
@@ -239,8 +239,13 @@
     <Button
         android:id="@+id/btn_check"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_gravity="center_horizontal"
-        android:background="@mipmap/detection" />
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="10dp"
+        android:background="?attr/btn_bg_normal"
+        android:text="@string/detection"
+        android:textColor="?attr/btn_font_color"
+        android:textSize="@dimen/normal_font" />
 
 </LinearLayout>

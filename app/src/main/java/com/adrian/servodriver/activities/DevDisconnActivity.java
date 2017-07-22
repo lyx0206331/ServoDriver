@@ -38,6 +38,11 @@ public class DevDisconnActivity extends BaseActivity {
 
     }
 
+    @Override
+    public void notifyByThemeChanged() {
+
+    }
+
     public class DevDisconnect {
         public void clickBack(View v) {
             close();

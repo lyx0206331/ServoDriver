@@ -491,6 +491,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mWarningDialog.setErrCode(code).setErrContent(content).setErrReason(reason).setSolution(solution);
     }
 
+    @Override
+    public void notifyByThemeChanged() {
+
+    }
+
     /**
      * 多选模式的监听器
      */

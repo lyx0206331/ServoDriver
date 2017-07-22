@@ -328,4 +328,9 @@ public class ChmReaderActivity extends BaseActivity implements View.OnClickListe
                 break;
         }
     }
+
+    @Override
+    public void notifyByThemeChanged() {
+
+    }
 }

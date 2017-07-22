@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/bg"
+    android:background="?attr/base_bg"
     android:orientation="vertical"
     tools:context="com.adrian.servodriver.activities.AutoAdjustActivity">
 
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="@string/auto_adjust"
-            android:textColor="@color/white"
+            android:textColor="?attr/title_color"
             android:textSize="@dimen/title_font" />
     </RelativeLayout>
 
@@ -42,10 +42,10 @@
             android:layout_height="match_parent"
             android:layout_centerVertical="true"
             android:layout_marginRight="8dp"
-            android:background="@drawable/shape_orange_bg"
+            android:background="?attr/adjust_lable_bg"
             android:gravity="center"
             android:text="@string/rigid_hierarchy"
-            android:textColor="@color/white"
+            android:textColor="?attr/adjust_lable_font_color"
             android:textSize="@dimen/normal_font" />
 
         <LinearLayout
@@ -53,7 +53,7 @@
             android:layout_height="30dp"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/tv_rigid"
-            android:background="@drawable/fillet_custom_bg">
+            android:background="?attr/semicircle_bg">
 
             <Button
                 android:id="@+id/btn_minus"
@@ -61,7 +61,7 @@
                 android:layout_height="match_parent"
                 android:background="@color/transparent"
                 android:text="-"
-                android:textColor="@color/white"
+                android:textColor="?attr/adjust_lable_font_color"
                 android:textSize="@dimen/normal_font" />
 
             <TextView
@@ -70,9 +70,10 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1.0"
                 android:gravity="center"
-                android:singleLine="true"
                 android:inputType="number"
+                android:singleLine="true"
                 android:text="0"
+                android:textColor="?attr/normal_font_color"
                 android:textSize="@dimen/normal_font" />
 
             <Button
@@ -81,7 +82,7 @@
                 android:layout_height="match_parent"
                 android:background="@color/transparent"
                 android:text="+"
-                android:textColor="@color/white"
+                android:textColor="?attr/adjust_lable_font_color"
                 android:textSize="@dimen/normal_font" />
         </LinearLayout>
 
@@ -92,13 +93,14 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="8dp"
-            android:background="@drawable/fillet_custom_bg"
+            android:background="?attr/semicircle_bg"
             android:gravity="center"
+            android:inputType="numberDecimal"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:singleLine="true"
-            android:inputType="numberDecimal"
             android:text="1.0"
+            android:textColor="?attr/normal_font_color"
             android:textSize="@dimen/normal_font" />
 
         <TextView
@@ -106,10 +108,10 @@
             android:layout_height="match_parent"
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@id/et_inertia_ratio"
-            android:background="@drawable/shape_orange_bg"
+            android:background="?attr/adjust_lable_bg"
             android:gravity="center"
             android:text="@string/inertia_ratio"
-            android:textColor="@color/white"
+            android:textColor="?attr/adjust_lable_font_color"
             android:textSize="@dimen/normal_font" />
     </RelativeLayout>
 
@@ -118,7 +120,7 @@
         android:layout_height="@dimen/divider"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:background="@color/white" />
+        android:background="?attr/divider_color" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -133,7 +135,7 @@
             android:layout_marginRight="30dp"
             android:background="@color/transparent"
             android:text="@string/auto_illation"
-            android:textColor="@color/white"
+            android:textColor="?attr/adjust_lable_font_color"
             android:textSize="@dimen/normal_font" />
 
         <Button
@@ -144,7 +146,7 @@
             android:layout_toLeftOf="@id/btn_illation"
             android:background="@color/transparent"
             android:text="@string/calcutate_gain"
-            android:textColor="@color/white"
+            android:textColor="?attr/adjust_lable_font_color"
             android:textSize="@dimen/normal_font" />
 
         <Button
@@ -155,7 +157,7 @@
             android:layout_toRightOf="@id/btn_illation"
             android:background="@color/transparent"
             android:text="@string/read_param"
-            android:textColor="@color/white"
+            android:textColor="?attr/adjust_lable_font_color"
             android:textSize="@dimen/normal_font" />
 
         <ImageView
@@ -190,7 +192,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/calcutate_result"
-                    android:textColor="@color/white"
+                    android:textColor="?attr/adjust_lable_font_color"
                     android:textSize="@dimen/normal_font" />
 
                 <LinearLayout
@@ -205,7 +207,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.0"
                         android:text="@string/p0_17"
-                        android:textColor="@color/period"
+                        android:textColor="?attr/period_color"
                         android:textSize="@dimen/normal_font" />
 
                     <EditText
@@ -213,20 +215,21 @@
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
-                        android:background="@drawable/fillet_custom_bg"
+                        android:background="?attr/semicircle_bg"
                         android:gravity="center"
+                        android:inputType="numberDecimal"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:singleLine="true"
-                        android:inputType="numberDecimal"
                         android:text="1.0"
+                        android:textColor="?attr/normal_font_color"
                         android:textSize="@dimen/normal_font" />
 
                     <CheckBox
                         android:id="@+id/cb_p017"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:background="@drawable/checkbox_selector"
+                        android:background="?attr/adjust_checkbox_bg"
                         android:button="@null" />
                 </LinearLayout>
 
@@ -242,7 +245,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.0"
                         android:text="@string/p0_09"
-                        android:textColor="@color/period"
+                        android:textColor="?attr/period_color"
                         android:textSize="@dimen/normal_font" />
 
                     <EditText
@@ -250,20 +253,21 @@
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
-                        android:background="@drawable/fillet_custom_bg"
+                        android:background="?attr/semicircle_bg"
                         android:gravity="center"
+                        android:inputType="numberDecimal"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:singleLine="true"
-                        android:inputType="numberDecimal"
                         android:text="5"
+                        android:textColor="?attr/normal_font_color"
                         android:textSize="@dimen/normal_font" />
 
                     <CheckBox
                         android:id="@+id/cb_p009"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:background="@drawable/checkbox_selector"
+                        android:background="?attr/adjust_checkbox_bg"
                         android:button="@null" />
                 </LinearLayout>
 
@@ -279,7 +283,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.0"
                         android:text="@string/p0_05"
-                        android:textColor="@color/period"
+                        android:textColor="?attr/period_color"
                         android:textSize="@dimen/normal_font" />
 
                     <EditText
@@ -287,20 +291,21 @@
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
-                        android:background="@drawable/fillet_custom_bg"
+                        android:background="?attr/semicircle_bg"
                         android:gravity="center"
+                        android:inputType="numberDecimal"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:singleLine="true"
-                        android:inputType="numberDecimal"
                         android:text="5"
+                        android:textColor="?attr/normal_font_color"
                         android:textSize="@dimen/normal_font" />
 
                     <CheckBox
                         android:id="@+id/cb_p005"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:background="@drawable/checkbox_selector"
+                        android:background="?attr/adjust_checkbox_bg"
                         android:button="@null" />
                 </LinearLayout>
 
@@ -316,7 +321,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.0"
                         android:text="@string/p0_06"
-                        android:textColor="@color/period"
+                        android:textColor="?attr/period_color"
                         android:textSize="@dimen/normal_font" />
 
                     <EditText
@@ -324,20 +329,21 @@
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
-                        android:background="@drawable/fillet_custom_bg"
+                        android:background="?attr/semicircle_bg"
                         android:gravity="center"
+                        android:inputType="numberDecimal"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:singleLine="true"
-                        android:inputType="numberDecimal"
                         android:text="320.0"
+                        android:textColor="?attr/normal_font_color"
                         android:textSize="@dimen/normal_font" />
 
                     <CheckBox
                         android:id="@+id/cb_p006"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:background="@drawable/checkbox_selector"
+                        android:background="?attr/adjust_checkbox_bg"
                         android:button="@null" />
                 </LinearLayout>
 
@@ -353,7 +359,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.0"
                         android:text="@string/p0_19"
-                        android:textColor="@color/period"
+                        android:textColor="?attr/period_color"
                         android:textSize="@dimen/normal_font" />
 
                     <EditText
@@ -361,20 +367,21 @@
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
-                        android:background="@drawable/fillet_custom_bg"
+                        android:background="?attr/semicircle_bg"
                         android:gravity="center"
+                        android:inputType="numberDecimal"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:singleLine="true"
-                        android:inputType="numberDecimal"
                         android:text="0.50"
+                        android:textColor="?attr/normal_font_color"
                         android:textSize="@dimen/normal_font" />
 
                     <CheckBox
                         android:id="@+id/cb_p019"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:background="@drawable/checkbox_selector"
+                        android:background="?attr/adjust_checkbox_bg"
                         android:button="@null" />
                 </LinearLayout>
             </LinearLayout>
@@ -411,7 +418,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/dayz_content"
-                    android:textColor="@color/white"
+                    android:textColor="?attr/adjust_lable_font_color"
                     android:textSize="@dimen/normal_font" />
 
                 <LinearLayout
@@ -426,7 +433,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.0"
                         android:text="@string/p0_17"
-                        android:textColor="@color/period"
+                        android:textColor="?attr/period_color"
                         android:textSize="@dimen/normal_font" />
 
                     <EditText
@@ -434,20 +441,21 @@
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
-                        android:background="@drawable/fillet_custom_bg"
+                        android:background="?attr/semicircle_bg"
                         android:gravity="center"
+                        android:inputType="numberDecimal"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:singleLine="true"
-                        android:inputType="numberDecimal"
                         android:text=""
+                        android:textColor="?attr/normal_font_color"
                         android:textSize="@dimen/normal_font" />
 
                     <CheckBox
                         android:id="@+id/cb_p017_d"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:background="@drawable/checkbox_selector"
+                        android:background="?attr/adjust_checkbox_bg"
                         android:button="@null" />
                 </LinearLayout>
 
@@ -463,7 +471,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.0"
                         android:text="@string/p0_09"
-                        android:textColor="@color/period"
+                        android:textColor="?attr/period_color"
                         android:textSize="@dimen/normal_font" />
 
                     <EditText
@@ -471,20 +479,21 @@
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
-                        android:background="@drawable/fillet_custom_bg"
+                        android:background="?attr/semicircle_bg"
                         android:gravity="center"
+                        android:inputType="numberDecimal"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:singleLine="true"
-                        android:inputType="numberDecimal"
                         android:text=""
+                        android:textColor="?attr/normal_font_color"
                         android:textSize="@dimen/normal_font" />
 
                     <CheckBox
                         android:id="@+id/cb_p009_d"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:background="@drawable/checkbox_selector"
+                        android:background="?attr/adjust_checkbox_bg"
                         android:button="@null" />
                 </LinearLayout>
 
@@ -500,7 +509,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.0"
                         android:text="@string/p0_05"
-                        android:textColor="@color/period"
+                        android:textColor="?attr/period_color"
                         android:textSize="@dimen/normal_font" />
 
                     <EditText
@@ -508,20 +517,21 @@
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
-                        android:background="@drawable/fillet_custom_bg"
+                        android:background="?attr/semicircle_bg"
                         android:gravity="center"
+                        android:inputType="numberDecimal"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:singleLine="true"
-                        android:inputType="numberDecimal"
                         android:text=""
+                        android:textColor="?attr/normal_font_color"
                         android:textSize="@dimen/normal_font" />
 
                     <CheckBox
                         android:id="@+id/cb_p005_d"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:background="@drawable/checkbox_selector"
+                        android:background="?attr/adjust_checkbox_bg"
                         android:button="@null" />
                 </LinearLayout>
 
@@ -537,7 +547,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.0"
                         android:text="@string/p0_06"
-                        android:textColor="@color/period"
+                        android:textColor="?attr/period_color"
                         android:textSize="@dimen/normal_font" />
 
                     <EditText
@@ -545,20 +555,21 @@
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
-                        android:background="@drawable/fillet_custom_bg"
+                        android:background="?attr/semicircle_bg"
                         android:gravity="center"
+                        android:inputType="numberDecimal"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:singleLine="true"
-                        android:inputType="numberDecimal"
                         android:text=""
+                        android:textColor="?attr/normal_font_color"
                         android:textSize="@dimen/normal_font" />
 
                     <CheckBox
                         android:id="@+id/cb_p006_d"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:background="@drawable/checkbox_selector"
+                        android:background="?attr/adjust_checkbox_bg"
                         android:button="@null" />
                 </LinearLayout>
 
@@ -574,7 +585,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.0"
                         android:text="@string/p0_19"
-                        android:textColor="@color/period"
+                        android:textColor="?attr/period_color"
                         android:textSize="@dimen/normal_font" />
 
                     <EditText
@@ -582,20 +593,21 @@
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
-                        android:background="@drawable/fillet_custom_bg"
+                        android:background="?attr/semicircle_bg"
                         android:gravity="center"
+                        android:inputType="numberDecimal"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:singleLine="true"
-                        android:inputType="numberDecimal"
                         android:text=""
+                        android:textColor="?attr/normal_font_color"
                         android:textSize="@dimen/normal_font" />
 
                     <CheckBox
                         android:id="@+id/cb_p019_d"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:background="@drawable/checkbox_selector"
+                        android:background="?attr/adjust_checkbox_bg"
                         android:button="@null" />
                 </LinearLayout>
             </LinearLayout>

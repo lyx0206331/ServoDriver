@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/bg"
+    android:background="?attr/base_bg"
     tools:context="com.adrian.servodriver.activities.MainActivity">
 
     <RelativeLayout
@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="@string/parameter"
-            android:textColor="@color/white"
+            android:textColor="?attr/title_color"
             android:textSize="@dimen/title_font" />
 
         <FrameLayout
@@ -64,7 +64,7 @@
         android:layout_height="match_parent"
         android:layout_below="@id/rl_title"
         android:layout_marginTop="50dp"
-        android:background="@color/divider" />
+        android:background="?attr/divider_color" />
 
     <RelativeLayout
         android:id="@+id/rl_color_label"
@@ -85,7 +85,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="7dp"
             android:text="@string/segment_num"
-            android:textColor="@color/period"
+            android:textColor="?attr/period_color"
             android:textSize="@dimen/normal_font" />
 
         <com.xw.repo.BubbleSeekBar
@@ -97,7 +97,7 @@
             app:bsb_auto_adjust_section_mark="true"
             app:bsb_max="4"
             app:bsb_min="1"
-            app:bsb_second_track_color="@color/colorAccent"
+            app:bsb_second_track_color="?attr/colorAccent"
             app:bsb_section_count="3"
             app:bsb_section_text_position="below_section_mark"
             app:bsb_show_section_mark="true"
@@ -124,7 +124,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:text="@string/reboot_effect"
-                android:textColor="@color/normal_font"
+                android:textColor="?attr/normal_font_color"
                 android:textSize="@dimen/para_font" />
 
             <LinearLayout
@@ -144,7 +144,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:text="@string/immediately_effect"
-                    android:textColor="@color/normal_font"
+                    android:textColor="?attr/normal_font_color"
                     android:textSize="@dimen/para_font" />
             </LinearLayout>
 
@@ -160,7 +160,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:text="@string/read_only"
-                android:textColor="@color/normal_font"
+                android:textColor="?attr/normal_font_color"
                 android:textSize="@dimen/para_font" />
         </LinearLayout>
     </RelativeLayout>
@@ -225,7 +225,9 @@
         android:layout_marginRight="16dp"
         android:clickable="true"
         android:tint="@android:color/white"
+        app:backgroundTint="?attr/fab_bg"
         app:fabSize="normal"
+        app:rippleColor="?attr/fab_ripple"
         app:srcCompat="@drawable/ic_add" />
 
     <LinearLayout
@@ -261,7 +263,9 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:tint="@android:color/white"
+            app:backgroundTint="?attr/fab_bg"
             app:fabSize="mini"
+            app:rippleColor="?attr/fab_ripple"
             app:srcCompat="@drawable/ic_write" />
 
     </LinearLayout>
@@ -298,7 +302,9 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:tint="@android:color/white"
+            app:backgroundTint="?attr/fab_bg"
             app:fabSize="mini"
+            app:rippleColor="?attr/fab_ripple"
             app:srcCompat="@drawable/ic_save" />
 
     </LinearLayout>
@@ -335,7 +341,9 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:tint="@android:color/white"
+            app:backgroundTint="?attr/fab_bg"
             app:fabSize="mini"
+            app:rippleColor="?attr/fab_ripple"
             app:srcCompat="@drawable/ic_upload" />
 
     </LinearLayout>
@@ -372,7 +380,9 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:tint="@android:color/white"
+            app:backgroundTint="?attr/fab_bg"
             app:fabSize="mini"
+            app:rippleColor="?attr/fab_ripple"
             app:srcCompat="@drawable/ic_set_zero" />
 
     </LinearLayout>
@@ -409,7 +419,9 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:tint="@android:color/white"
+            app:backgroundTint="?attr/fab_bg"
             app:fabSize="mini"
+            app:rippleColor="?attr/fab_ripple"
             app:srcCompat="@drawable/ic_eeprom" />
 
     </LinearLayout>
@@ -446,7 +458,9 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:tint="@android:color/white"
+            app:backgroundTint="?attr/fab_bg"
             app:fabSize="mini"
+            app:rippleColor="?attr/fab_ripple"
             app:srcCompat="@drawable/ic_recovery" />
 
     </LinearLayout>

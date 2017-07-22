@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.adrian.servodriver.R;
+import com.adrian.servodriver.application.MyApplication;
 import com.adrian.servodriver.databinding.ActivityHelpBinding;
 import com.blankj.utilcode.util.ToastUtils;
 import com.jaeger.library.StatusBarUtil;
@@ -41,6 +42,11 @@ public class HelpActivity extends BaseActivity {
         close();
     }
 
+    @Override
+    public void notifyByThemeChanged() {
+
+    }
+
     public class Help {
         public Help() {
         }
@@ -50,7 +56,9 @@ public class HelpActivity extends BaseActivity {
         }
 
         public void clickDisconnect(View view) {
-            ToastUtils.showShortSafe("断开连接");
+            ToastUtils.showShortSafe("切换主题,重启应用后生效！");
+            switchCurrentThemeTag();
+            MyApplication.getInstance().notifyByThemeChanged();
         }
 
         public void clickEp1cHelp(View view) {

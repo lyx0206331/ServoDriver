@@ -123,4 +123,9 @@ public class WelcomeActivity extends BaseActivity {
     void neverAskAgain() {
 //        ToastUtils.showShortSafe("不再询问");
     }
+
+    @Override
+    public void notifyByThemeChanged() {
+
+    }
 }

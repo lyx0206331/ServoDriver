@@ -1,29 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme1" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme1" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">@mipmap/leadingbg</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/plus</item>
+        <item name="colorAccent">@color/colorAccent</item>
 
         <item name="base_bg">@mipmap/bg</item>
         <item name="fab_bg">@color/plus</item>
+        <item name="fab_ripple">@color/ripple</item>
         <item name="normal_font_color">@color/normal_font</item>
         <item name="warn_point_bg">@color/warn_code</item>
         <item name="title_color">@color/white</item>
         <item name="error_code_color">@color/warn_code</item>
         <item name="solution_color">@color/solution</item>
         <item name="btn_font_color">@color/white</item>
+        <item name="btn_bg_color0">@color/plus</item>
+        <item name="btn_bg_color1">@color/period</item>
         <item name="btn_bg_small">@drawable/btn_bg_small_selector</item>
         <item name="btn_bg_normal">@drawable/btn_bg_normal_selector</item>
         <item name="reboot_bg">@color/reboot_valid</item>
         <item name="immediately_bg">@color/rightnow_valid</item>
         <item name="read_only_bg">@color/read_only</item>
         <item name="period_color">@color/period</item>
+        <item name="divider_color">@color/divider</item>
+        <item name="adjust_lable_bg">@drawable/shape_orange_bg</item>
+        <item name="adjust_lable_font_color">@color/white</item>
+        <item name="adjust_checkbox_bg">@drawable/checkbox_selector</item>
+        <item name="semicircle_bg">@drawable/fillet_custom_bg</item>
+        <item name="fillet_bg">@drawable/shape_fillet_white</item>
+        <item name="fft_bg">@mipmap/fftbg</item>
+        <item name="help_bg">@mipmap/helpbigbg</item>
+        <item name="dialog_bg">@drawable/shape_fillet_white</item>
+        <item name="dialog_bg_color">@color/white</item>
+        <item name="default_pressed_font_color">@color/pressed_font</item>
+        <item name="semicircle_stroke_color">@color/warn_code</item>
     </style>
 
-    <style name="Theme2" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <item name="base_bg">@color/base_bg</item>
+    <style name="AppTheme2" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:windowBackground">@mipmap/leadingbg</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="base_bg">@color/solution</item>
+        <item name="fab_bg">@color/california</item>
+        <item name="fab_ripple">@color/ripple</item>
+        <item name="normal_font_color">@color/normal_font</item>
+        <item name="warn_point_bg">@color/warn_code</item>
+        <item name="title_color">@color/white</item>
+        <item name="error_code_color">@color/warn_code</item>
+        <item name="solution_color">@color/solution</item>
+        <item name="btn_font_color">@color/white</item>
+        <item name="btn_bg_color0">@color/california</item>
+        <item name="btn_bg_color1">@color/rob_roy</item>
+        <item name="btn_bg_small">@drawable/btn_bg_small_selector</item>
+        <item name="btn_bg_normal">@drawable/btn_bg_normal_selector</item>
+        <item name="reboot_bg">@color/reboot_valid</item>
+        <item name="immediately_bg">@color/rightnow_valid</item>
+        <item name="read_only_bg">@color/read_only</item>
+        <item name="period_color">@color/period</item>
+        <item name="divider_color">@color/divider</item>
+        <item name="adjust_lable_bg">@drawable/shape_label_bg</item>
+        <item name="adjust_lable_font_color">@color/white</item>
+        <item name="adjust_checkbox_bg">@drawable/checkbox_selector</item>
+        <item name="semicircle_bg">@drawable/fillet_custom_bg</item>
+        <item name="fillet_bg">@drawable/shape_fillet_white</item>
+        <item name="fft_bg">@color/solution</item>
+        <item name="help_bg">@color/solution</item>
+        <item name="dialog_bg">@drawable/shape_fillet_white</item>
+        <item name="dialog_bg_color">@color/white</item>
+        <item name="default_pressed_font_color">@color/pressed_font</item>
+        <item name="semicircle_stroke_color">@color/california</item>
     </style>
 </resources>

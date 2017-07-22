@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/shape_fillet_white"
+    android:background="?attr/dialog_bg"
     android:orientation="vertical"
     android:padding="20dp">
 
@@ -18,6 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="@string/info_prompt"
+            android:textColor="?attr/normal_font_color"
             android:textSize="@dimen/title_font" />
 
         <ImageButton
@@ -33,7 +34,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/divider"
-        android:background="@color/fillet_stroke" />
+        android:background="?attr/divider_color" />
 
     <TextView
         android:id="@+id/tv_content"
@@ -41,6 +42,7 @@
         android:layout_height="120dp"
         android:gravity="center"
         android:text="升级失败"
+        android:textColor="?attr/normal_font_color"
         android:textSize="@dimen/normal_font" />
 
     <Button
@@ -48,9 +50,10 @@
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/btn_bg_small_selector"
+        android:layout_marginBottom="3dp"
+        android:background="?attr/btn_bg_small"
         android:text="@string/know"
-        android:textColor="@color/white"
+        android:textColor="?attr/btn_font_color"
         android:textSize="@dimen/normal_font" />
 
 </LinearLayout>

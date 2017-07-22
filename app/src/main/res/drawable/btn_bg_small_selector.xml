@@ -4,14 +4,14 @@
         <shape>
             <corners android:radius="15dp" />
             <size android:width="60dp" android:height="30dp" />
-            <solid android:color="@color/period" />
+            <solid android:color="?attr/btn_bg_color1" />
         </shape>
     </item>
     <item>
         <shape>
             <corners android:radius="15dp" />
             <size android:width="60dp" android:height="30dp" />
-            <solid android:color="@color/plus" />
+            <solid android:color="?attr/btn_bg_color0" />
         </shape>
     </item>
 </selector>

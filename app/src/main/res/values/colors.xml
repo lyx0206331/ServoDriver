@@ -28,6 +28,12 @@
     <color name="fillet_stroke">#A8E0FB</color>
     <color name="menu_bg">#F9F9F9</color>
     <color name="plus">#44E5FE</color>
+    <color name="ripple">#33728dff</color>
 
     <color name="base_bg">#FF9D2E</color>
+    <color name="california">#E68C3A</color>
+    <color name="rob_roy">#D6AD4A</color>
+    <color name="metallic_bronze">#524A3A</color>
+    <color name="woodland">#525229</color>
+
 </resources>

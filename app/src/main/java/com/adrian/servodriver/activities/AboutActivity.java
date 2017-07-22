@@ -43,6 +43,11 @@ public class AboutActivity extends BaseActivity {
 
     }
 
+    @Override
+    public void notifyByThemeChanged() {
+
+    }
+
     public class About {
         String version;
 

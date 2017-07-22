@@ -12,7 +12,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@mipmap/helpbigbg"
+        android:background="?attr/help_bg"
         android:orientation="vertical"
         tools:context="com.adrian.servodriver.activities.HelpActivity">
 
@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="@string/help"
-                android:textColor="@color/white"
+                android:textColor="?attr/title_color"
                 android:textSize="@dimen/title_font" />
         </RelativeLayout>
 
@@ -47,74 +47,78 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginBottom="36dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginTop="24dp"
-                android:paddingLeft="40dp"
-                android:paddingTop="20dp"
+                android:layout_marginTop="30dp"
+                android:background="?attr/fillet_bg"
+                android:orientation="vertical"
                 android:paddingBottom="40dp"
-                android:background="@mipmap/helpbg"
-                android:orientation="vertical">
+                android:paddingLeft="40dp"
+                android:paddingTop="20dp">
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight="1.0"
+                    android:background="@color/transparent"
                     android:drawableLeft="@drawable/ic_help"
                     android:drawablePadding="10dp"
                     android:onClick="@{help.clickEp1cHelp}"
                     android:text="@string/ep1c_help"
-                    android:textSize="@dimen/normal_font"
-                    android:textColor="@color/period"
-                    android:background="@color/transparent" />
+                    android:textColor="?attr/period_color"
+                    android:textSize="@dimen/normal_font" />
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight="1.0"
+                    android:background="@color/transparent"
                     android:drawableLeft="@drawable/ic_help"
                     android:drawablePadding="10dp"
                     android:onClick="@{help.clickEp1cAHelp}"
                     android:text="@string/ep1c_a_help"
-                    android:textSize="@dimen/normal_font"
-                    android:textColor="@color/period"
-                    android:background="@color/transparent" />
+                    android:textColor="?attr/period_color"
+                    android:textSize="@dimen/normal_font" />
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight="1.0"
+                    android:background="@color/transparent"
                     android:drawableLeft="@drawable/ic_help"
                     android:drawablePadding="10dp"
                     android:onClick="@{help.clickEp3StdHelp}"
                     android:text="@string/ep3_st_help"
-                    android:textSize="@dimen/normal_font"
-                    android:textColor="@color/period"
-                    android:background="@color/transparent" />
+                    android:textColor="?attr/period_color"
+                    android:textSize="@dimen/normal_font" />
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight="1.0"
+                    android:background="@color/transparent"
                     android:drawableLeft="@drawable/ic_help"
                     android:drawablePadding="10dp"
                     android:onClick="@{help.clickEp3IoHelp}"
                     android:text="@string/ep3_io_help"
-                    android:textSize="@dimen/normal_font"
-                    android:textColor="@color/period"
-                    android:background="@color/transparent" />
+                    android:textColor="?attr/period_color"
+                    android:textSize="@dimen/normal_font" />
             </LinearLayout>
 
             <Button
                 android:id="@+id/btn_disconn"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:background="@mipmap/disconnect"
-                android:onClick="@{help.clickDisconnect}" />
+                android:layout_marginBottom="16dp"
+                android:background="?attr/btn_bg_normal"
+                android:onClick="@{help.clickDisconnect}"
+                android:text="@string/switch_theme"
+                android:textColor="?attr/btn_font_color"
+                android:textSize="@dimen/normal_font" />
         </RelativeLayout>
 
         <TextView
@@ -123,7 +127,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_margin="40dp"
             android:text="@string/copy_right"
-            android:textColor="@color/white"
+            android:textColor="?attr/adjust_lable_font_color"
             android:textSize="@dimen/normal_font" />
 
     </LinearLayout>

@@ -1,17 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--通用背景背景-->
     <attr name="base_bg" format="color|reference" />
+    <!--通用字体颜色-->
     <attr name="normal_font_color" format="color|reference" />
+    <!--漂浮按钮背景-->
     <attr name="fab_bg" format="color|reference" />
+    <!--漂浮按钮响应颜色-->
+    <attr name="fab_ripple" format="color|reference" />
+    <!--报警提示背景色-->
     <attr name="warn_point_bg" format="color|reference" />
+    <!--标题颜色-->
     <attr name="title_color" format="color|reference" />
+    <!--错误码颜色-->
     <attr name="error_code_color" format="color|reference" />
+    <!--解决方案颜色-->
     <attr name="solution_color" format="color|reference" />
+    <!--按钮字体颜色-->
     <attr name="btn_font_color" format="color|reference" />
+    <!--按钮背景色（按下前）-->
+    <attr name="btn_bg_color0" format="color|reference" />
+    <!--按钮背景色（按下后）-->
+    <attr name="btn_bg_color1" format="color|reference" />
+    <!--按钮背景（小）-->
     <attr name="btn_bg_small" format="color|reference" />
+    <!--按钮背景（大）-->
     <attr name="btn_bg_normal" format="color|reference" />
+    <!--重启生效背景色-->
     <attr name="reboot_bg" format="color|reference" />
+    <!--立即生效背景色-->
     <attr name="immediately_bg" format="color|reference" />
+    <!--只读背景色-->
     <attr name="read_only_bg" format="color|reference" />
+    <!--周期颜色-->
     <attr name="period_color" format="color|reference" />
+    <!--分隔线颜色-->
+    <attr name="divider_color" format="color|reference" />
+    <!--自动增益标签背景色-->
+    <attr name="adjust_lable_bg" format="color|reference" />
+    <!--自动增益标签字体颜色-->
+    <attr name="adjust_lable_font_color" format="color|reference" />
+    <!--自动增益选择框背景-->
+    <attr name="adjust_checkbox_bg" format="reference" />
+    <!--左右半圆背景-->
+    <attr name="semicircle_bg" format="color|reference" />
+    <!--圆角背景-->
+    <attr name="fillet_bg" format="color|reference" />
+    <!--fft背景-->
+    <attr name="fft_bg" format="color|reference" />
+    <!--帮助背景-->
+    <attr name="help_bg" format="color|reference" />
+    <!--对话框背景-->
+    <attr name="dialog_bg" format="color|reference" />
+    <!--默认选中字体颜色-->
+    <attr name="default_pressed_font_color" format="color|reference" />
+    <!--对话框背景色-->
+    <attr name="dialog_bg_color" format="color|reference" />
+    <!--左右半圆边框颜色-->
+    <attr name="semicircle_stroke_color" format="color|reference" />
 </resources>
