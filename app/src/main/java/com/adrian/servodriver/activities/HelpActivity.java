@@ -56,7 +56,7 @@ public class HelpActivity extends BaseActivity {
         }
 
         public void clickDisconnect(View view) {
-            ToastUtils.showShortSafe("切换主题");
+//            ToastUtils.showShortSafe("切换主题");
             switchCurrentThemeTag();
             MyApplication.getInstance().notifyByThemeChanged();
         }
