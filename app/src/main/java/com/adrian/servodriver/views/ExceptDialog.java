@@ -13,37 +13,31 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.adrian.servodriver.R;
+import com.adrian.servodriver.theme_picker.ThemeResourceHelper;
+import com.adrian.servodriver.utils.CommUtil;
 
 /**
  * Created by ranqing on 2017/6/30.
  */
 
-public class ExceptDialog extends Dialog implements View.OnClickListener {
+public class ExceptDialog extends BaseDialog implements View.OnClickListener {
 
-    private Context context;
     private ImageButton mCloseBtn;
     private TextView mTitleTV;
     private TextView mContentTV;
     private Button mKnowBtn;
 
     public ExceptDialog(@NonNull Context context) {
-        super(context, R.style.Dialog);
-        this.context = context;
-    }
-
-    public ExceptDialog(@NonNull Context context, @StyleRes int themeResId) {
-        super(context, themeResId);
-    }
-
-    public ExceptDialog(@NonNull Context context, boolean cancelable, @Nullable OnCancelListener cancelListener) {
-        super(context, cancelable, cancelListener);
+        super(context);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_except_dialog);
+    }
 
+    @Override
+    protected void initViews() {
         mCloseBtn = (ImageButton) findViewById(R.id.ib_close);
         mTitleTV = (TextView) findViewById(R.id.tv_title);
         mContentTV = (TextView) findViewById(R.id.tv_content);
@@ -51,6 +45,24 @@ public class ExceptDialog extends Dialog implements View.OnClickListener {
 
         mKnowBtn.setOnClickListener(this);
         mCloseBtn.setOnClickListener(this);
+    }
+
+    @Override
+    protected void loadData() {
+
+    }
+
+    @Override
+    protected int getLayoutResId() {
+        return R.layout.layout_except_dialog;
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+//        ThemeResourceHelper helper = ThemeResourceHelper.getInstance(context);
+//        helper.setBackgroundResourceByAttr(mKnowBtn, R.attr.btn_bg_small);
+//
     }
 
     public void setTitle(String title) {
@@ -66,7 +78,8 @@ public class ExceptDialog extends Dialog implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.ib_close:
             case R.id.btn_know:
-                dismiss();
+//                dismiss();
+                cancel();
                 break;
         }
     }

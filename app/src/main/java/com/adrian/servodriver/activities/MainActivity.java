@@ -17,12 +17,14 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.adrian.servodriver.R;
 import com.adrian.servodriver.adapter.ParamListAdapter;
 import com.adrian.servodriver.pojo.ParamBean;
+import com.adrian.servodriver.theme_picker.ThemeResourceHelper;
 import com.adrian.servodriver.utils.CommUtil;
 import com.adrian.servodriver.utils.D2xxUtil;
 import com.adrian.servodriver.views.ExceptDialog;
@@ -49,6 +51,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private long lastPressTime;
 
+    private RelativeLayout mMainRootRL;
     private Drawer mMenuDrawer;
     private ImageButton mMenuIB;
     private FrameLayout mWarningFL;
@@ -101,6 +104,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     protected void initViews() {
         setContentView(R.layout.activity_main);
         StatusBarUtil.setTransparent(this);
+        mMainRootRL = (RelativeLayout) findViewById(R.id.main_bg);
         mMenuIB = (ImageButton) findViewById(R.id.ib_menu);
         mWarningFL = (FrameLayout) findViewById(R.id.fl_warning);
         mWaringPointTV = (TextView) findViewById(R.id.tv_warning_point);
@@ -445,6 +449,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 if (isFabMenuOpen) {
                     collapseFabMenu();
                 }
+                mSaveFileDialog = null;
                 if (mSaveFileDialog == null) {
                     mSaveFileDialog = new SaveDialog(this);
                 }
@@ -454,6 +459,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 if (isFabMenuOpen) {
                     collapseFabMenu();
                 }
+                mLoadParamDialog = null;
                 if (mLoadParamDialog == null) {
                     mLoadParamDialog = new LoadDialog(this);
                 }
@@ -476,6 +482,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void showExcDialog(String content) {
+        mExceptDialog = null;
         if (mExceptDialog == null) {
             mExceptDialog = new ExceptDialog(this);
         }
@@ -484,6 +491,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void showWarningDialog(String code, String content, String reason, String solution) {
+        mWarningDialog = null;
         if (mWarningDialog == null) {
             mWarningDialog = new WarningDialog(this);
         }
@@ -493,7 +501,29 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     public void notifyByThemeChanged() {
+        ThemeResourceHelper helper = ThemeResourceHelper.getInstance(this);
+        helper.setBackgroundResourceByAttr(mMainRootRL, R.attr.base_bg);
 
+        helper.setFloatingActionBtnBgTint(mAddFAB, R.attr.fab_bg);
+        helper.setFloatingActionBtnRipple(mAddFAB, R.attr.fab_ripple);
+
+        helper.setFloatingActionBtnBgTint(mWriteFAB, R.attr.fab_bg);
+        helper.setFloatingActionBtnRipple(mWriteFAB, R.attr.fab_ripple);
+
+        helper.setFloatingActionBtnBgTint(mSaveFAB, R.attr.fab_bg);
+        helper.setFloatingActionBtnRipple(mSaveFAB, R.attr.fab_ripple);
+
+        helper.setFloatingActionBtnBgTint(mLoadFAB, R.attr.fab_bg);
+        helper.setFloatingActionBtnRipple(mLoadFAB, R.attr.fab_ripple);
+
+        helper.setFloatingActionBtnBgTint(mZeroFAB, R.attr.fab_bg);
+        helper.setFloatingActionBtnRipple(mZeroFAB, R.attr.fab_ripple);
+
+        helper.setFloatingActionBtnBgTint(mEepromFAB, R.attr.fab_bg);
+        helper.setFloatingActionBtnRipple(mEepromFAB, R.attr.fab_ripple);
+
+        helper.setFloatingActionBtnBgTint(mRecoveryFAB, R.attr.fab_bg);
+        helper.setFloatingActionBtnRipple(mRecoveryFAB, R.attr.fab_ripple);
     }
 
     /**

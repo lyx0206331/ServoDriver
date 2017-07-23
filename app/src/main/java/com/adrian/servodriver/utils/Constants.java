@@ -9,6 +9,8 @@ import android.os.Environment;
 public class Constants {
     public static final String ROOT_PATH = Environment.getExternalStorageDirectory().getPath() + "/Maxsine/";
     public static final String HELP = "help/";
+    public static final String KEY_THEME_CACHE = "theme_cache";
+    public static final String SHERED_PREF_NAME = "ThemeCache";
 
     public static final int BAUD_RATE = 2000000;   //波特率：2000000bps
     public static final int PARITY_DIGIT = 0;   //奇偶校验位

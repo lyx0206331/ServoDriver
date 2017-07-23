@@ -8,12 +8,15 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.xw.repo.BubbleSeekBar;
 
 /**
  * Created by ranqing on 2017/7/23.
@@ -699,5 +702,17 @@ public class ThemeResourceHelper {
         if (textView == null) return;
         ColorStateList colorStateList = innerGetColorStateListByAttr(attrId, defaultColorStateList);
         textView.setHintTextColor(colorStateList);
+    }
+
+    public void setFloatingActionBtnBgTint(@NonNull FloatingActionButton floatingActionBtn, int attrId) {
+        if (floatingActionBtn == null) return;
+        ColorStateList tint = innerGetColorStateListByAttr(attrId, null);
+        floatingActionBtn.setBackgroundTintList(tint);
+    }
+
+    public void setFloatingActionBtnRipple(@NonNull FloatingActionButton floatingActionBtn, int attrId) {
+        if (floatingActionBtn == null) return;
+        int rippleColor = innerGetColorByAttr(attrId, DEFAULT_BACKGROUND_COLOR);
+        floatingActionBtn.setRippleColor(rippleColor);
     }
 }

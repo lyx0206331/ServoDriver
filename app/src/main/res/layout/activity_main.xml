@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_bg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/base_bg"
@@ -95,16 +96,19 @@
             android:layout_marginTop="8dp"
             android:layout_toRightOf="@id/tv_seg_num"
             app:bsb_auto_adjust_section_mark="true"
+            app:bsb_bubble_color="?attr/bubble_seekbar_color"
+            app:bsb_bubble_text_color="?attr/bubble_seekbar_text_color"
             app:bsb_max="4"
             app:bsb_min="1"
-            app:bsb_second_track_color="?attr/colorAccent"
+            app:bsb_second_track_color="?attr/bubble_seekbar_second_track"
             app:bsb_section_count="3"
             app:bsb_section_text_position="below_section_mark"
             app:bsb_show_section_mark="true"
             app:bsb_show_section_text="true"
             app:bsb_show_thumb_text="true"
             app:bsb_thumb_text_size="18sp"
-            app:bsb_touch_to_seek="true" />
+            app:bsb_touch_to_seek="true"
+            app:bsb_track_color="?attr/bubble_seekbar_track" />
 
         <LinearLayout
             android:layout_width="match_parent"

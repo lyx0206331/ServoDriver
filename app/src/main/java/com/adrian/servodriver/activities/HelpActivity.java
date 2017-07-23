@@ -44,7 +44,7 @@ public class HelpActivity extends BaseActivity {
 
     @Override
     public void notifyByThemeChanged() {
-
+        recreate();
     }
 
     public class Help {
@@ -56,7 +56,7 @@ public class HelpActivity extends BaseActivity {
         }
 
         public void clickDisconnect(View view) {
-            ToastUtils.showShortSafe("切换主题,重启应用后生效！");
+            ToastUtils.showShortSafe("切换主题");
             switchCurrentThemeTag();
             MyApplication.getInstance().notifyByThemeChanged();
         }

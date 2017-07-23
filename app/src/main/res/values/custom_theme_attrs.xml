@@ -56,6 +56,16 @@
     <attr name="default_pressed_font_color" format="color|reference" />
     <!--对话框背景色-->
     <attr name="dialog_bg_color" format="color|reference" />
+    <!--对话框背景边框颜色-->
+    <attr name="dialog_bg_stroke_color" format="color|reference" />
     <!--左右半圆边框颜色-->
     <attr name="semicircle_stroke_color" format="color|reference" />
+    <!--气泡拖动进度条 气泡颜色-->
+    <attr name="bubble_seekbar_color" format="color|reference" />
+    <!--气泡拖动进度条 气泡文本颜色-->
+    <attr name="bubble_seekbar_text_color" format="color|reference" />
+    <!--气泡拖动进度条 轨道颜色-->
+    <attr name="bubble_seekbar_track" format="color|reference" />
+    <!--气泡拖动进度条 二级轨道颜色-->
+    <attr name="bubble_seekbar_second_track" format="color|reference" />
 </resources>

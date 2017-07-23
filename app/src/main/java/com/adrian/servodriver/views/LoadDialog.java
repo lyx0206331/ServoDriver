@@ -25,9 +25,7 @@ import java.util.List;
  * Created by ranqing on 2017/6/24.
  */
 
-public class LoadDialog extends Dialog implements View.OnClickListener {
-
-    private Context context;
+public class LoadDialog extends BaseDialog implements View.OnClickListener {
 
     private ListView mFilesLV;
     private Button mLoadBtn;
@@ -37,23 +35,16 @@ public class LoadDialog extends Dialog implements View.OnClickListener {
     private List<FileBean> data;
 
     public LoadDialog(@NonNull Context context) {
-        super(context, R.style.Dialog);
-        this.context = context;
-    }
-
-    public LoadDialog(@NonNull Context context, @StyleRes int themeResId) {
-        super(context, themeResId);
-    }
-
-    protected LoadDialog(@NonNull Context context, boolean cancelable, @Nullable OnCancelListener cancelListener) {
-        super(context, cancelable, cancelListener);
+        super(context);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_load_dialog);
+    }
 
+    @Override
+    protected void initViews() {
         mFilesLV = (ListView) findViewById(R.id.lv_files);
         mLoadBtn = (Button) findViewById(R.id.btn_load);
         mCancelBtn = (Button) findViewById(R.id.btn_cancel);
@@ -65,6 +56,16 @@ public class LoadDialog extends Dialog implements View.OnClickListener {
         mLoadBtn.setOnClickListener(this);
         mCancelBtn.setOnClickListener(this);
 
+        setOnDismissListener(new OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                mFilesLV.clearChoices();
+            }
+        });
+    }
+
+    @Override
+    protected void loadData() {
         data = new ArrayList();
         for (int i = 0; i < 20; i++) {
             FileBean bean = new FileBean();
@@ -73,13 +74,11 @@ public class LoadDialog extends Dialog implements View.OnClickListener {
             data.add(bean);
         }
         mAdapter.setData(data);
+    }
 
-        setOnDismissListener(new OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-                mFilesLV.clearChoices();
-            }
-        });
+    @Override
+    protected int getLayoutResId() {
+        return R.layout.layout_load_dialog;
     }
 
     @Override
@@ -95,7 +94,8 @@ public class LoadDialog extends Dialog implements View.OnClickListener {
                 }
                 break;
             case R.id.btn_cancel:
-                dismiss();
+//                dismiss();
+                cancel();
                 break;
         }
     }

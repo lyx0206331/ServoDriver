@@ -19,7 +19,7 @@ import com.adrian.servodriver.R;
  * Created by ranqing on 2017/7/18.
  */
 
-public class WarningDialog extends Dialog implements View.OnClickListener {
+public class WarningDialog extends BaseDialog implements View.OnClickListener {
 
     private ImageButton mBackIB;
     private TextView mCodeTV;
@@ -29,22 +29,16 @@ public class WarningDialog extends Dialog implements View.OnClickListener {
     private Button mKnowBtn;
 
     public WarningDialog(@NonNull Context context) {
-        super(context, R.style.Dialog);
-    }
-
-    public WarningDialog(@NonNull Context context, @StyleRes int themeResId) {
-        super(context, themeResId);
-    }
-
-    protected WarningDialog(@NonNull Context context, boolean cancelable, @Nullable OnCancelListener cancelListener) {
-        super(context, cancelable, cancelListener);
+        super(context);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_warning_dialog);
+    }
 
+    @Override
+    protected void initViews() {
         mBackIB = (ImageButton) findViewById(R.id.ib_close);
         mCodeTV = (TextView) findViewById(R.id.tv_code);
         mContentTV = (TextView) findViewById(R.id.tv_content);
@@ -59,6 +53,16 @@ public class WarningDialog extends Dialog implements View.OnClickListener {
 
         mBackIB.setOnClickListener(this);
         mKnowBtn.setOnClickListener(this);
+    }
+
+    @Override
+    protected void loadData() {
+
+    }
+
+    @Override
+    protected int getLayoutResId() {
+        return R.layout.layout_warning_dialog;
     }
 
     public WarningDialog setErrCode(String code) {
@@ -85,10 +89,9 @@ public class WarningDialog extends Dialog implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.ib_close:
-                dismiss();
-                break;
             case R.id.btn_know:
-                dismiss();
+//                dismiss();
+                cancel();
                 break;
         }
     }

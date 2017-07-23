@@ -14,12 +14,11 @@ import android.view.Window;
 import com.adrian.servodriver.R;
 import com.adrian.servodriver.application.MyApplication;
 import com.adrian.servodriver.theme_picker.ThemeChangeObserver;
+import com.adrian.servodriver.utils.Constants;
 import com.adrian.servodriver.views.StatusBarCompat;
 import com.jaeger.library.StatusBarUtil;
 
 public abstract class BaseActivity extends AppCompatActivity implements ThemeChangeObserver {
-
-    private static final String KEY_THEME_CACHE = "theme_cache";
 
     private ProgressDialog mPd;
 
@@ -94,16 +93,16 @@ public abstract class BaseActivity extends AppCompatActivity implements ThemeCha
     /**
      * */
     protected int getThemeTag() {
-        SharedPreferences preferences = getSharedPreferences("ThemeCache", Context.MODE_PRIVATE);
-        return preferences.getInt(KEY_THEME_CACHE, 1);
+        SharedPreferences preferences = getSharedPreferences(Constants.SHERED_PREF_NAME, Context.MODE_PRIVATE);
+        return preferences.getInt(Constants.KEY_THEME_CACHE, 1);
     }
 
     /**
      * */
     protected void setThemeTag(int tag) {
-        SharedPreferences preferences = getSharedPreferences("ThemeCache", Context.MODE_PRIVATE);
+        SharedPreferences preferences = getSharedPreferences(Constants.SHERED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor edit = preferences.edit();
-        edit.putInt(KEY_THEME_CACHE, tag);
+        edit.putInt(Constants.KEY_THEME_CACHE, tag);
         edit.commit();
     }
 

@@ -25,9 +25,7 @@ import java.util.List;
  * Created by ranqing on 2017/6/24.
  */
 
-public class SaveDialog extends Dialog implements View.OnClickListener {
-
-    private Context context;
+public class SaveDialog extends BaseDialog implements View.OnClickListener {
 
     private ListView mFilesLV;
     private EditText mFileNameET;
@@ -38,23 +36,16 @@ public class SaveDialog extends Dialog implements View.OnClickListener {
     private List<FileBean> data;
 
     public SaveDialog(@NonNull Context context) {
-        super(context, R.style.Dialog);
-        this.context = context;
-    }
-
-    public SaveDialog(@NonNull Context context, @StyleRes int themeResId) {
-        super(context, themeResId);
-    }
-
-    protected SaveDialog(@NonNull Context context, boolean cancelable, @Nullable OnCancelListener cancelListener) {
-        super(context, cancelable, cancelListener);
+        super(context);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_save_dialog);
+    }
 
+    @Override
+    protected void initViews() {
         mFilesLV = (ListView) findViewById(R.id.lv_files);
         mFileNameET = (EditText) findViewById(R.id.et_save_name);
         mSaveBtn = (Button) findViewById(R.id.btn_save);
@@ -66,6 +57,17 @@ public class SaveDialog extends Dialog implements View.OnClickListener {
         mSaveBtn.setOnClickListener(this);
         mCancelBtn.setOnClickListener(this);
 
+        setOnDismissListener(new OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                mFileNameET.setText(null);
+                mFileNameET.setError(null);
+            }
+        });
+    }
+
+    @Override
+    protected void loadData() {
         data = new ArrayList();
         for (int i = 0; i < 20; i++) {
             FileBean bean = new FileBean();
@@ -74,14 +76,11 @@ public class SaveDialog extends Dialog implements View.OnClickListener {
             data.add(bean);
         }
         mAdapter.setData(data);
+    }
 
-        setOnDismissListener(new OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-                mFileNameET.setText(null);
-                mFileNameET.setError(null);
-            }
-        });
+    @Override
+    protected int getLayoutResId() {
+        return R.layout.layout_save_dialog;
     }
 
     /**
@@ -117,7 +116,8 @@ public class SaveDialog extends Dialog implements View.OnClickListener {
                 }
                 break;
             case R.id.btn_cancel:
-                dismiss();
+//                dismiss();
+                cancel();
                 break;
         }
     }
