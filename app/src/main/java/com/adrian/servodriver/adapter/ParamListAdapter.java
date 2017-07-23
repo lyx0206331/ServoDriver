@@ -125,6 +125,29 @@ public class ParamListAdapter extends PanelListAdapter {
     }
 
     /**
+     * 添加已修改数据到列表
+     *
+     * @param bean
+     */
+    private void addModifiedBean(ParamBean bean) {
+        for (ParamBean b :
+                modifiedBeans) {
+            if (b.getIndexId() == bean.getIndexId()) {
+                b.setCurValue(bean.getCurValue());
+                return;
+            }
+        }
+        modifiedBeans.add(bean);
+    }
+
+    /**
+     * 清除已修改数据列表
+     */
+    public void cleanModifiedData() {
+        modifiedBeans.clear();
+    }
+
+    /**
      * 获取所有数据
      *
      * @return
@@ -205,7 +228,7 @@ public class ParamListAdapter extends PanelListAdapter {
 //                            Log.e("INPUT", v.getText().toString());
                             if (actionId == EditorInfo.IME_ACTION_DONE) {
                                 data.setCurValue(v.getText().toString());
-                                modifiedBeans.add(data);
+                                addModifiedBean(data);
                             }
                             return false;
                         }
@@ -220,7 +243,7 @@ public class ParamListAdapter extends PanelListAdapter {
 //                            Log.e("INPUT", v.getText().toString());
                             if (actionId == EditorInfo.IME_ACTION_DONE) {
                                 data.setCurValue(v.getText().toString());
-                                modifiedBeans.add(data);
+                                addModifiedBean(data);
                             }
                             return false;
                         }

@@ -37,9 +37,10 @@ public class WelcomeActivity extends BaseActivity {
                 case 0:
                     if (D2xxUtil.getInstance().isConnected()) {
                         startActivity(MainActivity.class);
-                    } else {
-//                        startActivity(DevDisconnActivity.class);
                     }
+//                    else {
+//                        startActivity(DevDisconnActivity.class);
+//                    }
                     finish();
                     break;
             }

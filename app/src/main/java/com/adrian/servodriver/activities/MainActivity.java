@@ -318,6 +318,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         String[] params = getResources().getStringArray(R.array.param_name);
         for (int i = 0; i < params.length; i++) {
             ParamBean data = new ParamBean();
+            data.setIndexId(i);
             data.setParamName(params[i]);
             data.setMinValue("0.00");
             data.setMaxValue("0.00");
@@ -430,11 +431,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 if (isFabMenuOpen) {
                     collapseFabMenu();
                 }
-                ParamBean last = adapter.getLastModifyBean();
-                if (last != null) {
-                    ToastUtils.showShortSafe("写入数据：" + last.getCurValue());
-                } else {
-                    ToastUtils.showShortSafe("无修改数据!");
+                if (D2xxUtil.getInstance().isConnected()) {
+                    List<ParamBean> data = adapter.getModifiedBeans();
+                    if (data != null && data.size() > 0) {
+                        StringBuilder sb = new StringBuilder();
+                        for (ParamBean bean :
+                                data) {
+                            sb.append(bean.getIndexId() + "--" + bean.getCurValue() + " ");
+                        }
+                        ToastUtils.showShortSafe("写入数据：" + sb.toString());
+                        adapter.cleanModifiedData();
+                    } else {
+                        ToastUtils.showShortSafe("无修改数据!");
+                    }
                 }
 //                showExcDialog(getString(R.string.write_error));
                 break;
