@@ -178,15 +178,20 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="5dp">
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp">
 
             <LinearLayout
                 android:id="@+id/ll_result"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@mipmap/self_motion_bg"
+                android:layout_height="294dp"
+                android:background="@drawable/auto_content_bg"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="12dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -391,7 +396,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@id/ll_result"
-                android:layout_marginBottom="-6dp"
+                android:layout_marginBottom="-10dp"
                 android:layout_marginLeft="100dp"
                 android:background="@mipmap/down" />
 
@@ -407,12 +412,14 @@
             <LinearLayout
                 android:id="@+id/ll_content"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="294dp"
                 android:layout_below="@id/ll_result"
-                android:layout_marginTop="12dp"
-                android:background="@mipmap/self_motion_bg"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/auto_content_bg"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="12dp">
 
                 <TextView
                     android:layout_width="wrap_content"

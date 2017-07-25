@@ -10,7 +10,7 @@
     <color name="picton_blue">#804CC7FD</color>
     <color name="picton_blue1">#604CC7FD</color>
     <color name="picton_blue2">#404CC7FD</color>
-    <color name="picton_blue3">#204CC7FD</color>
+    <color name="picton_blue3">#104CC7FD</color>
     <color name="red_orange">#F94A4B</color>
     <color name="french_pass">#BFE8FE</color>
     <color name="reboot_valid">#ACDFFF</color>
@@ -28,6 +28,7 @@
     <color name="fillet_stroke">#A8E0FB</color>
     <color name="menu_bg">#F9F9F9</color>
     <color name="plus">#44E5FE</color>
+    <color name="auto_head">#4FCAFD</color>
     <color name="ripple">#33728dff</color>
 
     <color name="base_bg">#FF9D2E</color>

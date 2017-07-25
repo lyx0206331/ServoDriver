@@ -74,7 +74,7 @@
         android:layout_below="@id/rl_title"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:background="@mipmap/indexbg"
+        android:background="@drawable/shape_fillet_shadow"
         android:paddingBottom="20dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
@@ -175,7 +175,7 @@
         android:layout_height="50dp"
         android:layout_below="@id/rl_color_label"
         android:layout_marginTop="5dp"
-        android:background="@drawable/shape_top_fillet" />
+        android:background="@drawable/shape_top_fillet_shadow" />
 
     <View
         android:layout_width="match_parent"

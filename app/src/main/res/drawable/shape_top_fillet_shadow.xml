@@ -8,31 +8,31 @@
             <solid android:color="@color/picton_blue3" />
         </shape>
     </item>
-    <item android:top=".8dp">
+    <item android:top=".5dp">
         <shape>
             <corners
                 android:topLeftRadius="8dp"
                 android:topRightRadius="8dp" />
-            <solid android:color="@color/picton_blue2" />
+            <solid android:color="@color/picton_blue3" />
         </shape>
     </item>
-    <item android:top="1.6dp">
+    <item android:top="1.0dp">
         <shape>
             <corners
                 android:topLeftRadius="8dp"
                 android:topRightRadius="8dp" />
-            <solid android:color="@color/picton_blue1" />
+            <solid android:color="@color/picton_blue3" />
         </shape>
     </item>
-    <item android:top="2.4dp">
+    <item android:top="1.5dp">
         <shape>
             <corners
                 android:topLeftRadius="8dp"
                 android:topRightRadius="8dp" />
-            <solid android:color="@color/picton_blue" />
+            <solid android:color="@color/picton_blue3" />
         </shape>
     </item>
-    <item android:top="3.2dp">
+    <item android:top="2dp">
         <shape>
             <corners
                 android:topLeftRadius="8dp"
