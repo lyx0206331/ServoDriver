@@ -58,9 +58,9 @@ public class ParamListAdapter extends PanelListAdapter {
         setTitle("名称\\值");//设置表的标题
         setTitleHeight(SizeUtils.dp2px(36));//设置表标题的高
         setTitleWidth(SizeUtils.dp2px(90));//设置表标题的宽
-        setTitleColor("#BFE8FE");
+        setTitleColor("#406773");
         setRowColor("#00000000");
-        setColumnColor("#BFE8FE");
+        setColumnColor("#406773");
         setRowDataList(getRowDataList());//设置横向表头的内容
         setColumnDataList(getColumnDataList());
 
@@ -220,7 +220,7 @@ public class ParamListAdapter extends PanelListAdapter {
             }
             switch (data.getType()) {
                 case 0:
-                    view.setBackgroundColor(context.getResources().getColor(R.color.reboot_valid));
+                    view.setBackgroundColor(context.getResources().getColor(R.color.reboot_state_bg2));
                     viewHolder.mCurValueET.setEnabled(true);
                     viewHolder.mCurValueET.setOnEditorActionListener(new TextView.OnEditorActionListener() {
                         @Override
@@ -235,7 +235,7 @@ public class ParamListAdapter extends PanelListAdapter {
                     });
                     break;
                 case 1:
-                    view.setBackgroundColor(context.getResources().getColor(R.color.rightnow_valid));
+                    view.setBackgroundColor(context.getResources().getColor(R.color.immediately_state_bg2));
                     viewHolder.mCurValueET.setEnabled(true);
                     viewHolder.mCurValueET.setOnEditorActionListener(new TextView.OnEditorActionListener() {
                         @Override
@@ -250,7 +250,7 @@ public class ParamListAdapter extends PanelListAdapter {
                     });
                     break;
                 case 2:
-                    view.setBackgroundColor(context.getResources().getColor(R.color.read_only));
+                    view.setBackgroundColor(context.getResources().getColor(R.color.read_only_state_bg2));
                     viewHolder.mCurValueET.setEnabled(false);
                     break;
                 default:

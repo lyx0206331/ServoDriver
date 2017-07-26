@@ -65,6 +65,7 @@
         android:layout_height="match_parent"
         android:layout_below="@id/rl_title"
         android:layout_marginTop="50dp"
+        android:visibility="gone"
         android:background="?attr/divider_color" />
 
     <RelativeLayout
@@ -74,7 +75,7 @@
         android:layout_below="@id/rl_title"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:background="@drawable/shape_fillet_shadow"
+        android:background="?attr/segment_bg"
         android:paddingBottom="20dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
@@ -86,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="7dp"
             android:text="@string/segment_num"
-            android:textColor="?attr/period_color"
+            android:textColor="?attr/segment_font_color"
             android:textSize="@dimen/normal_font" />
 
         <com.xw.repo.BubbleSeekBar
@@ -121,14 +122,14 @@
                 android:layout_width="30dp"
                 android:layout_height="match_parent"
                 android:layout_centerVertical="true"
-                android:src="@mipmap/reset" />
+                android:src="?attr/reboot_state_icon" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:text="@string/reboot_effect"
-                android:textColor="?attr/normal_font_color"
+                android:textColor="?attr/state_font_color"
                 android:textSize="@dimen/para_font" />
 
             <LinearLayout
@@ -141,14 +142,14 @@
                     android:layout_width="30dp"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:src="@mipmap/instant" />
+                    android:src="?attr/immediately_state_icon" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:text="@string/immediately_effect"
-                    android:textColor="?attr/normal_font_color"
+                    android:textColor="?attr/state_font_color"
                     android:textSize="@dimen/para_font" />
             </LinearLayout>
 
@@ -157,14 +158,14 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:src="@mipmap/rom" />
+                android:src="?attr/read_only_state_icon" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:text="@string/read_only"
-                android:textColor="?attr/normal_font_color"
+                android:textColor="?attr/state_font_color"
                 android:textSize="@dimen/para_font" />
         </LinearLayout>
     </RelativeLayout>
@@ -175,7 +176,7 @@
         android:layout_height="50dp"
         android:layout_below="@id/rl_color_label"
         android:layout_marginTop="5dp"
-        android:background="@drawable/shape_top_fillet_shadow" />
+        android:background="?attr/data_grid_head_bg" />
 
     <View
         android:layout_width="match_parent"

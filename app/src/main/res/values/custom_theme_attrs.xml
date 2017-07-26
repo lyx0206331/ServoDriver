@@ -4,6 +4,26 @@
     <attr name="base_bg" format="color|reference" />
     <!--通用字体颜色-->
     <attr name="normal_font_color" format="color|reference" />
+    <!--段号选择背景-->
+    <attr name="segment_bg" format="reference" />
+    <!--段号字体颜色-->
+    <attr name="segment_font_color" format="color|reference" />
+    <!--状态文字颜色-->
+    <attr name="state_font_color" format="color|reference" />
+    <!--重启生效状态颜色-->
+    <attr name="reboot_state_icon" format="reference" />
+    <!--立即生效状态颜色-->
+    <attr name="immediately_state_icon" format="reference" />
+    <!--只读状态颜色-->
+    <attr name="read_only_state_icon" format="reference" />
+    <!--数据表格头部背景-->
+    <attr name="data_grid_head_bg" format="reference" />
+    <!--重启生效状态背景色-->
+    <attr name="reboot_state_bg" format="color|reference" />
+    <!--立即生效状态背景色-->
+    <attr name="immediately_state_bg" format="color|reference" />
+    <!--只读状态背景色-->
+    <attr name="read_only_state_bg" format="color|reference" />
     <!--漂浮按钮背景-->
     <attr name="fab_bg" format="color|reference" />
     <!--漂浮按钮响应颜色-->
@@ -36,12 +56,22 @@
     <attr name="period_color" format="color|reference" />
     <!--分隔线颜色-->
     <attr name="divider_color" format="color|reference" />
+    <!--自动增益背景色-->
+    <attr name="adjust_bg" format="color|reference" />
     <!--自动增益标签背景色-->
     <attr name="adjust_lable_bg" format="color|reference" />
     <!--自动增益标签字体颜色-->
     <attr name="adjust_lable_font_color" format="color|reference" />
     <!--自动增益选择框背景-->
     <attr name="adjust_checkbox_bg" format="reference" />
+    <!--自动增益选择内容背景-->
+    <attr name="adjust_content_bg" format="reference" />
+    <!--自动增益调整指示器-->
+    <attr name="adjust_indicator" format="reference" />
+    <!--自动增益调整 下移数据-->
+    <attr name="adjust_down_icon" format="reference" />
+    <!--自动增益调整 上移数据-->
+    <attr name="adjust_up_icon" format="reference" />
     <!--左右半圆背景-->
     <attr name="semicircle_bg" format="color|reference" />
     <!--圆角背景-->
@@ -68,4 +98,6 @@
     <attr name="bubble_seekbar_track" format="color|reference" />
     <!--气泡拖动进度条 二级轨道颜色-->
     <attr name="bubble_seekbar_second_track" format="color|reference" />
+    <!--状态监视内容背景-->
+    <attr name="state_monitor_content_bg" format="reference" />
 </resources>

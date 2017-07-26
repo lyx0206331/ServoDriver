@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:bottom="8dp"
+        android:top="0dp">
+        <shape>
+            <corners
+                android:topLeftRadius="8dp"
+                android:topRightRadius="8dp" />
+            <solid android:color="@color/fillet_bg_head2" />
+        </shape>
+    </item>
+
+    <item android:top="40dp">
+        <shape>
+            <corners
+                android:bottomLeftRadius="8dp"
+                android:bottomRightRadius="8dp" />
+            <solid android:color="@color/fillet_bg2" />
+        </shape>
+    </item>
+</layer-list>

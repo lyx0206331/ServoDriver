@@ -8,6 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
 
         <item name="base_bg">@mipmap/bg</item>
+        <item name="segment_bg">@drawable/shape_fillet_shadow</item>
+        <item name="segment_font_color">@color/period</item>
+        <item name="state_font_color">@color/normal_font</item>
         <item name="fab_bg">@color/plus</item>
         <item name="fab_ripple">@color/ripple</item>
         <item name="normal_font_color">@color/normal_font</item>
@@ -25,22 +28,35 @@
         <item name="read_only_bg">@color/read_only</item>
         <item name="period_color">@color/period</item>
         <item name="divider_color">@color/divider</item>
+        <item name="adjust_bg">@mipmap/bg</item>
         <item name="adjust_lable_bg">@drawable/shape_orange_bg</item>
         <item name="adjust_lable_font_color">@color/white</item>
         <item name="adjust_checkbox_bg">@drawable/checkbox_selector</item>
+        <item name="adjust_content_bg">@drawable/auto_content_bg</item>
+        <item name="adjust_indicator">@mipmap/point_to</item>
+        <item name="adjust_down_icon">@mipmap/down</item>
+        <item name="adjust_up_icon">@mipmap/up</item>
         <item name="semicircle_bg">@drawable/fillet_custom_bg</item>
-        <item name="fillet_bg">@drawable/shape_fillet_white</item>
+        <item name="fillet_bg">@drawable/shape_fillet_no_shadow</item>
         <item name="fft_bg">@mipmap/fftbg</item>
         <item name="help_bg">@mipmap/helpbigbg</item>
-        <item name="dialog_bg">@drawable/shape_fillet_white</item>
+        <item name="dialog_bg">@drawable/shape_fillet_no_shadow</item>
         <item name="dialog_bg_color">@color/white</item>
         <item name="dialog_bg_stroke_color">@color/fillet_stroke</item>
         <item name="default_pressed_font_color">@color/pressed_font</item>
         <item name="semicircle_stroke_color">@color/warn_code</item>
+        <item name="reboot_state_icon">@mipmap/reset</item>
+        <item name="immediately_state_icon">@mipmap/instant</item>
+        <item name="read_only_state_icon">@mipmap/rom</item>
+        <item name="data_grid_head_bg">@drawable/shape_top_fillet_shadow</item>
+        <item name="reboot_state_bg">@color/reboot_valid</item>
+        <item name="immediately_state_bg">@color/rightnow_valid</item>
+        <item name="read_only_state_bg">@color/read_only</item>
         <item name="bubble_seekbar_color">@color/colorAccent</item>
         <item name="bubble_seekbar_text_color">@color/white</item>
         <item name="bubble_seekbar_track">@color/plus</item>
         <item name="bubble_seekbar_second_track">@color/colorAccent</item>
+        <item name="state_monitor_content_bg">@drawable/shape_fillet_no_shadow</item>
     </style>
 
     <style name="AppTheme2" parent="Theme.AppCompat.DayNight.NoActionBar">
@@ -49,10 +65,13 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
-        <item name="base_bg">@color/solution</item>
-        <item name="fab_bg">@color/california</item>
+        <item name="base_bg">@color/base_bg2</item>
+        <item name="segment_bg">@drawable/shape_fillet_shadow2</item>
+        <item name="segment_font_color">@color/segment_font2</item>
+        <item name="state_font_color">@color/state_font_color2</item>
+        <item name="fab_bg">@color/fab_bg2</item>
         <item name="fab_ripple">@color/ripple</item>
-        <item name="normal_font_color">@color/normal_font</item>
+        <item name="normal_font_color">@color/normal_font2</item>
         <item name="warn_point_bg">@color/warn_code</item>
         <item name="title_color">@color/white</item>
         <item name="error_code_color">@color/warn_code</item>
@@ -66,22 +85,35 @@
         <item name="immediately_bg">@color/rightnow_valid</item>
         <item name="read_only_bg">@color/read_only</item>
         <item name="period_color">@color/period</item>
-        <item name="divider_color">@color/divider</item>
-        <item name="adjust_lable_bg">@drawable/shape_label_bg</item>
+        <item name="divider_color">@color/divider2</item>
+        <item name="adjust_bg">@color/adjust_bg2</item>
+        <item name="adjust_lable_bg">@drawable/shape_label_bg2</item>
         <item name="adjust_lable_font_color">@color/white</item>
         <item name="adjust_checkbox_bg">@drawable/checkbox_selector</item>
+        <item name="adjust_content_bg">@drawable/auto_content_bg2</item>
+        <item name="adjust_indicator">@mipmap/point_to2</item>
+        <item name="adjust_down_icon">@mipmap/down2</item>
+        <item name="adjust_up_icon">@mipmap/up2</item>
         <item name="semicircle_bg">@drawable/fillet_custom_bg2</item>
-        <item name="fillet_bg">@drawable/shape_fillet_white</item>
-        <item name="fft_bg">@color/solution</item>
-        <item name="help_bg">@color/solution</item>
-        <item name="dialog_bg">@drawable/shape_fillet_white</item>
-        <item name="dialog_bg_color">@color/white</item>
-        <item name="dialog_bg_stroke_color">@color/metallic_bronze</item>
+        <item name="fillet_bg">@drawable/shape_fillet_no_shadow2</item>
+        <item name="fft_bg">@color/fft_bg2</item>
+        <item name="help_bg">@color/base_bg2</item>
+        <item name="dialog_bg">@drawable/shape_fillet_no_shadow2</item>
+        <item name="dialog_bg_color">@color/fillet_bg2</item>
+        <item name="dialog_bg_stroke_color">@color/base_bg2</item>
+        <item name="reboot_state_icon">@mipmap/reset2</item>
+        <item name="immediately_state_icon">@mipmap/instant2</item>
+        <item name="read_only_state_icon">@mipmap/rom2</item>
+        <item name="data_grid_head_bg">@drawable/shape_top_fillet_shadow2</item>
+        <item name="reboot_state_bg">@color/reboot_state_bg2</item>
+        <item name="immediately_state_bg">@color/immediately_state_bg2</item>
+        <item name="read_only_state_bg">@color/read_only_state_bg2</item>
         <item name="default_pressed_font_color">@color/pressed_font</item>
-        <item name="semicircle_stroke_color">@color/california</item>
-        <item name="bubble_seekbar_color">@color/california</item>
-        <item name="bubble_seekbar_text_color">@color/white</item>
-        <item name="bubble_seekbar_track">@color/woodland</item>
-        <item name="bubble_seekbar_second_track">@color/california</item>
+        <item name="semicircle_stroke_color">@color/semicircle_stroke_color2</item>
+        <item name="bubble_seekbar_color">@color/bubble_seekbar_color2</item>
+        <item name="bubble_seekbar_text_color">@color/bubble_seekbar_text_color2</item>
+        <item name="bubble_seekbar_track">@color/bubble_seekbar_track2</item>
+        <item name="bubble_seekbar_second_track">@color/bubble_seekbar_second_track2</item>
+        <item name="state_monitor_content_bg">@drawable/state_monitor_content_bg2</item>
     </style>
 </resources>

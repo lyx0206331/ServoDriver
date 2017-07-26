@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/base_bg"
+    android:background="?attr/adjust_bg"
     android:orientation="vertical"
     tools:context="com.adrian.servodriver.activities.AutoAdjustActivity">
 
@@ -166,13 +166,13 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:background="@mipmap/point_to" />
+            android:background="?attr/adjust_indicator" />
     </RelativeLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
+        android:background="?attr/base_bg"
         android:scrollbars="none">
 
         <RelativeLayout
@@ -187,7 +187,7 @@
                 android:id="@+id/ll_result"
                 android:layout_width="match_parent"
                 android:layout_height="294dp"
-                android:background="@drawable/auto_content_bg"
+                android:background="?attr/adjust_content_bg"
                 android:orientation="vertical"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
@@ -398,7 +398,7 @@
                 android:layout_alignBottom="@id/ll_result"
                 android:layout_marginBottom="-10dp"
                 android:layout_marginLeft="100dp"
-                android:background="@mipmap/down" />
+                android:background="?attr/adjust_down_icon" />
 
             <ImageButton
                 android:id="@+id/ib_up"
@@ -407,7 +407,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignTop="@id/ib_down"
                 android:layout_marginRight="100dp"
-                android:background="@mipmap/up" />
+                android:background="?attr/adjust_up_icon" />
 
             <LinearLayout
                 android:id="@+id/ll_content"
@@ -415,7 +415,7 @@
                 android:layout_height="294dp"
                 android:layout_below="@id/ll_result"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/auto_content_bg"
+                android:background="?attr/adjust_content_bg"
                 android:orientation="vertical"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
