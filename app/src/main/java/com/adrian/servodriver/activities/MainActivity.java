@@ -66,6 +66,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private LinearLayout mLoadLL;
     private LinearLayout mEepromLL;
     private LinearLayout mRecoveryLL;
+    private LinearLayout mFabMenusLL;
     private FloatingActionButton mAddFAB;
     private FloatingActionButton mWriteFAB;
     private FloatingActionButton mZeroFAB;
@@ -247,6 +248,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mLoadLL = (LinearLayout) findViewById(R.id.ll_load);
         mEepromLL = (LinearLayout) findViewById(R.id.ll_eeprom);
         mRecoveryLL = (LinearLayout) findViewById(R.id.ll_recovery);
+        mFabMenusLL = (LinearLayout) findViewById(R.id.ll_fab_menus);
         mAddFAB = (FloatingActionButton) findViewById(R.id.fab_add);
         mWriteFAB = (FloatingActionButton) findViewById(R.id.fab_commit);
         mZeroFAB = (FloatingActionButton) findViewById(R.id.fab_zero);
@@ -360,18 +362,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private void expandFabMenu() {
 
         ViewCompat.animate(mAddFAB).rotation(45.0F).withLayer().setDuration(300).setInterpolator(new OvershootInterpolator(10.0F)).start();
-        mZeroLL.startAnimation(fabOpenAnimation);
-        mWriteLL.startAnimation(fabOpenAnimation);
-        mSaveLL.startAnimation(fabOpenAnimation);
-        mLoadLL.startAnimation(fabOpenAnimation);
-        mEepromLL.startAnimation(fabOpenAnimation);
-        mRecoveryLL.startAnimation(fabOpenAnimation);
         mZeroFAB.setClickable(true);
         mWriteFAB.setClickable(true);
         mSaveFAB.setClickable(true);
         mLoadFAB.setClickable(true);
         mEepromFAB.setClickable(true);
         mRecoveryFAB.setClickable(true);
+        mFabMenusLL.startAnimation(fabOpenAnimation);
         isFabMenuOpen = true;
 
 
@@ -380,18 +377,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private void collapseFabMenu() {
 
         ViewCompat.animate(mAddFAB).rotation(0.0F).withLayer().setDuration(300).setInterpolator(new OvershootInterpolator(10.0F)).start();
-        mZeroLL.startAnimation(fabCloseAnimation);
-        mWriteLL.startAnimation(fabCloseAnimation);
-        mSaveLL.startAnimation(fabCloseAnimation);
-        mLoadLL.startAnimation(fabCloseAnimation);
-        mEepromLL.startAnimation(fabCloseAnimation);
-        mRecoveryLL.startAnimation(fabCloseAnimation);
         mZeroFAB.setClickable(false);
         mWriteFAB.setClickable(false);
         mSaveFAB.setClickable(false);
         mLoadFAB.setClickable(false);
         mEepromFAB.setClickable(false);
         mRecoveryFAB.setClickable(false);
+        mFabMenusLL.startAnimation(fabCloseAnimation);
         isFabMenuOpen = false;
 
     }

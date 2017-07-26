@@ -3,5 +3,5 @@
     <corners
         android:bottomLeftRadius="8dp"
         android:bottomRightRadius="8dp" />
-    <solid android:color="?attr/dialog_bg_color" />
+    <solid android:color="@color/white" />
 </shape>

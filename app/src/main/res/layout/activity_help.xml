@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -58,53 +59,93 @@
                 android:paddingLeft="40dp"
                 android:paddingTop="20dp">
 
-                <Button
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight="1.0"
-                    android:background="@color/transparent"
-                    android:drawableLeft="@drawable/ic_help"
-                    android:drawablePadding="10dp"
-                    android:onClick="@{help.clickEp1cHelp}"
-                    android:text="@string/ep1c_help"
-                    android:textColor="?attr/period_color"
-                    android:textSize="@dimen/normal_font" />
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:onClick="@{help.clickEp1cHelp}">
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_weight="1.0"
-                    android:background="@color/transparent"
-                    android:drawableLeft="@drawable/ic_help"
-                    android:drawablePadding="10dp"
-                    android:onClick="@{help.clickEp1cAHelp}"
-                    android:text="@string/ep1c_a_help"
-                    android:textColor="?attr/period_color"
-                    android:textSize="@dimen/normal_font" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        app:srcCompat="@drawable/ic_help" />
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_weight="1.0"
-                    android:background="@color/transparent"
-                    android:drawableLeft="@drawable/ic_help"
-                    android:drawablePadding="10dp"
-                    android:onClick="@{help.clickEp3StdHelp}"
-                    android:text="@string/ep3_st_help"
-                    android:textColor="?attr/period_color"
-                    android:textSize="@dimen/normal_font" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ep1c_help"
+                        android:textColor="?attr/period_color"
+                        android:textSize="@dimen/normal_font" />
+                </LinearLayout>
 
-                <Button
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight="1.0"
-                    android:background="@color/transparent"
-                    android:drawableLeft="@drawable/ic_help"
-                    android:drawablePadding="10dp"
-                    android:onClick="@{help.clickEp3IoHelp}"
-                    android:text="@string/ep3_io_help"
-                    android:textColor="?attr/period_color"
-                    android:textSize="@dimen/normal_font" />
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:onClick="@{help.clickEp1cAHelp}">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        app:srcCompat="@drawable/ic_help" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ep1c_a_help"
+                        android:textColor="?attr/period_color"
+                        android:textSize="@dimen/normal_font" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.0"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:onClick="@{help.clickEp3StdHelp}">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        app:srcCompat="@drawable/ic_help" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ep3_st_help"
+                        android:textColor="?attr/period_color"
+                        android:textSize="@dimen/normal_font" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.0"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:onClick="@{help.clickEp3IoHelp}">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        app:srcCompat="@drawable/ic_help" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ep3_io_help"
+                        android:textColor="?attr/period_color"
+                        android:textSize="@dimen/normal_font" />
+                </LinearLayout>
             </LinearLayout>
 
             <Button

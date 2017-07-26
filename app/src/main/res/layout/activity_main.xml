@@ -235,6 +235,254 @@
         app:srcCompat="@drawable/ic_add" />
 
     <LinearLayout
+        android:id="@+id/ll_fab_menus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="14dp"
+        android:gravity="right"
+        android:visibility="invisible"
+        android:layout_above="@+id/fab_add"
+        android:layout_alignRight="@+id/fab_add"
+        android:layout_alignEnd="@+id/fab_add">
+
+
+        <LinearLayout
+            android:id="@+id/ll_recovery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_fab_label"
+                android:elevation="2dp"
+                android:fontFamily="sans-serif"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="8dp"
+                android:padding="5dip"
+                android:text="@string/recovery_setings"
+                android:textColor="@android:color/white"
+                android:typeface="normal" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab_recovery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="8dp"
+                android:tint="@android:color/white"
+                app:backgroundTint="?attr/fab_bg"
+                app:fabSize="mini"
+                app:rippleColor="?attr/fab_ripple"
+                app:srcCompat="@drawable/ic_recovery" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_eeprom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_fab_label"
+                android:elevation="2dp"
+                android:fontFamily="sans-serif"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="8dp"
+                android:padding="5dip"
+                android:text="@string/write_eeprom"
+                android:textColor="@android:color/white"
+                android:typeface="normal" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab_eeprom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="8dp"
+                android:tint="@android:color/white"
+                app:backgroundTint="?attr/fab_bg"
+                app:fabSize="mini"
+                app:rippleColor="?attr/fab_ripple"
+                app:srcCompat="@drawable/ic_eeprom" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_zero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_fab_label"
+                android:elevation="2dp"
+                android:fontFamily="sans-serif"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="8dp"
+                android:padding="5dip"
+                android:text="@string/coder_zero"
+                android:textColor="@android:color/white"
+                android:typeface="normal" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab_zero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="8dp"
+                android:tint="@android:color/white"
+                app:backgroundTint="?attr/fab_bg"
+                app:fabSize="mini"
+                app:rippleColor="?attr/fab_ripple"
+                app:srcCompat="@drawable/ic_set_zero" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_load"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_fab_label"
+                android:elevation="2dp"
+                android:fontFamily="sans-serif"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="8dp"
+                android:padding="5dip"
+                android:text="@string/load"
+                android:textColor="@android:color/white"
+                android:typeface="normal" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab_load"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="8dp"
+                android:tint="@android:color/white"
+                app:backgroundTint="?attr/fab_bg"
+                app:fabSize="mini"
+                app:rippleColor="?attr/fab_ripple"
+                app:srcCompat="@drawable/ic_upload" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_fab_label"
+                android:elevation="2dp"
+                android:fontFamily="sans-serif"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="8dp"
+                android:padding="5dip"
+                android:text="@string/save"
+                android:textColor="@android:color/white"
+                android:typeface="normal" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="8dp"
+                android:tint="@android:color/white"
+                app:backgroundTint="?attr/fab_bg"
+                app:fabSize="mini"
+                app:rippleColor="?attr/fab_ripple"
+                app:srcCompat="@drawable/ic_save" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_commit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_fab_label"
+                android:elevation="2dp"
+                android:fontFamily="sans-serif"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="8dp"
+                android:padding="5dip"
+                android:text="@string/write"
+                android:textColor="@android:color/white"
+                android:typeface="normal" />
+
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab_commit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:tint="@android:color/white"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="8dp"
+                app:backgroundTint="?attr/fab_bg"
+                app:fabSize="mini"
+                app:rippleColor="?attr/fab_ripple"
+                app:srcCompat="@drawable/ic_write" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--<LinearLayout
         android:id="@+id/ll_commit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -467,6 +715,6 @@
             app:rippleColor="?attr/fab_ripple"
             app:srcCompat="@drawable/ic_recovery" />
 
-    </LinearLayout>
+    </LinearLayout>-->
 
 </RelativeLayout>
