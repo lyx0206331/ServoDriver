@@ -4,14 +4,16 @@
         <shape>
             <corners android:radius="20dp" />
             <size android:width="120dp" android:height="40dp" />
-            <solid android:color="@color/metallic_bronze" />
+            <solid android:color="@color/btn_bg2_color1" />
+            <stroke android:color="@color/btn_stroke2_color" android:width="1px" />
         </shape>
     </item>
     <item>
         <shape>
             <corners android:radius="20dp" />
             <size android:width="120dp" android:height="40dp" />
-            <solid android:color="@color/woodland" />
+            <solid android:color="@color/btn_bg2_color0" />
+            <stroke android:color="@color/btn_stroke2_color" android:width="1px" />
         </shape>
     </item>
 </selector>

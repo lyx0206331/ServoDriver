@@ -100,4 +100,16 @@
     <attr name="bubble_seekbar_second_track" format="color|reference" />
     <!--状态监视内容背景-->
     <attr name="state_monitor_content_bg" format="reference" />
+    <!--列表条目字体颜色-->
+    <attr name="list_item_font_color" format="color|reference" />
+    <!--FFT标签左圆角背景-->
+    <attr name="fft_label_left_bg" format="reference" />
+    <!--FFT标签右圆角背景-->
+    <attr name="fft_label_right_bg" format="reference" />
+    <!--FFT标签圆角背景-->
+    <attr name="fft_label_fillet_bg" format="reference" />
+    <!--FFT标签左圆角字体颜色-->
+    <attr name="fft_label_left_font_color" format="color|reference" />
+    <!--侧滑菜单头部背景-->
+    <attr name="menu_header_bg" format="reference" />
 </resources>

@@ -17,7 +17,7 @@
             android:layout_height="30dp"
             android:background="@color/transparent"
             android:text="-"
-            android:textColor="?attr/fab_bg"
+            android:textColor="?attr/normal_font_color"
             android:textSize="@dimen/title_font" />
 
         <TextView
@@ -37,7 +37,7 @@
             android:layout_height="30dp"
             android:background="@color/transparent"
             android:text="+"
-            android:textColor="?attr/fab_bg"
+            android:textColor="?attr/normal_font_color"
             android:textSize="@dimen/title_font" />
     </LinearLayout>
 

@@ -33,7 +33,7 @@
 
     <color name="base_bg2">#1f272f</color>
     <color name="normal_font2">#f0f5f3</color>
-    <color name="fft_bg2">#274851</color>
+    <color name="fft_bg2">#1f272f</color>
     <color name="adjust_bg2">#274851</color>
     <color name="semicircle_stroke_color2">#01cecd</color>
     <color name="divider2">#64717c</color>
@@ -51,6 +51,10 @@
     <color name="reboot_state_bg2">#75bdbe</color>
     <color name="immediately_state_bg2">#e37b79</color>
     <color name="read_only_state_bg2">#83d783</color>
+    <color name="btn_bg2_color0">#2f3740</color>
+    <color name="btn_bg2_color1">#2f3740</color>
+    <color name="btn_stroke2_color">#727982</color>
+    <color name="list_item_font_color2">#b8c7d0</color>
     <color name="california">#E68C3A</color>
     <color name="rob_roy">#D6AD4A</color>
     <color name="metallic_bronze">#524A3A</color>

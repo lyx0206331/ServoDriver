@@ -5,6 +5,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.ViewCompat;
 import android.text.TextUtils;
 import android.view.ActionMode;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,12 +15,10 @@ import android.view.animation.OvershootInterpolator;
 import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.adrian.servodriver.R;
 import com.adrian.servodriver.adapter.ParamListAdapter;
@@ -38,7 +37,6 @@ import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.Badgeable;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
-import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 import com.mikepenz.octicons_typeface_library.Octicons;
 import com.xw.repo.BubbleSeekBar;
 
@@ -130,9 +128,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             }
         });
 
-        mMenuDrawer = new DrawerBuilder().withActivity(this).withSliderBackgroundDrawableRes(R.mipmap.menu_bg)
+        mMenuDrawer = new DrawerBuilder().withActivity(this).withSliderBackgroundColor(ThemeResourceHelper.getInstance(this).getColorByAttr(R.attr.base_bg))
                 .withDisplayBelowStatusBar(true).withTranslucentStatusBar(false)
-                .withHeader(R.layout.layout_menu_header).withHeaderDivider(true)
+                .withHeader(R.layout.layout_menu_header2).withHeaderDivider(true)
                 .addDrawerItems(
 //                        new PrimaryDrawerItem().withName(R.string.write_eeprom).withIcon(Octicons.Icon.oct_pencil),
 //                        new PrimaryDrawerItem().withName(R.string.coder_zero).withIcon(Octicons.Icon.oct_file_binary),
@@ -290,7 +288,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         initDataList();
 
         adapter = new ParamListAdapter(this, mRootPLL, mContentLV, R.layout.item_param, contentList);
-        adapter.initAdapter();
+        adapter.initAdapter(getThemeTag());
     }
 
     @Override
@@ -525,6 +523,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
         helper.setFloatingActionBtnBgTint(mRecoveryFAB, R.attr.fab_bg);
         helper.setFloatingActionBtnRipple(mRecoveryFAB, R.attr.fab_ripple);
+
     }
 
     /**

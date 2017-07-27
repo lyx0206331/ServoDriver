@@ -18,7 +18,7 @@
         <item name="title_color">@color/white</item>
         <item name="error_code_color">@color/warn_code</item>
         <item name="solution_color">@color/solution</item>
-        <item name="btn_font_color">@color/white</item>
+        <item name="btn_font_color">@color/normal_font2</item>
         <item name="btn_bg_color0">@color/plus</item>
         <item name="btn_bg_color1">@color/period</item>
         <item name="btn_bg_small">@drawable/btn_bg_small_selector</item>
@@ -57,6 +57,12 @@
         <item name="bubble_seekbar_track">@color/plus</item>
         <item name="bubble_seekbar_second_track">@color/colorAccent</item>
         <item name="state_monitor_content_bg">@drawable/shape_fillet_no_shadow</item>
+        <item name="list_item_font_color">@color/normal_font</item>
+        <item name="fft_label_left_bg">@drawable/fft_label_left_bg</item>
+        <item name="fft_label_right_bg">@drawable/fft_label_right_bg</item>
+        <item name="fft_label_fillet_bg">@drawable/fft_label_fillet_bg</item>
+        <item name="fft_label_left_font_color">@color/white</item>
+        <!--<item name="menu_header_bg">@drawable/layout_menu_header</item>-->
     </style>
 
     <style name="AppTheme2" parent="Theme.AppCompat.DayNight.NoActionBar">
@@ -76,9 +82,9 @@
         <item name="title_color">@color/white</item>
         <item name="error_code_color">@color/warn_code</item>
         <item name="solution_color">@color/solution</item>
-        <item name="btn_font_color">@color/white</item>
-        <item name="btn_bg_color0">@color/woodland</item>
-        <item name="btn_bg_color1">@color/metallic_bronze</item>
+        <item name="btn_font_color">@color/normal_font2</item>
+        <item name="btn_bg_color0">@color/btn_bg2_color0</item>
+        <item name="btn_bg_color1">@color/btn_bg2_color1</item>
         <item name="btn_bg_small">@drawable/btn_bg_small_selector2</item>
         <item name="btn_bg_normal">@drawable/btn_bg_normal_selector2</item>
         <item name="reboot_bg">@color/reboot_valid</item>
@@ -115,5 +121,11 @@
         <item name="bubble_seekbar_track">@color/bubble_seekbar_track2</item>
         <item name="bubble_seekbar_second_track">@color/bubble_seekbar_second_track2</item>
         <item name="state_monitor_content_bg">@drawable/state_monitor_content_bg2</item>
+        <item name="list_item_font_color">@color/list_item_font_color2</item>
+        <item name="fft_label_left_bg">@drawable/fft_label_left_bg2</item>
+        <item name="fft_label_right_bg">@drawable/fft_label_right_bg2</item>
+        <item name="fft_label_fillet_bg">@drawable/fft_label_fillet_bg2</item>
+        <item name="fft_label_left_font_color">@color/normal_font2</item>
+        <!--<item name="menu_header_bg">@drawable/layout_menu_header2</item>-->
     </style>
 </resources>

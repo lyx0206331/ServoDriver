@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.adrian.servodriver.R;
 import com.adrian.servodriver.pojo.ParamBean;
+import com.adrian.servodriver.utils.CommUtil;
 import com.blankj.utilcode.util.ScreenUtils;
 import com.blankj.utilcode.util.SizeUtils;
 
@@ -39,6 +40,8 @@ public class ParamListAdapter extends PanelListAdapter {
     private List<ParamBean> contentList = new ArrayList<>();
     private List<ParamBean> modifiedBeans = new ArrayList<>();
 
+    private int themeTag = -1;
+
     public ParamListAdapter(Context context, PanelListLayout pl_root, ListView lv_content,
                             int contentResourceId, List<ParamBean> contentList) {
         super(context, pl_root, lv_content);
@@ -46,6 +49,11 @@ public class ParamListAdapter extends PanelListAdapter {
         this.lv_content = lv_content;
         this.contentResourceId = contentResourceId;
         this.contentList = contentList;
+    }
+
+    public void initAdapter(int themeTag) {
+        this.themeTag = themeTag;
+        initAdapter();
     }
 
     /**
@@ -58,9 +66,10 @@ public class ParamListAdapter extends PanelListAdapter {
         setTitle("名称\\值");//设置表的标题
         setTitleHeight(SizeUtils.dp2px(36));//设置表标题的高
         setTitleWidth(SizeUtils.dp2px(90));//设置表标题的宽
-        setTitleColor("#406773");
+        setTitleColor("#00000000");
         setRowColor("#00000000");
-        setColumnColor("#406773");
+//        setColumnColor("#406773");
+        notifyUiByTheme(themeTag);
         setRowDataList(getRowDataList());//设置横向表头的内容
         setColumnDataList(getColumnDataList());
 
@@ -69,6 +78,18 @@ public class ParamListAdapter extends PanelListAdapter {
         lv_content.setAdapter(contentAdapter);
 
         super.initAdapter();//一定要在设置完后调用父类的方法
+    }
+
+    public void notifyUiByTheme(int themeTag) {
+        CommUtil.logE("GRID", "ThemeTag:" + themeTag);
+        switch (themeTag) {
+            case -1:
+                setColumnColor("#406773");
+                break;
+            case 1:
+                setColumnColor("#BFE8FE");
+        }
+//        notify();
     }
 
     /**

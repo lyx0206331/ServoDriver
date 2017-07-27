@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="@string/warning"
-            android:textColor="?attr/normal_font_color"
+            android:textColor="?attr/title_color"
             android:textSize="@dimen/title_font" />
 
         <ImageButton
