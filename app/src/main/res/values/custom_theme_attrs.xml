@@ -10,11 +10,11 @@
     <attr name="segment_font_color" format="color|reference" />
     <!--状态文字颜色-->
     <attr name="state_font_color" format="color|reference" />
-    <!--重启生效状态颜色-->
+    <!--重启生效状态颜色图标-->
     <attr name="reboot_state_icon" format="reference" />
-    <!--立即生效状态颜色-->
+    <!--立即生效状态颜色图标-->
     <attr name="immediately_state_icon" format="reference" />
-    <!--只读状态颜色-->
+    <!--只读状态颜色图标-->
     <attr name="read_only_state_icon" format="reference" />
     <!--数据表格头部背景-->
     <attr name="data_grid_head_bg" format="reference" />
@@ -112,4 +112,22 @@
     <attr name="fft_label_left_font_color" format="color|reference" />
     <!--侧滑菜单头部背景-->
     <attr name="menu_header_bg" format="reference" />
+    <!--侧滑菜单背景-->
+    <attr name="menu_drawer_bg_color" format="color|reference" />
+    <!--侧滑菜单选中颜色-->
+    <attr name="menu_drawer_selected_color" format="color|reference" />
+    <!--侧滑菜单字体颜色-->
+    <attr name="menu_drawer_text_color" format="color|reference" />
+    <!--侧滑菜单固件升级图标-->
+    <attr name="menu_drawer_update_icon" format="reference" />
+    <!--侧滑菜单状态监视图标-->
+    <attr name="menu_drawer_monitor_icon" format="reference" />
+    <!--侧滑菜单自动增益调整图标-->
+    <attr name="menu_drawer_auto_icon" format="reference" />
+    <!--侧滑菜单FFT图标-->
+    <attr name="menu_drawer_fft_icon" format="reference" />
+    <!--侧滑菜单帮助图标-->
+    <attr name="menu_drawer_help" format="reference" />
+    <!--侧滑菜单关于图标-->
+    <attr name="menu_drawer_about" format="reference" />
 </resources>

@@ -12,6 +12,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.TypedValue;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -714,5 +715,19 @@ public class ThemeResourceHelper {
         if (floatingActionBtn == null) return;
         int rippleColor = innerGetColorByAttr(attrId, DEFAULT_BACKGROUND_COLOR);
         floatingActionBtn.setRippleColor(rippleColor);
+    }
+
+    /**
+     * 根据attrId获取自定义布局
+     *
+     * @param attrId
+     * @return
+     */
+    public View getViewByAttr(int attrId) {
+        int layoutId = getIdentifierByAttrId(attrId);
+        if (layoutId != 0) {
+            return LayoutInflater.from(getContext()).inflate(layoutId, null, false);
+        }
+        return null;
     }
 }

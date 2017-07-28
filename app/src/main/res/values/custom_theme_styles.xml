@@ -62,7 +62,10 @@
         <item name="fft_label_right_bg">@drawable/fft_label_right_bg</item>
         <item name="fft_label_fillet_bg">@drawable/fft_label_fillet_bg</item>
         <item name="fft_label_left_font_color">@color/white</item>
-        <!--<item name="menu_header_bg">@drawable/layout_menu_header</item>-->
+        <item name="menu_header_bg">@layout/layout_menu_header</item>
+        <item name="menu_drawer_bg_color">@color/menu_bg</item>
+        <item name="menu_drawer_selected_color">@color/menu_bg</item>
+        <item name="menu_drawer_text_color">@color/normal_font</item>
     </style>
 
     <style name="AppTheme2" parent="Theme.AppCompat.DayNight.NoActionBar">
@@ -126,6 +129,9 @@
         <item name="fft_label_right_bg">@drawable/fft_label_right_bg2</item>
         <item name="fft_label_fillet_bg">@drawable/fft_label_fillet_bg2</item>
         <item name="fft_label_left_font_color">@color/normal_font2</item>
-        <!--<item name="menu_header_bg">@drawable/layout_menu_header2</item>-->
+        <item name="menu_header_bg">@layout/layout_menu_header2</item>
+        <item name="menu_drawer_bg_color">@color/base_bg2</item>
+        <item name="menu_drawer_selected_color">@color/base_bg2</item>
+        <item name="menu_drawer_text_color">@color/normal_font2</item>
     </style>
 </resources>

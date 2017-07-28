@@ -119,12 +119,14 @@
             android:orientation="horizontal">
 
             <ImageView
+                android:id="@+id/iv_reboot"
                 android:layout_width="30dp"
                 android:layout_height="match_parent"
                 android:layout_centerVertical="true"
                 android:src="?attr/reboot_state_icon" />
 
             <TextView
+                android:id="@+id/tv_reboot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
@@ -139,12 +141,14 @@
                 android:gravity="center">
 
                 <ImageView
+                    android:id="@+id/iv_immediately"
                     android:layout_width="30dp"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:src="?attr/immediately_state_icon" />
 
                 <TextView
+                    android:id="@+id/tv_immediately"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -154,6 +158,7 @@
             </LinearLayout>
 
             <ImageView
+                android:id="@+id/iv_read_only"
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -161,6 +166,7 @@
                 android:src="?attr/read_only_state_icon" />
 
             <TextView
+                android:id="@+id/tv_read_only"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"

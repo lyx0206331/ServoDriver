@@ -15,6 +15,7 @@ import android.view.animation.OvershootInterpolator;
 import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -50,6 +51,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private long lastPressTime;
 
     private RelativeLayout mMainRootRL;
+    private RelativeLayout mSegmentBgRL;
+    private TextView mSegmentTextTV;
+    private TextView mRebootTextTV;
+    private TextView mImmediatelyTextTV;
+    private TextView mReadOnlyTextTV;
+    private ImageView mRebootIV;
+    private ImageView mImmediatelyIV;
+    private ImageView mReadOnlyIV;
     private Drawer mMenuDrawer;
     private ImageButton mMenuIB;
     private FrameLayout mWarningFL;
@@ -88,6 +97,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private WarningDialog mWarningDialog;
 
     private ParamListAdapter adapter;
+    private ThemeResourceHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,11 +113,20 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     protected void initViews() {
         setContentView(R.layout.activity_main);
         StatusBarUtil.setTransparent(this);
+        helper = ThemeResourceHelper.getInstance(this);
         mMainRootRL = (RelativeLayout) findViewById(R.id.main_bg);
         mMenuIB = (ImageButton) findViewById(R.id.ib_menu);
         mWarningFL = (FrameLayout) findViewById(R.id.fl_warning);
         mWaringPointTV = (TextView) findViewById(R.id.tv_warning_point);
         mSegmentNumBSB = (BubbleSeekBar) findViewById(R.id.bsb_segment_num);
+        mSegmentBgRL = (RelativeLayout) findViewById(R.id.rl_color_label);
+        mSegmentTextTV = (TextView) findViewById(R.id.tv_seg_num);
+        mRebootTextTV = (TextView) findViewById(R.id.tv_reboot);
+        mImmediatelyTextTV = (TextView) findViewById(R.id.tv_immediately);
+        mReadOnlyTextTV = (TextView) findViewById(R.id.tv_read_only);
+        mRebootIV = (ImageView) findViewById(R.id.iv_reboot);
+        mImmediatelyIV = (ImageView) findViewById(R.id.iv_immediately);
+        mReadOnlyIV = (ImageView) findViewById(R.id.iv_read_only);
 
         setWarningCode("Error30");
 
@@ -128,26 +147,18 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             }
         });
 
-        int menuBgColorId = getThemeTag() == 1 ? R.color.menu_bg : R.color.base_bg2;
-        int headerLayoutId = getThemeTag() == 1 ? R.layout.layout_menu_header : R.layout.layout_menu_header2;
-        int selectedColorId = getThemeTag() == 1 ? R.color.menu_bg : R.color.base_bg2;
-        int textColorId = getThemeTag() == 1 ? R.color.normal_font : R.color.normal_font2;
-        mMenuDrawer = new DrawerBuilder().withActivity(this).withSliderBackgroundColorRes(menuBgColorId)
+        int selectedColor = helper.getColorByAttr(R.attr.menu_drawer_selected_color);
+        int textColor = helper.getColorByAttr(R.attr.menu_drawer_text_color);
+        mMenuDrawer = new DrawerBuilder().withActivity(this).withSliderBackgroundColor(helper.getColorByAttr(R.attr.menu_drawer_bg_color))
                 .withDisplayBelowStatusBar(true).withTranslucentStatusBar(false)
-                .withHeader(headerLayoutId).withHeaderDivider(true)
+                .withHeader(helper.getIdentifierByAttrId(R.attr.menu_header_bg)).withHeaderDivider(true)
                 .addDrawerItems(
-//                        new PrimaryDrawerItem().withName(R.string.write_eeprom).withIcon(Octicons.Icon.oct_pencil),
-//                        new PrimaryDrawerItem().withName(R.string.coder_zero).withIcon(Octicons.Icon.oct_file_binary),
-//                        new PrimaryDrawerItem().withName(R.string.load_param).withIcon(Octicons.Icon.oct_zap),
-//                        new PrimaryDrawerItem().withName(R.string.save_param).withIcon(Octicons.Icon.oct_sign_in),
-//                        new PrimaryDrawerItem().withName(R.string.warning).withIcon(Octicons.Icon.oct_alert).withSelectedColorRes(R.color.menu_bg).withBadge("1").withIdentifier(1),
-                        new PrimaryDrawerItem().withName(R.string.firmware_update).withTextColorRes(textColorId).withIcon(Octicons.Icon.oct_ruby).withSelectedColorRes(selectedColorId),
-                        new PrimaryDrawerItem().withName(R.string.state_monitor).withTextColorRes(textColorId).withIcon(Octicons.Icon.oct_eye).withSelectedColorRes(selectedColorId),
-                        new PrimaryDrawerItem().withName(R.string.auto_adjust).withTextColorRes(textColorId).withIcon(Octicons.Icon.oct_settings).withSelectedColorRes(selectedColorId),
-//                        new PrimaryDrawerItem().withName(R.string.recovery_setings).withIcon(Octicons.Icon.oct_sync),
-                        new PrimaryDrawerItem().withName(R.string.fft).withTextColorRes(textColorId).withIcon(Octicons.Icon.oct_graph).withSelectedColorRes(selectedColorId),
-                        new PrimaryDrawerItem().withName(R.string.help).withTextColorRes(textColorId).withIcon(Octicons.Icon.oct_question).withSelectedColorRes(selectedColorId),
-                        new PrimaryDrawerItem().withName(R.string.about).withTextColorRes(textColorId).withIcon(Octicons.Icon.oct_info).withSelectedColorRes(selectedColorId)
+                        new PrimaryDrawerItem().withName(R.string.firmware_update).withTextColor(textColor).withIcon(Octicons.Icon.oct_ruby).withSelectedColor(selectedColor),
+                        new PrimaryDrawerItem().withName(R.string.state_monitor).withTextColor(textColor).withIcon(Octicons.Icon.oct_eye).withSelectedColor(selectedColor),
+                        new PrimaryDrawerItem().withName(R.string.auto_adjust).withTextColor(textColor).withIcon(Octicons.Icon.oct_settings).withSelectedColor(selectedColor),
+                        new PrimaryDrawerItem().withName(R.string.fft).withTextColor(textColor).withIcon(Octicons.Icon.oct_graph).withSelectedColor(selectedColor),
+                        new PrimaryDrawerItem().withName(R.string.help).withTextColor(textColor).withIcon(Octicons.Icon.oct_question).withSelectedColor(selectedColor),
+                        new PrimaryDrawerItem().withName(R.string.about).withTextColor(textColor).withIcon(Octicons.Icon.oct_info).withSelectedColor(selectedColor)
                 ).withOnDrawerListener(new Drawer.OnDrawerListener() {
                     @Override
                     public void onDrawerOpened(View drawerView) {
@@ -169,21 +180,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                         if (drawerItem != null) {
 //                            LogUtils.e("MENU", "pos" + position);
                             switch (position) {
-//                                case 1:
-//                                    if (drawerItem instanceof Badgeable) {
-//                                        Badgeable badgeable = (Badgeable) drawerItem;
-//                                        if (badgeable.getBadge() != null) {
-//                                            //note don't do this if your badge contains a "+"
-//                                            //only use toString() if you set the test as String
-//                                            int badge = Integer.valueOf(badgeable.getBadge().toString());
-//                                            if (badge > 0) {
-//                                                badgeable.withBadge(String.valueOf(badge - 1));
-//                                                mMenuDrawer.updateItem(drawerItem);
-//                                            }
-//                                        }
-//                                    }
-//                                    goWarningPage();
-//                                    break;
                                 case 1:
                                     showExcDialog(getString(R.string.usb_read_error));
                                     break;
@@ -504,8 +500,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     public void notifyByThemeChanged() {
-        ThemeResourceHelper helper = ThemeResourceHelper.getInstance(this);
+//        ThemeResourceHelper helper = ThemeResourceHelper.getInstance(this);
         helper.setBackgroundResourceByAttr(mMainRootRL, R.attr.base_bg);
+
+        helper.setBackgroundResourceByAttr(mSegmentBgRL, R.attr.segment_bg);
+        helper.setTextColorByAttr(mSegmentTextTV, R.attr.segment_font_color);
+        helper.setTextColorByAttr(mRebootTextTV, R.attr.state_font_color);
+        helper.setTextColorByAttr(mImmediatelyTextTV, R.attr.state_font_color);
+        helper.setTextColorByAttr(mReadOnlyTextTV, R.attr.state_font_color);
+        helper.setImageResourceByAttr(mRebootIV, R.attr.reboot_state_icon);
+        helper.setImageResourceByAttr(mImmediatelyIV, R.attr.immediately_state_icon);
+        helper.setImageResourceByAttr(mReadOnlyIV, R.attr.read_only_state_icon);
 
         helper.setFloatingActionBtnBgTint(mAddFAB, R.attr.fab_bg);
         helper.setFloatingActionBtnRipple(mAddFAB, R.attr.fab_ripple);
@@ -528,6 +533,27 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         helper.setFloatingActionBtnBgTint(mRecoveryFAB, R.attr.fab_bg);
         helper.setFloatingActionBtnRipple(mRecoveryFAB, R.attr.fab_ripple);
 
+        updateMenuDrawer();
+        updateSegmentSeekbar();
+    }
+
+    /**
+     * 更新侧滑菜单样式
+     */
+    private void updateMenuDrawer() {
+        mMenuDrawer.setHeader(helper.getViewByAttr(R.attr.menu_header_bg));
+        mMenuDrawer.getRecyclerView().setBackgroundColor(helper.getColorByAttr(R.attr.menu_drawer_bg_color));
+        List<IDrawerItem> items = mMenuDrawer.getDrawerItems();
+        for (IDrawerItem item :
+                items) {
+            ((PrimaryDrawerItem) item).withTextColor(helper.getColorByAttr(R.attr.menu_drawer_text_color)).withSelectedColor(helper.getColorByAttr(R.attr.menu_drawer_selected_color))/*.withSelectedColorRes(selectedColorId)*/;
+        }
+        mMenuDrawer.setItems(items);
+    }
+
+    private void updateSegmentSeekbar() {
+        mSegmentNumBSB.getConfigBuilder().trackColor(helper.getColorByAttr(R.attr.bubble_seekbar_track)).secondTrackColor(helper.getColorByAttr(R.attr.bubble_seekbar_second_track))
+                .bubbleColor(helper.getColorByAttr(R.attr.bubble_seekbar_color)).bubbleTextColor(helper.getColorByAttr(R.attr.bubble_seekbar_text_color)).build();
     }
 
     /**
