@@ -128,22 +128,26 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             }
         });
 
-        mMenuDrawer = new DrawerBuilder().withActivity(this).withSliderBackgroundColor(ThemeResourceHelper.getInstance(this).getColorByAttr(R.attr.base_bg))
+        int menuBgColorId = getThemeTag() == 1 ? R.color.menu_bg : R.color.base_bg2;
+        int headerLayoutId = getThemeTag() == 1 ? R.layout.layout_menu_header : R.layout.layout_menu_header2;
+        int selectedColorId = getThemeTag() == 1 ? R.color.menu_bg : R.color.base_bg2;
+        int textColorId = getThemeTag() == 1 ? R.color.normal_font : R.color.normal_font2;
+        mMenuDrawer = new DrawerBuilder().withActivity(this).withSliderBackgroundColorRes(menuBgColorId)
                 .withDisplayBelowStatusBar(true).withTranslucentStatusBar(false)
-                .withHeader(R.layout.layout_menu_header2).withHeaderDivider(true)
+                .withHeader(headerLayoutId).withHeaderDivider(true)
                 .addDrawerItems(
 //                        new PrimaryDrawerItem().withName(R.string.write_eeprom).withIcon(Octicons.Icon.oct_pencil),
 //                        new PrimaryDrawerItem().withName(R.string.coder_zero).withIcon(Octicons.Icon.oct_file_binary),
 //                        new PrimaryDrawerItem().withName(R.string.load_param).withIcon(Octicons.Icon.oct_zap),
 //                        new PrimaryDrawerItem().withName(R.string.save_param).withIcon(Octicons.Icon.oct_sign_in),
 //                        new PrimaryDrawerItem().withName(R.string.warning).withIcon(Octicons.Icon.oct_alert).withSelectedColorRes(R.color.menu_bg).withBadge("1").withIdentifier(1),
-                        new PrimaryDrawerItem().withName(R.string.firmware_update).withIcon(Octicons.Icon.oct_ruby).withSelectedColorRes(R.color.menu_bg),
-                        new PrimaryDrawerItem().withName(R.string.state_monitor).withIcon(Octicons.Icon.oct_eye).withSelectedColorRes(R.color.menu_bg),
-                        new PrimaryDrawerItem().withName(R.string.auto_adjust).withIcon(Octicons.Icon.oct_settings).withSelectedColorRes(R.color.menu_bg),
+                        new PrimaryDrawerItem().withName(R.string.firmware_update).withTextColorRes(textColorId).withIcon(Octicons.Icon.oct_ruby).withSelectedColorRes(selectedColorId),
+                        new PrimaryDrawerItem().withName(R.string.state_monitor).withTextColorRes(textColorId).withIcon(Octicons.Icon.oct_eye).withSelectedColorRes(selectedColorId),
+                        new PrimaryDrawerItem().withName(R.string.auto_adjust).withTextColorRes(textColorId).withIcon(Octicons.Icon.oct_settings).withSelectedColorRes(selectedColorId),
 //                        new PrimaryDrawerItem().withName(R.string.recovery_setings).withIcon(Octicons.Icon.oct_sync),
-                        new PrimaryDrawerItem().withName(R.string.fft).withIcon(Octicons.Icon.oct_graph).withSelectedColorRes(R.color.menu_bg),
-                        new PrimaryDrawerItem().withName(R.string.help).withIcon(Octicons.Icon.oct_question).withSelectedColorRes(R.color.menu_bg),
-                        new PrimaryDrawerItem().withName(R.string.about).withIcon(Octicons.Icon.oct_info).withSelectedColorRes(R.color.menu_bg)
+                        new PrimaryDrawerItem().withName(R.string.fft).withTextColorRes(textColorId).withIcon(Octicons.Icon.oct_graph).withSelectedColorRes(selectedColorId),
+                        new PrimaryDrawerItem().withName(R.string.help).withTextColorRes(textColorId).withIcon(Octicons.Icon.oct_question).withSelectedColorRes(selectedColorId),
+                        new PrimaryDrawerItem().withName(R.string.about).withTextColorRes(textColorId).withIcon(Octicons.Icon.oct_info).withSelectedColorRes(selectedColorId)
                 ).withOnDrawerListener(new Drawer.OnDrawerListener() {
                     @Override
                     public void onDrawerOpened(View drawerView) {
