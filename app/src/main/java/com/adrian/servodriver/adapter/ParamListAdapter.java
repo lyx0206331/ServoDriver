@@ -17,9 +17,11 @@ import android.widget.TextView;
 
 import com.adrian.servodriver.R;
 import com.adrian.servodriver.pojo.ParamBean;
+import com.adrian.servodriver.theme_picker.ThemeResourceHelper;
 import com.adrian.servodriver.utils.CommUtil;
 import com.blankj.utilcode.util.ScreenUtils;
 import com.blankj.utilcode.util.SizeUtils;
+import com.blankj.utilcode.util.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +39,7 @@ public class ParamListAdapter extends PanelListAdapter {
 
     private ListView lv_content;
     private int contentResourceId;
+    private ContentAdapter contentAdapter;
     private List<ParamBean> contentList = new ArrayList<>();
     private List<ParamBean> modifiedBeans = new ArrayList<>();
 
@@ -74,7 +77,7 @@ public class ParamListAdapter extends PanelListAdapter {
         setColumnDataList(getColumnDataList());
 
         // set自己写的contentAdapter
-        ContentAdapter contentAdapter = new ContentAdapter(context, contentResourceId, contentList);
+        contentAdapter = new ContentAdapter(context, contentResourceId, contentList);
         lv_content.setAdapter(contentAdapter);
 
         super.initAdapter();//一定要在设置完后调用父类的方法
@@ -89,7 +92,15 @@ public class ParamListAdapter extends PanelListAdapter {
             case 1:
                 setColumnColor("#BFE8FE");
         }
-//        notify();
+    }
+
+    public void updateData() {
+        contentAdapter.notifyDataSetChanged();
+    }
+
+    public void setData(List<ParamBean> data) {
+        contentList = data;
+        updateData();
     }
 
     /**

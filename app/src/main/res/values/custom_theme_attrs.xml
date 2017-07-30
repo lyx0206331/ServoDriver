@@ -127,7 +127,13 @@
     <!--侧滑菜单FFT图标-->
     <attr name="menu_drawer_fft_icon" format="reference" />
     <!--侧滑菜单帮助图标-->
-    <attr name="menu_drawer_help" format="reference" />
+    <attr name="menu_drawer_help_icon" format="reference" />
     <!--侧滑菜单关于图标-->
-    <attr name="menu_drawer_about" format="reference" />
+    <attr name="menu_drawer_about_icon" format="reference" />
+    <!--欢迎界面背景-->
+    <attr name="welcome_bg" format="color|reference" />
+    <!--欢迎界面文字前景色-->
+    <attr name="welcome_text_fg_color" format="color|reference" />
+    <!--欢迎界面文字默认颜色-->
+    <attr name="welcome_text_color" format="color|reference" />
 </resources>

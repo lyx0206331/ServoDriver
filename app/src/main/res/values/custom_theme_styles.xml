@@ -2,7 +2,8 @@
 <resources>
 
     <style name="AppTheme1" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowBackground">@mipmap/leadingbg</item>
+        <item name="android:windowBackground">@mipmap/bg</item>
+        <!--<item name="android:windowFullscreen">true</item>-->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -66,10 +67,20 @@
         <item name="menu_drawer_bg_color">@color/menu_bg</item>
         <item name="menu_drawer_selected_color">@color/menu_bg</item>
         <item name="menu_drawer_text_color">@color/normal_font</item>
+        <item name="menu_drawer_update_icon">@drawable/ic_update</item>
+        <item name="menu_drawer_monitor_icon">@drawable/ic_monitor</item>
+        <item name="menu_drawer_auto_icon">@drawable/ic_auto</item>
+        <item name="menu_drawer_fft_icon">@drawable/ic_fft</item>
+        <item name="menu_drawer_help_icon">@drawable/ic_help</item>
+        <item name="menu_drawer_about_icon">@drawable/ic_about</item>
+        <item name="welcome_bg">@mipmap/bg</item>
+        <item name="welcome_text_color">@color/normal_font2</item>
+        <item name="welcome_text_fg_color">@color/solution</item>
     </style>
 
     <style name="AppTheme2" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <item name="android:windowBackground">@mipmap/leadingbg</item>
+        <item name="android:windowBackground">@color/base_bg2</item>
+        <!--<item name="android:windowFullscreen">true</item>-->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -133,5 +144,14 @@
         <item name="menu_drawer_bg_color">@color/base_bg2</item>
         <item name="menu_drawer_selected_color">@color/base_bg2</item>
         <item name="menu_drawer_text_color">@color/normal_font2</item>
+        <item name="menu_drawer_update_icon">@drawable/ic_update_1</item>
+        <item name="menu_drawer_monitor_icon">@drawable/ic_monitor_1</item>
+        <item name="menu_drawer_auto_icon">@drawable/ic_auto_1</item>
+        <item name="menu_drawer_fft_icon">@drawable/ic_fft_1</item>
+        <item name="menu_drawer_help_icon">@drawable/ic_help_1</item>
+        <item name="menu_drawer_about_icon">@drawable/ic_about_1</item>
+        <item name="welcome_bg">@color/base_bg2</item>
+        <item name="welcome_text_color">@color/normal_font2</item>
+        <item name="welcome_text_fg_color">@color/bubble_seekbar_second_track2</item>
     </style>
 </resources>

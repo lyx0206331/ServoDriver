@@ -14,7 +14,9 @@ import android.view.Window;
 
 import com.adrian.servodriver.R;
 import com.adrian.servodriver.official_demo.J2xxHyperTerm;
+import com.adrian.servodriver.theme_picker.ThemeResourceHelper;
 import com.adrian.servodriver.utils.D2xxUtil;
+import com.adrian.servodriver.views.LoadingPathAnimView;
 import com.adrian.servodriver.views.StatusBarCompat;
 import com.blankj.utilcode.util.NetworkUtils;
 import com.blankj.utilcode.util.ToastUtils;
@@ -29,6 +31,8 @@ import permissions.dispatcher.RuntimePermissions;
 
 @RuntimePermissions
 public class WelcomeActivity extends BaseActivity {
+
+    private LoadingPathAnimView mWelTextView;
 
     private Handler mHandler = new Handler() {
         @Override
@@ -61,6 +65,10 @@ public class WelcomeActivity extends BaseActivity {
     protected void initViews() {
         setContentView(R.layout.activity_welcome);
         StatusBarUtil.setTransparent(this);
+
+        mWelTextView = (LoadingPathAnimView) findViewById(R.id.welcome);
+        mWelTextView.setColorFg(ThemeResourceHelper.getInstance(this).getColorByAttr(R.attr.welcome_text_fg_color)).setColorBg(ThemeResourceHelper.getInstance(this).getColorByAttr(R.attr.welcome_text_color));
+
 //        mHandler.sendEmptyMessageDelayed(0, 2000);
         if (NetworkUtils.isConnected()) {
             WelcomeActivityPermissionsDispatcher.needsMaxsinePermmissionWithCheck(this);
@@ -68,6 +76,18 @@ public class WelcomeActivity extends BaseActivity {
             ToastUtils.showShortSafe(R.string.network_error);
             finish();
         }
+    }
+
+    private void startAnim() {
+        mWelTextView.setAnimTime(2000).setAnimInfinite(false).startAnim();
+    }
+
+    private void stopAnim() {
+        mWelTextView.stopAnim();
+    }
+
+    private void resetAnim() {
+        mWelTextView.clearAnim();
     }
 
     @Override
@@ -85,6 +105,7 @@ public class WelcomeActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         D2xxUtil.getInstance().onResume();
+        startAnim();
     }
 
     @NeedsPermission({Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE})

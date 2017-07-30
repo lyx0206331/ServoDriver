@@ -1,8 +1,10 @@
 package com.adrian.servodriver.activities;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.ViewCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.TextUtils;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
@@ -98,6 +100,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private ParamListAdapter adapter;
     private ThemeResourceHelper helper;
+    private View mDrawerHeader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,22 +146,26 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
             @Override
             public void getProgressOnFinally(int progress, float progressFloat) {
-                ToastUtils.showShortSafe("段号：" + progress);
+                initDataList(progress);
+                adapter.setData(contentList);
             }
         });
 
         int selectedColor = helper.getColorByAttr(R.attr.menu_drawer_selected_color);
         int textColor = helper.getColorByAttr(R.attr.menu_drawer_text_color);
+        mDrawerHeader = LayoutInflater.from(this).inflate(helper.getIdentifierByAttrId(R.attr.menu_header_bg), null, false);
+        TextView headerTV = (TextView) mDrawerHeader.findViewById(R.id.tv_drawer_header);
+        headerTV.setTypeface(Typeface.createFromAsset(this.getAssets(), "roland.ttf"));
         mMenuDrawer = new DrawerBuilder().withActivity(this).withSliderBackgroundColor(helper.getColorByAttr(R.attr.menu_drawer_bg_color))
                 .withDisplayBelowStatusBar(true).withTranslucentStatusBar(false)
-                .withHeader(helper.getIdentifierByAttrId(R.attr.menu_header_bg)).withHeaderDivider(true)
+                .withHeader(mDrawerHeader).withHeaderDivider(true)
                 .addDrawerItems(
-                        new PrimaryDrawerItem().withName(R.string.firmware_update).withTextColor(textColor).withIcon(Octicons.Icon.oct_ruby).withSelectedColor(selectedColor),
-                        new PrimaryDrawerItem().withName(R.string.state_monitor).withTextColor(textColor).withIcon(Octicons.Icon.oct_eye).withSelectedColor(selectedColor),
-                        new PrimaryDrawerItem().withName(R.string.auto_adjust).withTextColor(textColor).withIcon(Octicons.Icon.oct_settings).withSelectedColor(selectedColor),
-                        new PrimaryDrawerItem().withName(R.string.fft).withTextColor(textColor).withIcon(Octicons.Icon.oct_graph).withSelectedColor(selectedColor),
-                        new PrimaryDrawerItem().withName(R.string.help).withTextColor(textColor).withIcon(Octicons.Icon.oct_question).withSelectedColor(selectedColor),
-                        new PrimaryDrawerItem().withName(R.string.about).withTextColor(textColor).withIcon(Octicons.Icon.oct_info).withSelectedColor(selectedColor)
+                        new PrimaryDrawerItem().withName(R.string.firmware_update).withTextColor(textColor).withIcon(helper.getIdentifierByAttrId(R.attr.menu_drawer_update_icon)).withSelectedColor(selectedColor).withIdentifier(1),
+                        new PrimaryDrawerItem().withName(R.string.state_monitor).withTextColor(textColor).withIcon(helper.getIdentifierByAttrId(R.attr.menu_drawer_monitor_icon)).withSelectedColor(selectedColor).withIdentifier(2),
+                        new PrimaryDrawerItem().withName(R.string.auto_adjust).withTextColor(textColor).withIcon(helper.getIdentifierByAttrId(R.attr.menu_drawer_auto_icon)).withSelectedColor(selectedColor).withIdentifier(3),
+                        new PrimaryDrawerItem().withName(R.string.fft).withTextColor(textColor).withIcon(helper.getIdentifierByAttrId(R.attr.menu_drawer_fft_icon)).withSelectedColor(selectedColor).withIdentifier(4),
+                        new PrimaryDrawerItem().withName(R.string.help).withTextColor(textColor).withIcon(helper.getIdentifierByAttrId(R.attr.menu_drawer_help_icon)).withSelectedColor(selectedColor).withIdentifier(5),
+                        new PrimaryDrawerItem().withName(R.string.about).withTextColor(textColor).withIcon(helper.getIdentifierByAttrId(R.attr.menu_drawer_about_icon)).withSelectedColor(selectedColor).withIdentifier(6)
                 ).withOnDrawerListener(new Drawer.OnDrawerListener() {
                     @Override
                     public void onDrawerOpened(View drawerView) {
@@ -285,7 +292,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void loadData() {
-        initDataList();
+        initDataList(1);
 
         adapter = new ParamListAdapter(this, mRootPLL, mContentLV, R.layout.item_param, contentList);
         adapter.initAdapter(getThemeTag());
@@ -314,7 +321,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     /**
      * 初始化content数据
      */
-    private void initDataList() {
+    private void initDataList(int segNum) {
+        contentList.clear();
         String[] params = getResources().getStringArray(R.array.param_name);
         for (int i = 0; i < params.length; i++) {
             ParamBean data = new ParamBean();
@@ -323,7 +331,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             data.setMinValue("0.00");
             data.setMaxValue("0.00");
             data.setDefValue("0.00");
-            data.setCurValue("TL05");
+            data.setCurValue("TL05" + segNum);
             data.setUnit("--");
             data.setType((int) (Math.random() * params.length % 3));
             contentList.add(data);
@@ -541,16 +549,33 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
      * 更新侧滑菜单样式
      */
     private void updateMenuDrawer() {
-        mMenuDrawer.setHeader(helper.getViewByAttr(R.attr.menu_header_bg));
+        mDrawerHeader = LayoutInflater.from(this).inflate(helper.getIdentifierByAttrId(R.attr.menu_header_bg), null, false);
+        TextView headerTV = (TextView) mDrawerHeader.findViewById(R.id.tv_drawer_header);
+        headerTV.setTypeface(Typeface.createFromAsset(this.getAssets(), "roland.ttf"));
+        mMenuDrawer.setHeader(mDrawerHeader);
         mMenuDrawer.getRecyclerView().setBackgroundColor(helper.getColorByAttr(R.attr.menu_drawer_bg_color));
         List<IDrawerItem> items = mMenuDrawer.getDrawerItems();
         for (IDrawerItem item :
                 items) {
-            ((PrimaryDrawerItem) item).withTextColor(helper.getColorByAttr(R.attr.menu_drawer_text_color)).withSelectedColor(helper.getColorByAttr(R.attr.menu_drawer_selected_color))/*.withSelectedColorRes(selectedColorId)*/;
+            if (item.getIdentifier() == 1)
+                ((PrimaryDrawerItem) item).withTextColor(helper.getColorByAttr(R.attr.menu_drawer_text_color)).withSelectedColor(helper.getColorByAttr(R.attr.menu_drawer_selected_color)).withIcon(helper.getIdentifierByAttrId(R.attr.menu_drawer_update_icon));
+            if (item.getIdentifier() == 2)
+                ((PrimaryDrawerItem) item).withTextColor(helper.getColorByAttr(R.attr.menu_drawer_text_color)).withSelectedColor(helper.getColorByAttr(R.attr.menu_drawer_selected_color)).withIcon(helper.getIdentifierByAttrId(R.attr.menu_drawer_monitor_icon));
+            if (item.getIdentifier() == 3)
+                ((PrimaryDrawerItem) item).withTextColor(helper.getColorByAttr(R.attr.menu_drawer_text_color)).withSelectedColor(helper.getColorByAttr(R.attr.menu_drawer_selected_color)).withIcon(helper.getIdentifierByAttrId(R.attr.menu_drawer_auto_icon));
+            if (item.getIdentifier() == 4)
+                ((PrimaryDrawerItem) item).withTextColor(helper.getColorByAttr(R.attr.menu_drawer_text_color)).withSelectedColor(helper.getColorByAttr(R.attr.menu_drawer_selected_color)).withIcon(helper.getIdentifierByAttrId(R.attr.menu_drawer_fft_icon));
+            if (item.getIdentifier() == 5)
+                ((PrimaryDrawerItem) item).withTextColor(helper.getColorByAttr(R.attr.menu_drawer_text_color)).withSelectedColor(helper.getColorByAttr(R.attr.menu_drawer_selected_color)).withIcon(helper.getIdentifierByAttrId(R.attr.menu_drawer_help_icon));
+            if (item.getIdentifier() == 6)
+                ((PrimaryDrawerItem) item).withTextColor(helper.getColorByAttr(R.attr.menu_drawer_text_color)).withSelectedColor(helper.getColorByAttr(R.attr.menu_drawer_selected_color)).withIcon(helper.getIdentifierByAttrId(R.attr.menu_drawer_about_icon));
         }
         mMenuDrawer.setItems(items);
     }
 
+    /**
+     * 更新段号选择器
+     */
     private void updateSegmentSeekbar() {
         mSegmentNumBSB.getConfigBuilder().trackColor(helper.getColorByAttr(R.attr.bubble_seekbar_track)).secondTrackColor(helper.getColorByAttr(R.attr.bubble_seekbar_second_track))
                 .bubbleColor(helper.getColorByAttr(R.attr.bubble_seekbar_color)).bubbleTextColor(helper.getColorByAttr(R.attr.bubble_seekbar_text_color)).build();

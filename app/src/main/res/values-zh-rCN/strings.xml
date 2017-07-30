@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Maxsine</string>
+    <string name="roland_ttf">roland.ttf</string>
 
     <string name="segment_num">段号:</string>
     <string name="online">在线</string>

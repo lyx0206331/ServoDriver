@@ -4,10 +4,12 @@
     android:layout_height="wrap_content"
     android:adjustViewBounds="true"
     android:orientation="vertical"
+    android:paddingTop="20dp"
     android:gravity="center"
     android:background="@color/base_bg2">
 
     <TextView
+        android:id="@+id/tv_drawer_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="40dp"

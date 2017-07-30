@@ -6,7 +6,7 @@
 
         <variable
             name="about"
-            type="com.adrian.servodriver.activities.AboutActivity.About"></variable>
+            type="com.adrian.servodriver.databinding.AboutBinding"></variable>
     </data>
 
     <LinearLayout
@@ -40,18 +40,22 @@
                 android:textSize="@dimen/title_font" />
         </RelativeLayout>
 
-        <ImageView
-            android:layout_width="160dp"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="160dp"
-            android:src="@drawable/logo" />
+            android:typeface="@{@string/roland_ttf}"
+            android:textColor="?attr/title_color"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:text="MaxSine" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="20dp"
+            android:layout_margin="20dp"
             android:text="@{about.version}"
             android:textColor="@color/white"
             android:textSize="@dimen/normal_font" />
