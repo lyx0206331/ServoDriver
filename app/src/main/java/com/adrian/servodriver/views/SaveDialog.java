@@ -3,6 +3,7 @@ package com.adrian.servodriver.views;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -107,6 +108,10 @@ public class SaveDialog extends BaseDialog implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.btn_save:
                 if (TextUtils.isEmpty(mFileNameET.getText())) {
+//                    Drawable dr = getContext().getResources().getDrawable(
+//                            R.drawable.ic_et_error);
+//
+//                    dr.setBounds(0, 0, dr.getIntrinsicWidth(), dr.getIntrinsicHeight());
                     mFileNameET.setError(context.getResources().getString(R.string.null_file_name));
                 } else if (hasSameName(mFileNameET.getText().toString())) {
                     mFileNameET.setError(context.getResources().getString(R.string.has_same_name));
