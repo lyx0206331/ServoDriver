@@ -155,7 +155,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         int textColor = helper.getColorByAttr(R.attr.menu_drawer_text_color);
         mDrawerHeader = LayoutInflater.from(this).inflate(helper.getIdentifierByAttrId(R.attr.menu_header_bg), null, false);
         TextView headerTV = (TextView) mDrawerHeader.findViewById(R.id.tv_drawer_header);
-        headerTV.setTypeface(Typeface.createFromAsset(this.getAssets(), "roland.ttf"));
+        headerTV.setTypeface(Typeface.createFromAsset(this.getAssets(), getResources().getString(R.string.roland_ttf)));
         mMenuDrawer = new DrawerBuilder().withActivity(this).withSliderBackgroundColor(helper.getColorByAttr(R.attr.menu_drawer_bg_color))
                 .withDisplayBelowStatusBar(true).withTranslucentStatusBar(false)
                 .withHeader(mDrawerHeader).withHeaderDivider(true)
@@ -551,7 +551,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private void updateMenuDrawer() {
         mDrawerHeader = LayoutInflater.from(this).inflate(helper.getIdentifierByAttrId(R.attr.menu_header_bg), null, false);
         TextView headerTV = (TextView) mDrawerHeader.findViewById(R.id.tv_drawer_header);
-        headerTV.setTypeface(Typeface.createFromAsset(this.getAssets(), "roland.ttf"));
+        headerTV.setTypeface(Typeface.createFromAsset(this.getAssets(), getResources().getString(R.string.roland_ttf)));
         mMenuDrawer.setHeader(mDrawerHeader);
         mMenuDrawer.getRecyclerView().setBackgroundColor(helper.getColorByAttr(R.attr.menu_drawer_bg_color));
         List<IDrawerItem> items = mMenuDrawer.getDrawerItems();

@@ -94,7 +94,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ThemeCha
      * */
     protected int getThemeTag() {
         SharedPreferences preferences = getSharedPreferences(Constants.SHERED_PREF_NAME, Context.MODE_PRIVATE);
-        return preferences.getInt(Constants.KEY_THEME_CACHE, 1);
+        return preferences.getInt(Constants.KEY_THEME_CACHE, -1);
     }
 
     /**
