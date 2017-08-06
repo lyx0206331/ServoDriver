@@ -225,6 +225,7 @@ public class ParamListAdapter extends PanelListAdapter {
                 viewHolder = (ViewHolder) view.getTag();
             }
 
+            viewHolder.mIndexTV.setText(data.getIndexId() + "");
             viewHolder.mMinValueTV.setText(data.getMinValue());
             viewHolder.mMaxValueTV.setText(data.getMaxValue());
             viewHolder.mDefValueTV.setText(data.getDefValue());
@@ -294,6 +295,7 @@ public class ParamListAdapter extends PanelListAdapter {
 
         private class ViewHolder {
 
+            TextView mIndexTV;
             TextView mMinValueTV;
             TextView mMaxValueTV;
             TextView mDefValueTV;
@@ -301,6 +303,7 @@ public class ParamListAdapter extends PanelListAdapter {
             TextView mUnit;
 
             ViewHolder(View itemView) {
+                mIndexTV = (TextView) itemView.findViewById(R.id.tv_index);
                 mMinValueTV = (TextView) itemView.findViewById(R.id.tv_min_value);
                 mMaxValueTV = (TextView) itemView.findViewById(R.id.tv_max_value);
                 mDefValueTV = (TextView) itemView.findViewById(R.id.tv_def_value);
