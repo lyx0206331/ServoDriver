@@ -8,7 +8,8 @@ import android.os.Environment;
 
 public class Constants {
 
-    public static final String HOST_ADDR = "";
+    public static final String HOST_IP = "221.232.144.14";
+    public static final int HOST_PORT = 3050;
 
     public static final String ROOT_PATH = Environment.getExternalStorageDirectory().getPath() + "/Maxsine/";
     public static final String HELP = "help/";
