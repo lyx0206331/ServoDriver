@@ -101,13 +101,11 @@ dependencies {
         transitive = true
     }
     compile project(':wavesview')
-
     // icon fonts used inside the sample
+
     // https://github.com/mikepenz/Android-Iconics
 
     //状态栏透明
-
-
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.blankj:utilcode:1.7.1'
@@ -123,7 +121,11 @@ dependencies {
     compile 'com.ahmadnemati.clickablewebview:clickablewebview:1.1.2'
     compile 'org.ccil.cowan.tagsoup:tagsoup:1.2.1'
     compile 'com.xw.repo:bubbleseekbar:3.5'
+    compile 'com.yanzhenjie.nohttp:nohttp:1.1.4'
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:2.4.0'
     compile 'com.github.mcxtzhang:PathAnimView:V1.0.0'
+    compile files('libs/modbus4J.jar')
+    compile files('libs/RXTXcomm.jar')
+    compile files('libs/seroUtils.jar')
 }

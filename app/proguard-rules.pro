@@ -27,3 +27,7 @@
 #-keep class com.blankj.utilcode.** { *; }
 #-keepclassmembers class com.blankj.utilcode.** { *; }
 #-dontwarn com.blankj.utilcode.**
+
+#原生NoHttp混淆
+#-dontwarn com.yanzhenjie.nohttp.**
+#-keep class com.yanzhenjie.nohttp.**{*;}

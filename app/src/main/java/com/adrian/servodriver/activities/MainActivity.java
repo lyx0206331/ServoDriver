@@ -29,6 +29,8 @@ import com.adrian.servodriver.pojo.ParamBean;
 import com.adrian.servodriver.theme_picker.ThemeResourceHelper;
 import com.adrian.servodriver.utils.CommUtil;
 import com.adrian.servodriver.utils.D2xxUtil;
+import com.adrian.servodriver.utils.ModbusMasterUtil;
+import com.adrian.servodriver.views.DownloadDialog;
 import com.adrian.servodriver.views.ExceptDialog;
 import com.adrian.servodriver.views.LoadDialog;
 import com.adrian.servodriver.views.SaveDialog;
@@ -97,6 +99,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private LoadDialog mLoadParamDialog;
     private ExceptDialog mExceptDialog;
     private WarningDialog mWarningDialog;
+    private DownloadDialog mDownloadDialog;
 
     private ParamListAdapter adapter;
     private ThemeResourceHelper helper;
@@ -188,7 +191,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 //                            LogUtils.e("MENU", "pos" + position);
                             switch (position) {
                                 case 1:
-                                    showExcDialog(getString(R.string.usb_read_error));
+//                                    showExcDialog(getString(R.string.usb_read_error));
+                                    showDownloadDialog();
                                     break;
                                 case 2:
                                     startActivity(StateMonitorActivity.class);
@@ -293,6 +297,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void loadData() {
         initDataList(1);
+
+//        ModbusMasterUtil.getInstance().testSlaveNode(5);
 
         adapter = new ParamListAdapter(this, mRootPLL, mContentLV, R.layout.item_param, contentList);
         adapter.initAdapter(getThemeTag());
@@ -486,6 +492,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 ToastUtils.showShortSafe(R.string.recovery_setings);
                 break;
         }
+    }
+
+    private void showDownloadDialog() {
+        mDownloadDialog = null;
+        if (mDownloadDialog == null) {
+            mDownloadDialog = new DownloadDialog(this);
+        }
+        mDownloadDialog.show();
     }
 
     private void showExcDialog(String content) {
