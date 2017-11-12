@@ -191,8 +191,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 //                            LogUtils.e("MENU", "pos" + position);
                             switch (position) {
                                 case 1:
-//                                    showExcDialog(getString(R.string.usb_read_error));
-                                    showDownloadDialog();
+                                    showExcDialog(getString(R.string.usb_read_error));
+//                                    showDownloadDialog();
                                     break;
                                 case 2:
                                     startActivity(StateMonitorActivity.class);
