@@ -496,8 +496,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 //                ModbusCrcUtil.getReadCMD(0, 3, 1);
                 //读：00 03 00 03 00 01 75 db, 00 03 00 04 00 01 c4 1a
                 //写：00 06 00 04 00 02 48 1b, 00 06 00 04 00 01 08 1a
-                CommUtil.logE("CMD", "read:" + ModbusCrcUtil.bytesToHex(ModbusCrcUtil.getReadCMD(0, 4, 1)));
-                CommUtil.logE("CMD", "write:" + ModbusCrcUtil.bytesToHex(ModbusCrcUtil.getWriteCMD(0, 4, new byte[]{0x00, 0x01})));
+                CommUtil.logE("CMD", "read:" + ModbusCrcUtil.parse2Cmd(ModbusCrcUtil.bytesToHex(ModbusCrcUtil.getReadCMD(0, 4, 1))));
+                CommUtil.logE("CMD", "write:" + ModbusCrcUtil.parse2Cmd(ModbusCrcUtil.bytesToHex(ModbusCrcUtil.getWriteCMD(0, 4, new byte[]{0x00, 0x01}))));
                 break;
         }
     }
