@@ -14,13 +14,36 @@ public class ModbusCrcUtil {
             '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     /**
-     * 方法一：
+     * 获取读命令
+     *
+     * @param slave_addr 从机地址
+     * @param data_addr  数据地址
+     * @param data_count 读取数据个数
+     * @return
+     */
+    public static String getReadCmd(int slave_addr, int data_addr, int data_count) {
+        return parse2Cmd(bytesToHex(parse2ReadCMD(slave_addr, data_addr, data_count)));
+    }
+
+    /**
+     * 获取写命令
+     *
+     * @param slave_addr 从机地址
+     * @param data_addr  数据地址
+     * @param data       写入数据
+     * @return
+     */
+    public static String getWriteCmd(int slave_addr, int data_addr, byte[] data) {
+        return parse2Cmd(bytesToHex(parse2WriteCMD(slave_addr, data_addr, data)));
+    }
+
+    /**
      * byte[] to hex string
      *
      * @param bytes
      * @return
      */
-    public static String bytesToHex(byte[] bytes) {
+    private static String bytesToHex(byte[] bytes) {
         // 一个byte为8位，可用两个十六进制位标识
         char[] buf = new char[bytes.length * 2];
         int a = 0;
@@ -45,7 +68,7 @@ public class ModbusCrcUtil {
      * @param hexString
      * @return
      */
-    public static String parse2Cmd(String hexString) {
+    private static String parse2Cmd(String hexString) {
         char[] chars = new char[hexString.length()];
         hexString.getChars(0, hexString.length(), chars, 0);
         StringBuilder sb = new StringBuilder();
@@ -65,7 +88,7 @@ public class ModbusCrcUtil {
      * @param data_count    读取数据个数
      * @return
      */
-    public static byte[] getReadCMD(int slave_addr, int data_addr, int data_count) {
+    private static byte[] parse2ReadCMD(int slave_addr, int data_addr, int data_count) {
         byte[] cmd_0 = new byte[6];
         cmd_0[0] = (byte) slave_addr;  //从机地址
         cmd_0[1] = 0x03;    //功能码.读
@@ -89,7 +112,7 @@ public class ModbusCrcUtil {
      * @param data          写入数据
      * @return
      */
-    public static byte[] getWriteCMD(int slave_addr, int data_addr, byte[] data) {
+    private static byte[] parse2WriteCMD(int slave_addr, int data_addr, byte[] data) {
         byte[] cmd_0 = new byte[4 + data.length];
         cmd_0[0] = (byte) slave_addr;  //从机地址
         cmd_0[1] = 0x06;    //功能码.写
@@ -110,7 +133,7 @@ public class ModbusCrcUtil {
      * @param hexString the hex string
      * @return byte[]
      */
-    public static byte[] hexStringToBytes(String hexString) {
+    private static byte[] hexStringToBytes(String hexString) {
         if (hexString == null || hexString.equals("")) {
             return null;
         }
@@ -138,7 +161,7 @@ public class ModbusCrcUtil {
      * @param bytes
      * @return
      */
-    public static String calculateCrc16(byte[] bytes) {
+    private static String calculateCrc16(byte[] bytes) {
         int crc = 0x0000ffff;
         for (int i = 0; i < bytes.length; i++) {
             crc ^= ((int) bytes[i] & 0x000000ff);
