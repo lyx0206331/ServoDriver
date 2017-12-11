@@ -30,7 +30,7 @@ public class ModbusCrcUtil {
      *
      * @param slave_addr 从机地址
      * @param data_addr  数据地址
-     * @param data       写入数据
+     * @param data       写入数据内容
      * @return
      */
     public static String getWriteCmd(int slave_addr, int data_addr, byte[] data) {
@@ -109,7 +109,7 @@ public class ModbusCrcUtil {
      * 写从机数据
      * @param slave_addr    从机地址
      * @param data_addr     数据地址
-     * @param data          写入数据
+     * @param data          写入数据内容
      * @return
      */
     private static byte[] parse2WriteCMD(int slave_addr, int data_addr, byte[] data) {
