@@ -1,9 +1,5 @@
 package com.adrian.servodriver.utils;
 
-import android.util.Log;
-
-import java.math.BigInteger;
-
 /**
  * Created by ranqing on 2017/12/9.
  */
