@@ -91,6 +91,12 @@ def releaseTime() {
     return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
 }
 
+repositories {
+    flatDir {
+        dirs 'libs'   // aar目录
+    }
+}
+
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -128,4 +134,6 @@ dependencies {
     compile files('libs/modbus4J.jar')
     compile files('libs/RXTXcomm.jar')
     compile files('libs/seroUtils.jar')
+
+    compile(name: 'Jaybird_2_2_12', ext: 'aar')
 }
