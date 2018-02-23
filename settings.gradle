@@ -1,1 +1,1 @@
-include ':app', ':wavesview'
+include ':app', ':wavesview', ':modbuslib'

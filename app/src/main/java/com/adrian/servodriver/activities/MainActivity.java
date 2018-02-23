@@ -29,6 +29,7 @@ import com.adrian.servodriver.pojo.ParamBean;
 import com.adrian.servodriver.theme_picker.ThemeResourceHelper;
 import com.adrian.servodriver.utils.CommUtil;
 import com.adrian.servodriver.utils.D2xxUtil;
+import com.adrian.servodriver.utils.FirebirdUtil;
 import com.adrian.servodriver.utils.ModbusCrcUtil;
 import com.adrian.servodriver.utils.ModbusMasterUtil;
 import com.adrian.servodriver.utils.ModbusSlaveUtil;
@@ -498,6 +499,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 //写：00 06 00 04 00 02 48 1b, 00 06 00 04 00 01 08 1a
                 CommUtil.logE("CMD", "read:" + ModbusCrcUtil.getReadCmd(0, 4, 1));
                 CommUtil.logE("CMD", "write:" + ModbusCrcUtil.getWriteCmd(0, 4, new byte[]{0x00, 0x01}));
+
+                FirebirdUtil.getInstance().connect();
+                CommUtil.logE("FIREBIRD", "conn state:" + FirebirdUtil.getInstance().isConnected());
                 break;
         }
     }

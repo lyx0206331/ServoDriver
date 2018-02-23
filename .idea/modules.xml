@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ServoDriver.iml" filepath="$PROJECT_DIR$/ServoDriver.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modbuslib/modbuslib.iml" filepath="$PROJECT_DIR$/modbuslib/modbuslib.iml" />
       <module fileurl="file://$PROJECT_DIR$/wavesview/wavesview.iml" filepath="$PROJECT_DIR$/wavesview/wavesview.iml" />
     </modules>
   </component>
