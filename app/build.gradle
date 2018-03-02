@@ -126,5 +126,4 @@ dependencies {
     compile files('libs/RXTXcomm.jar')
     compile files('libs/seroUtils.jar')
     implementation files('libs/jaybird-3.0.3.jar')
-    compile 'com.github.lyx0206331:SimpleAndroidFrame:0.0.3'
 }
