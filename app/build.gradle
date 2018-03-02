@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion 26
     buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.adrian.servodriver"
         minSdkVersion 16
-        targetSdkVersion 25
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
         flavorDimensions "versionCode"
@@ -32,9 +32,9 @@ android {
 
         release {
             storeFile file("/Volumes/MacintoshHD/Android/appkey.keystore")
-            storePassword "lengyuxuan1534."
-            keyAlias "adrian_keystore"
-            keyPassword "lengyuxuan1534."
+            storePassword "aaaaaaaaaaaa"
+            keyAlias "bbbbbbbbbbbb"
+            keyPassword "cccccccccccc"
         }
     }
 
@@ -82,9 +82,9 @@ android {
         jifeng {}
         meizu {}
     }
-    sourceSets {
-        main { res.srcDirs = ['src/main/res', 'src/main/res/value-v19', 'src/main/res/values-v19'] }
-    }
+//    sourceSets {
+//        main { res.srcDirs = ['src/main/res', 'src/main/res/value-v19', 'src/main/res/values-v19'] }
+//    }
 }
 
 def releaseTime() {
@@ -100,11 +100,10 @@ dependencies {
     compile('com.mikepenz:materialdrawer:5.9.2@aar') {
         transitive = true
     }
-    compile project(':wavesview')
     // icon fonts used inside the sample
     // https://github.com/mikepenz/Android-Iconics
     //状态栏透明
-    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:appcompat-v7:26.1.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.blankj:utilcode:1.7.1'
     compile 'com.mikepenz:iconics-core:2.8.7@aar'
@@ -127,4 +126,5 @@ dependencies {
     compile files('libs/RXTXcomm.jar')
     compile files('libs/seroUtils.jar')
     implementation files('libs/jaybird-3.0.3.jar')
+    compile 'com.github.lyx0206331:SimpleAndroidFrame:0.0.3'
 }
