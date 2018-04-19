@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "com.adrian.servodriver"
         minSdkVersion 16
@@ -92,38 +92,38 @@ def releaseTime() {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile files('libs/d2xx.jar')
-    compile('com.mikepenz:materialdrawer:5.9.2@aar') {
+    implementation files('libs/d2xx.jar')
+    implementation('com.mikepenz:materialdrawer:5.9.2@aar') {
         transitive = true
     }
     // icon fonts used inside the sample
     // https://github.com/mikepenz/Android-Iconics
     //状态栏透明
-    compile 'com.android.support:appcompat-v7:26.1.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.blankj:utilcode:1.7.1'
-    compile 'com.mikepenz:iconics-core:2.8.7@aar'
-    compile 'com.mikepenz:google-material-typeface:3.0.1.1.original@aar'
-    compile 'com.mikepenz:fontawesome-typeface:4.7.0.1@aar'
-    compile 'com.mikepenz:octicons-typeface:3.2.0.3@aar'
-    compile 'com.jaeger.statusbarutil:library:1.4.0'
-    compile 'com.github.z3896823:PanelList:v1.1.0.1'
-    compile 'com.classic.common:multiple-status-view:1.2'
-    compile 'com.github.hotchemi:permissionsdispatcher:2.4.0'
-    compile 'com.github.PhilJay:MPAndroidChart:v3.0.2'
-    compile 'com.ahmadnemati.clickablewebview:clickablewebview:1.1.2'
-    compile 'org.ccil.cowan.tagsoup:tagsoup:1.2.1'
-    compile 'com.xw.repo:bubbleseekbar:3.5'
-    compile 'com.yanzhenjie.nohttp:nohttp:1.1.4'
-    testCompile 'junit:junit:4.12'
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.blankj:utilcode:1.7.1'
+    implementation 'com.mikepenz:iconics-core:2.8.7@aar'
+    implementation 'com.mikepenz:google-material-typeface:3.0.1.1.original@aar'
+    implementation 'com.mikepenz:fontawesome-typeface:4.7.0.1@aar'
+    implementation 'com.mikepenz:octicons-typeface:3.2.0.3@aar'
+    implementation 'com.jaeger.statusbarutil:library:1.4.0'
+    implementation 'com.github.z3896823:PanelList:v1.1.0.1'
+    implementation 'com.classic.common:multiple-status-view:1.2'
+    implementation 'com.github.hotchemi:permissionsdispatcher:2.4.0'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.2'
+    implementation 'com.ahmadnemati.clickablewebview:clickablewebview:1.1.2'
+    implementation 'org.ccil.cowan.tagsoup:tagsoup:1.2.1'
+    implementation 'com.xw.repo:bubbleseekbar:3.5'
+    implementation 'com.yanzhenjie.nohttp:nohttp:1.1.4'
+    testImplementation 'junit:junit:4.12'
     annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:2.4.0'
-    compile 'com.github.mcxtzhang:PathAnimView:V1.0.0'
-    compile files('libs/modbus4J.jar')
-    compile files('libs/RXTXcomm.jar')
-    compile files('libs/seroUtils.jar')
+    implementation 'com.github.mcxtzhang:PathAnimView:V1.0.0'
+    implementation files('libs/modbus4J.jar')
+    implementation files('libs/RXTXcomm.jar')
+    implementation files('libs/seroUtils.jar')
     implementation files('libs/jaybird-3.0.3.jar')
 }
