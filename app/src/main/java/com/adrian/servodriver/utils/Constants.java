@@ -8,8 +8,8 @@ import android.os.Environment;
 
 public class Constants {
 
-    public static final String DB_USER = "SYSDBA";
-    public static final String DB_PASSWORD = "masterkey";
+    public static final String DB_USER = "ForTest";
+    public static final String DB_PASSWORD = "Maxsine123";
     public static final String CHIPUID = "2923607745";
 
     //检索数据库的字符串
@@ -23,6 +23,8 @@ public class Constants {
 
     public static final String HOST_IP = "221.232.144.14";
     public static final int HOST_PORT = 3050;
+    public static final String SERVER_DOMAIN = "www.maxsine.org";
+    public static final String DB_PATH = "D:\\FirebirdServer\\DB_FIRMWARE.FDB";
     public static final String TEST_DOWNLOAD = "http://oss.ucdl.pp.uc.cn/fs01/union_pack/Wandoujia_110644_web_direct_binded.apk?x-oss-process=udf/pp-udf,Jjc3LiMnJ3FxdnJ1fnE=";
 
     public static final String ROOT_PATH = Environment.getExternalStorageDirectory().getPath() + "/Maxsine/";
